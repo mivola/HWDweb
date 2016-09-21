@@ -14,7 +14,7 @@ print_r($_SESSION);
 echo("<hr>");
 echo("</pre>");
 */
-$result = mysql_query("Select * from ".$season."_tbl_user where nick_name = '".$_REQUEST[name]."' and password = '".$_REQUEST[pass]."'");
+$result = mysql_query("Select * from ".$season."_tbl_user where nick_name = '".$_REQUEST['name']."' and password = '".$_REQUEST['pass']."'");
 
 require("close_db.php");
 
@@ -56,21 +56,20 @@ else{
 
   require("close_db.php");
 
-//  session_start();
-  session_register("act_userid");
-  session_register("first_name");
-  session_register("last_name");
-  session_register("nick_name");
-  session_register("email");
-  session_register("table_head");
-  session_register("table_lineA");
-  session_register("table_lineB");
-  session_register("table_colA");
-  session_register("table_colB");
-  session_register("table_max_points");
-  session_register("show_long");
-  session_register("phpMySQL");
-  session_register("admin");
+  $_SESSION['act_userid']=$act_userid;
+  $_SESSION['first_name']=$first_name;
+  $_SESSION['last_name']=$last_name;
+  $_SESSION['nick_name']=$nick_name;
+  $_SESSION['email']=$email;
+  $_SESSION['table_head']=$table_head;
+  $_SESSION['table_lineA']=$table_lineA;
+  $_SESSION['table_lineB']=$table_lineB;
+  $_SESSION['table_colA']=$table_colA;
+  $_SESSION['table_colB']=$table_colB;
+  $_SESSION['table_max_points']=$table_max_points;
+  $_SESSION['show_long']=$show_long;
+  $_SESSION['phpMySQL']=$phpMySQL;
+  $_SESSION['admin']=$admin; 
 
   require("top.php");
 
