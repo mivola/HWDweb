@@ -1,0 +1,18 @@
+BODY
+{
+    FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica;
+	BACKGROUND-COLOR: #e1e1e1;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+
+input, select, option
+{
+	FONT-FAMILY: Tahoma, Arial, Helvetica;
+	FONT-SIZE: 8pt;
+}
+p, td
+{
+	FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica;
+	FONT-SIZE: 8pt;
+}
