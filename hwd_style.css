@@ -1,0 +1,75 @@
+body, p, input, select, textarea {
+  font-family: Verdana;
+  font-size: 10pt;
+  color: #000099; 				/* schriftfarbe */  
+  background-color: #f0ffde;	/* hintergrundfarbe */
+}
+
+a:link          {color: #2222bb; text-decoration: none}
+a:visited       {color: #009cff; text-decoration: none}
+a:active        {color: #4853df; text-decoration: underline}
+a:visited:hover {color: #00008a; text-decoration: underline}
+a:hover         {color: #000064; text-decoration: underline}
+
+.big {
+  font-size: 13pt;
+}
+
+.capt {
+  text-transform:uppercase;
+}
+
+TABLE { 
+	border-collapse: collapse;
+	border: 0px;	
+}
+
+TABLE.noBorder { 
+	border-collapse: separate;
+	border-width: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border: 0px;	
+}
+
+TABLE.noBorder td {
+	border-width: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border: 0px;
+}
+
+TD { 
+	border: 1px blue solid; 
+	padding: 2px 2px 2px 2px;
+	font-family: Verdana;
+	font-size: 10pt;
+}
+
+TD.noBorder {
+	border-width: 0px 0px 0px 0px;
+	border-style: none none none none;
+	border: 0px;
+}
+
+.table_head {
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: blue;
+	color: #ffffff;
+}
+
+.table_lineA {
+  background-color:#cccccc;
+}
+.table_lineB {
+  background-color:#ffffff;
+}
+.table_colA {
+  background-color:#aaaaaa;
+}
+.table_colB {
+  background-color:#EBEBEB;
+}
+
+.table_max_points {
+  background-color:#aa1144;
+}

@@ -1,0 +1,165 @@
+From 68f415f841598c9fd73d94b54c5ed74c71d89b2a Mon Sep 17 00:00:00 2001
+From: Voigt <mvoigt@eur.ad.sag>
+Date: Wed, 21 Sep 2016 22:33:01 +0200
+Subject: [PATCH] fix: dont use session_register & session_start
+
+---
+ connect_db.php    | 12 +++++++-----
+ display_admin.php | 36 ++++++++++++++++++------------------
+ display_user.php  | 38 +++++++++++++++++++-------------------
+ 3 files changed, 44 insertions(+), 42 deletions(-)
+
+diff --git a/connect_db.php b/connect_db.php
+index da6485e..88c3b91 100644
+--- a/connect_db.php
++++ b/connect_db.php
+@@ -1,14 +1,16 @@
+ <?php
+ 
+-session_start();
++//session_start();
+ 
+ $parafile = "para.ini.inc";
+ include ($parafile);
+ 
+-session_register("season");
+-session_register("db_name");
+-session_register("db_user");
+-session_register("db_host");
++$_SESSION['season']= $season;
++$_SESSION['season']= $season;
++
++$_SESSION['db_name']= $db_name;
++$_SESSION['db_user']= $db_user;
++$_SESSION['db_host']= $db_host;
+ 
+ $connect = mysql_connect($db_host, $db_user, $db_passwd) or die ("Verbindung zur Datenbank fehlgeschlagen!");
+ 
+diff --git a/display_admin.php b/display_admin.php
+index f7f1808..d9c15c9 100644
+--- a/display_admin.php
++++ b/display_admin.php
+@@ -4,7 +4,7 @@ extract($_SESSION);
+ 
+ require("connect_db.php");
+ 
+-$result = mysql_query("Select * from tbl_user where nick_name = '".$_REQUEST[name]."' and password = '".$_REQUEST[pass]."' and admin <> 0");
++$result = mysql_query("Select * from tbl_user where nick_name = '".$_REQUEST['name']."' and password = '".$_REQUEST['pass']."' and admin <> 0");
+ 
+ require("close_db.php");
+ 
+@@ -22,9 +22,9 @@ while($row = mysql_fetch_array($result)) {
+   $table_colB = $row["table_colB"];
+   $table_max_points = $row["table_max_points"];
+   $phpMySQL = $row["phpMySQL"];
+-  session_register("phpMySQL");
++  $_SESSION['phpMySQL']=$phpMySQL;
+   $admin = $row["admin"];
+-  session_register("admin");
++  $_SESSION['admin']=$admin;
+ }
+ 
+ 
+@@ -48,21 +48,21 @@ extract($_SESSION);
+ 
+   require("close_db.php");
+ 
+-  session_start();
+-  session_register("act_userid");
+-  session_register("first_name");
+-  session_register("last_name");
+-  session_register("nick_name");
+-  session_register("email");
+-  session_register("table_head");
+-  session_register("table_lineA");
+-  session_register("table_lineB");
+-  session_register("table_colA");
+-  session_register("table_colB");
+-  session_register("table_max_points");
+-  session_register("show_long");
+-  session_register("phpMySQL");
+-  session_register("admin");  
++  //session_start();
++  $_SESSION['act_userid']=$act_userid;
++  $_SESSION['first_name']=$first_name;
++  $_SESSION['last_name']=$last_name;
++  $_SESSION['nick_name']=$nick_name;
++  $_SESSION['email']=$email;
++  $_SESSION['table_head']=$table_head;
++  $_SESSION['table_lineA']=$table_lineA;
++  $_SESSION['table_lineB']=$table_lineB;
++  $_SESSION['table_colA']=$table_colA;
++  $_SESSION['table_colB']=$table_colB;
++  $_SESSION['table_max_points']=$table_max_points;
++  $_SESSION['show_long']=$show_long;
++  $_SESSION['phpMySQL']=$phpMySQL;
++  $_SESSION['admin']=$admin;  
+ 
+   require("top.php");
+ 
+diff --git a/display_user.php b/display_user.php
+index 37d7375..bb60a75 100644
+--- a/display_user.php
++++ b/display_user.php
+@@ -14,7 +14,7 @@ print_r($_SESSION);
+ echo("<hr>");
+ echo("</pre>");
+ */
+-$result = mysql_query("Select * from tbl_user where nick_name = '".$_REQUEST[name]."' and password = '".$_REQUEST[pass]."'");
++$result = mysql_query("Select * from tbl_user where nick_name = '".$_REQUEST['name']."' and password = '".$_REQUEST['pass']."'");
+ 
+ require("close_db.php");
+ 
+@@ -32,9 +32,9 @@ while($row = mysql_fetch_array($result)) {
+   $table_colB = $row["table_colB"];
+   $table_max_points = $row["table_max_points"];
+   $phpMySQL = 0;
+-  session_register("phpMySQL");
+-  $admin = 0;
+-  session_register("admin");
++  $_SESSION['phpMySQL']=$phpMySQL;
++  $admin = $row["admin"];
++  $_SESSION['admin']=$admin;
+ }
+ 
+ 
+@@ -58,21 +58,21 @@ else{
+ 
+   require("close_db.php");
+ 
+-//  session_start();
+-  session_register("act_userid");
+-  session_register("first_name");
+-  session_register("last_name");
+-  session_register("nick_name");
+-  session_register("email");
+-  session_register("table_head");
+-  session_register("table_lineA");
+-  session_register("table_lineB");
+-  session_register("table_colA");
+-  session_register("table_colB");
+-  session_register("table_max_points");
+-  session_register("show_long");
+-  session_register("phpMySQL");
+-  session_register("admin");
++  //session_start();
++  $_SESSION['act_userid']=$act_userid;
++  $_SESSION['first_name']=$first_name;
++  $_SESSION['last_name']=$last_name;
++  $_SESSION['nick_name']=$nick_name;
++  $_SESSION['email']=$email;
++  $_SESSION['table_head']=$table_head;
++  $_SESSION['table_lineA']=$table_lineA;
++  $_SESSION['table_lineB']=$table_lineB;
++  $_SESSION['table_colA']=$table_colA;
++  $_SESSION['table_colB']=$table_colB;
++  $_SESSION['table_max_points']=$table_max_points;
++  $_SESSION['show_long']=$show_long;
++  $_SESSION['phpMySQL']=$phpMySQL;
++  $_SESSION['admin']=$admin; 
+ 
+   require("top.php");
+ 
+-- 
+2.8.3.windows.1
+
