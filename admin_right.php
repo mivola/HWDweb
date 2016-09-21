@@ -1,0 +1,1 @@
+<?PHP require("user_right.php") ?>
