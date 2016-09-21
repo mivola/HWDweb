@@ -1,0 +1,8 @@
+
+INSERT INTO tbl_user VALUES (1, 'Chris', 'Hünerfürst', 'hünu', 'hüni', 'chris.huenerfuerst@web.de', 1041968570, 1041968570, 1, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 1, 1);
+INSERT INTO tbl_user VALUES (2, 'Michael', 'Voigt', 'micha', 'micha', 'michael.voigt@web.de', 1041968570, 1041968570, 0, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 1, 0);
+INSERT INTO tbl_user VALUES (3, 'Stev', 'Thomas', 'stev', 'stev', 'stevi-wonder@ngi.de', 1041968570, 1041968570, 0, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 0, 0);
+INSERT INTO tbl_user VALUES (4, 'Nico', 'Schreier', 'nico', 'nico', 'n.schreier@gmx.de', 1041968570, 1041968570, 0, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 0, 0);
+INSERT INTO tbl_user VALUES (5, 'Markus', 'Heinicke', 'markus', 'markus', 'markus.heinicke@web.de', 1041968570, 1041968570, 2, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 0, 0);
+INSERT INTO tbl_user VALUES (6, 'Tobias', 'Buschmann', 'tobi', 'tobi', 'post@tobias-buschmann.de', 1041968570, 1041968570, 3, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 0, 0);
+

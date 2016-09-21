@@ -1,0 +1,44 @@
+body, dd, dl, p, tr, td, input, select, textarea {
+  color: #535353;
+  font-family: verdana, arial, helvetica, sans serif;
+  font-size = 12;
+}
+
+a:link          {color: #000099; text-decoration: none}
+a:visited       {color: #009cff; text-decoration: none}
+a:active        {color: #4853df; text-decoration: underline}
+a:visited:hover {color: #00008a; text-decoration: underline}
+a:hover         {color: #000064; text-decoration: underline}
+
+h1, h2, h3, h4, b {
+  color: #000000;
+
+  font-size: 10pt;
+}
+
+.big {
+  font-size: 13pt;
+}
+
+.capt {
+  text-transform:uppercase;
+}
+
+.table_head {
+  background-color:#999999;
+}
+.table_lineA {
+  background-color:#cccccc;
+}
+.table_lineB {
+  background-color:#ffffff;
+}
+.table_colA {
+  background-color:#aaaaaa;
+}
+.table_colB {
+  background-color:#EBEBEB;
+}
+.table_max_points {
+  background-color:#aa1144;
+}

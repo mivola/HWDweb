@@ -1,0 +1,47 @@
+body, dd, dl, p, tr, td, input, select, textarea {
+  font-family: Times New Roman,Times,Times NewRoman;
+  font-size : 12pt;
+  color : #3344FF;
+  font-weight : bold;
+
+
+}
+
+a:link          {color: #2222bb; text-decoration: none}
+a:visited       {color: #009cff; text-decoration: none}
+a:active        {color: #4853df; text-decoration: underline}
+a:visited:hover {color: #00008a; text-decoration: underline}
+a:hover         {color: #000064; text-decoration: underline}
+
+h1, h2, h3, h4, b {
+  color: #3300FF;
+  font-family: "Times New Roman,Times,Times NewRoman";
+  font-size: 14pt;
+}
+
+.big {
+  font-size: 13pt;
+}
+
+.capt {
+  text-transform:uppercase;
+}
+
+.table_head {
+  background-color:#999999;
+}
+.table_lineA {
+  background-color:#cccccc;
+}
+.table_lineB {
+  background-color:#ffffff;
+}
+.table_colA {
+  background-color:#aaaaaa;
+}
+.table_colB {
+  background-color:#EBEBEB;
+}
+.table_max_points {
+  background-color:#aa1144;
+}

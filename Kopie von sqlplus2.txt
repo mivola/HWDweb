@@ -1,0 +1,209 @@
+DELETE FROM tbl_wins;
+DELETE FROM tbl_points;
+DELETE FROM tbl_game;
+DELETE FROM tbl_play;
+DELETE FROM tbl_bet;
+DELETE FROM tbl_user;
+DELETE FROM 2_tbl_team1;
+DELETE FROM 2_tbl_team2;
+
+
+DROP TABLE IF EXISTS tbl_wins;
+DROP TABLE IF EXISTS tbl_points;
+DROP TABLE IF EXISTS tbl_game;
+DROP TABLE IF EXISTS tbl_play;
+DROP TABLE IF EXISTS tbl_bet;
+DROP TABLE IF EXISTS tbl_user;
+DROP TABLE IF EXISTS 2_tbl_team1;
+DROP TABLE IF EXISTS 2_tbl_team2;
+
+
+CREATE TABLE 2_tbl_team1 (
+ id INT(2) PRIMARY KEY AUTO_INCREMENT,
+ name CHAR(50) NOT NULL UNIQUE,
+ short CHAR(6) UNIQUE, 
+ league INT(1) );
+
+CREATE TABLE 2_tbl_team2 (
+ id2 INT(2) PRIMARY KEY AUTO_INCREMENT,
+ name2 CHAR(50) NOT NULL UNIQUE,
+ short2 CHAR(6) UNIQUE, 
+ league2 INT(1) );
+
+CREATE TABLE tbl_user (
+ id INT(2) PRIMARY KEY AUTO_INCREMENT,
+ first_name CHAR(50) NOT NULL,
+ last_name CHAR(50) NOT NULL,
+ nick_name CHAR(50) NOT NULL,
+ password CHAR(10) NOT NULL,
+ email CHAR(50) UNIQUE,
+ registration INT(10), 
+ last_loggin INT(10),
+ show_tipps INT(1),
+ show_long INT(1),
+ table_head CHAR(7),
+ table_lineA CHAR(7),
+ table_lineB CHAR(7),
+ table_colA CHAR(7),
+ table_colB CHAR(7),
+ table_max_points CHAR(7),
+ logged_in INT(1),
+ admin INT(1) );
+
+CREATE TABLE tbl_play (
+ id INT(5) PRIMARY KEY AUTO_INCREMENT,
+ season INT(2) NOT NULL,
+ recorded INT(1) NOT NULL,
+ completed INT(1) NOT NULL);
+
+CREATE TABLE tbl_game (
+ id INT(10) PRIMARY KEY AUTO_INCREMENT,
+ play INT(5) NOT NULL REFERENCES tbl_play(id),  
+ team1 INT(2) NOT NULL REFERENCES tbl_team1(id),
+ team2 INT(2) NOT NULL REFERENCES tbl_team1(id),
+ p_ts INT(10),
+ result1 INT(2),
+ result2 INT(2) );
+
+CREATE TABLE tbl_bet (
+ id INT(6) PRIMARY KEY AUTO_INCREMENT,
+ userID INT(2) REFERENCES tbl_user(id),
+ game INT(10) NOT NULL REFERENCES tbl_game(id),
+ bet1 INT(2) NOT NULL,
+ bet2 INT(2) NOT NULL,
+ bet_ts INT(10));
+
+CREATE TABLE tbl_points (
+ id INT(5) PRIMARY KEY AUTO_INCREMENT,
+ play INT(5) NOT NULL REFERENCES tbl_play(id),
+ userID INT(2) NOT NULL REFERENCES tbl_user(id),
+ points INT(2) );
+
+CREATE TABLE tbl_wins (
+ id INT(5) PRIMARY KEY AUTO_INCREMENT,
+ play INT(5) REFERENCES tbl_play(id),
+ userID INT(2) NOT NULL REFERENCES tbl_user(id),
+ wins INT(2) );
+
+# INSERT INTO tbl_team VALUES (0, '', '', 0);
+
+INSERT INTO tbl_team1 VALUES (1, '1.FC Kaiserslautern', '1.FCK', 1);
+INSERT INTO tbl_team1 VALUES (2, 'DSC Arminia Bielefeld', 'Biele', 1);
+INSERT INTO tbl_team1 VALUES (3, '1.FC Nürnberg', '1.FCN', 1);
+INSERT INTO tbl_team1 VALUES (4, 'Bayer 04 Leverkusen', 'Bayer', 1);
+INSERT INTO tbl_team1 VALUES (5, 'Borussia Dortmund', 'BVB', 1);
+INSERT INTO tbl_team1 VALUES (6, 'Borussia MönchenGladbach', 'MGladb', 1);
+INSERT INTO tbl_team1 VALUES (7, 'Hamburger SV', 'HSV', 1);
+INSERT INTO tbl_team1 VALUES (8, 'Hansa Rostock', 'Hansa', 1);
+INSERT INTO tbl_team1 VALUES (9, 'Hertha BSC Berlin', 'Hertha', 1);
+INSERT INTO tbl_team1 VALUES (10, 'FC Bayern München', 'FCB', 1);
+INSERT INTO tbl_team1 VALUES (11, 'FC Energie Cottbus', 'Cottb', 1);
+INSERT INTO tbl_team1 VALUES (12, 'Hannover 96', 'Hann96', 1);
+INSERT INTO tbl_team1 VALUES (13, 'FC Schalke 04', 'S04', 1);
+INSERT INTO tbl_team1 VALUES (14, 'VfL Bochum', 'Bochum', 1);
+INSERT INTO tbl_team1 VALUES (15, 'TSV 1860 München', '1860', 1);
+INSERT INTO tbl_team1 VALUES (16, 'VfB Stuttgart', 'VfB', 1);
+INSERT INTO tbl_team1 VALUES (17, 'VfL Wolfsburg', 'Wolfsb', 1);
+INSERT INTO tbl_team1 VALUES (18, 'Werder Bremen', 'Werder', 1);
+
+INSERT INTO tbl_team1 VALUES (19, 'SSV Reutlingen', 'Reutl', 2);
+INSERT INTO tbl_team1 VALUES (20, 'Karlsruher SC', 'KSC', 2);
+INSERT INTO tbl_team1 VALUES (21, '1.FC Union Berlin', 'Union', 2);
+INSERT INTO tbl_team1 VALUES (22, 'TSV Alemannia Aachen', 'Aachen', 2);
+INSERT INTO tbl_team1 VALUES (23, 'SpVgg Greuther Fürth', 'Fürth', 2);
+INSERT INTO tbl_team1 VALUES (24, 'SpVgg Unterhaching', 'UnHach', 2);
+INSERT INTO tbl_team1 VALUES (25, '1.FC Schweinfurt 05', 'Schwei', 2);
+INSERT INTO tbl_team1 VALUES (26, 'LR Ahlen', 'Ahlen', 2);
+INSERT INTO tbl_team1 VALUES (27, 'MSV Duisburg', 'Duisb', 2);
+INSERT INTO tbl_team1 VALUES (28, '1.FC Köln', 'Köln', 2);
+INSERT INTO tbl_team1 VALUES (29, 'SV Waldhof Mannheim', 'Mannhe', 2);
+INSERT INTO tbl_team1 VALUES (30, 'SV Babelsberg 03', 'Babels', 2);
+INSERT INTO tbl_team1 VALUES (31, 'SC Freiburg', 'Freib', 2);
+INSERT INTO tbl_team1 VALUES (32, 'FSV Mainz 05', 'Mainz', 2);
+INSERT INTO tbl_team1 VALUES (33, 'Eintracht Frankfurt', 'Frank', 2);
+INSERT INTO tbl_team1 VALUES (34, 'FC St. Pauli', 'Pauli', 2);
+INSERT INTO tbl_team1 VALUES (35, '1.FC Saarbrücken', 'saarbr', 2);
+INSERT INTO tbl_team1 VALUES (36, 'Rot-Weiß Oberhausen', 'Oberha', 2);
+
+
+INSERT INTO tbl_team2 VALUES (1, '1.FC Kaiserslautern', '1.FCK', 1);
+INSERT INTO tbl_team2 VALUES (2, 'DSC Arminia Bielefeld', 'Biele', 1);
+INSERT INTO tbl_team2 VALUES (3, '1.FC Nürnberg', '1.FCN', 1);
+INSERT INTO tbl_team2 VALUES (4, 'Bayer 04 Leverkusen', 'Bayer', 1);
+INSERT INTO tbl_team2 VALUES (5, 'Borussia Dortmund', 'BVB', 1);
+INSERT INTO tbl_team2 VALUES (6, 'Borussia MönchenGladbach', 'MGladb', 1);
+INSERT INTO tbl_team2 VALUES (7, 'Hamburger SV', 'HSV', 1);
+INSERT INTO tbl_team2 VALUES (8, 'Hansa Rostock', 'Hansa', 1);
+INSERT INTO tbl_team2 VALUES (9, 'Hertha BSC Berlin', 'Hertha', 1);
+INSERT INTO tbl_team2 VALUES (10, 'FC Bayern München', 'FCB', 1);
+INSERT INTO tbl_team2 VALUES (11, 'FC Energie Cottbus', 'Cottb', 1);
+INSERT INTO tbl_team2 VALUES (12, 'Hannover 96', 'Hann96', 1);
+INSERT INTO tbl_team2 VALUES (13, 'FC Schalke 04', 'S04', 1);
+INSERT INTO tbl_team2 VALUES (14, 'VfL Bochum', 'Bochum', 1);
+INSERT INTO tbl_team2 VALUES (15, 'TSV 1860 München', '1860', 1);
+INSERT INTO tbl_team2 VALUES (16, 'VfB Stuttgart', 'VfB', 1);
+INSERT INTO tbl_team2 VALUES (17, 'VfL Wolfsburg', 'Wolfsb', 1);
+INSERT INTO tbl_team2 VALUES (18, 'Werder Bremen', 'Werder', 1);
+
+INSERT INTO tbl_team2 VALUES (19, 'SSV Reutlingen', 'Reutl', 2);
+INSERT INTO tbl_team2 VALUES (20, 'Karlsruher SC', 'KSC', 2);
+INSERT INTO tbl_team2 VALUES (21, '1.FC Union Berlin', 'Union', 2);
+INSERT INTO tbl_team2 VALUES (22, 'TSV Alemannia Aachen', 'Aachen', 2);
+INSERT INTO tbl_team2 VALUES (23, 'SpVgg Greuther Fürth', 'Fürth', 2);
+INSERT INTO tbl_team2 VALUES (24, 'SpVgg Unterhaching', 'UnHach', 2);
+INSERT INTO tbl_team2 VALUES (25, '1.FC Schweinfurt 05', 'Schwei', 2);
+INSERT INTO tbl_team2 VALUES (26, 'LR Ahlen', 'Ahlen', 2);
+INSERT INTO tbl_team2 VALUES (27, 'MSV Duisburg', 'Duisb', 2);
+INSERT INTO tbl_team2 VALUES (28, '1.FC Köln', 'Köln', 2);
+INSERT INTO tbl_team2 VALUES (29, 'SV Waldhof Mannheim', 'Mannhe', 2);
+INSERT INTO tbl_team2 VALUES (30, 'SV Babelsberg 03', 'Babels', 2);
+INSERT INTO tbl_team2 VALUES (31, 'SC Freiburg', 'Freib', 2);
+INSERT INTO tbl_team2 VALUES (32, 'FSV Mainz 05', 'Mainz', 2);
+INSERT INTO tbl_team2 VALUES (33, 'Eintracht Frankfurt', 'Frank', 2);
+INSERT INTO tbl_team2 VALUES (34, 'FC St. Pauli', 'Pauli', 2);
+INSERT INTO tbl_team2 VALUES (35, '1.FC Saarbrücken', 'saarbr', 2);
+INSERT INTO tbl_team2 VALUES (36, 'Rot-Weiß Oberhausen', 'Oberha', 2);
+
+
+
+INSERT INTO tbl_user VALUES (1, 'Michael', 'Voigt', 'micha', 'micha', 'michael.voigt@web.de', 1041968570, 1041968570, 0, 0, '#999999', '#cccccc', '#ffffff', '#aaaaaa', '#EBEBEB', '#aa1144', 0, 1);
+INSERT INTO tbl_user VALUES (2, 'Markus', 'Heinicke', 'markus', 'markus', 'mivola@gmx.de', 1041968570, 1041968570, 2, 0, '', '', '', '', '', '', 0, 1);
+INSERT INTO tbl_user VALUES (3, 'Chris', 'Hünerfürst', 'hünu', 'hüni', 'michavoigt@gmx.de', 1041968570, 1041968570, 1, 0, '', '', '', '', '', '', 0, 0);
+INSERT INTO tbl_user VALUES (4, 'Tobias', 'Buschmann', 'tobi', 'tobi', 'michael.voigt@web.de1', 1041968570, 1041968570, 3, 0, '', '', '', '', '', '', 0, 0);
+INSERT INTO tbl_user VALUES (5, 'Nico', 'Schreier', 'nico', 'nico', 'michael.voigt@web.de2', 1041968570, 1041968570, 0, 0, '', '', '', '', '', '', 0, 0);
+INSERT INTO tbl_user VALUES (6, 'Stev', 'Thomas', 'stev', 'stev', 'michael.voigt@web.de3', 1041968570, 1041968570, 0, 0, '', '', '', '', '', '', 0, 0);
+
+INSERT INTO tbl_play VALUES (1, 02, 0, 0);
+INSERT INTO tbl_play VALUES (2, 02, 0, 0);
+INSERT INTO tbl_play VALUES (3, 02, 0, 0);
+INSERT INTO tbl_play VALUES (4, 02, 0, 0);
+INSERT INTO tbl_play VALUES (5, 02, 0, 0);
+INSERT INTO tbl_play VALUES (6, 02, 0, 0);
+INSERT INTO tbl_play VALUES (7, 02, 0, 0);
+INSERT INTO tbl_play VALUES (8, 02, 0, 0);
+INSERT INTO tbl_play VALUES (9, 02, 0, 0);
+INSERT INTO tbl_play VALUES (10, 02, 0, 0);
+INSERT INTO tbl_play VALUES (11, 02, 0, 0);
+INSERT INTO tbl_play VALUES (12, 02, 0, 0);
+INSERT INTO tbl_play VALUES (13, 02, 0, 0);
+INSERT INTO tbl_play VALUES (14, 02, 0, 0);
+INSERT INTO tbl_play VALUES (15, 02, 0, 0);
+INSERT INTO tbl_play VALUES (16, 02, 0, 0);
+INSERT INTO tbl_play VALUES (17, 02, 0, 0);
+INSERT INTO tbl_play VALUES (18, 02, 0, 0);
+INSERT INTO tbl_play VALUES (19, 02, 0, 0);
+INSERT INTO tbl_play VALUES (20, 02, 0, 0);
+INSERT INTO tbl_play VALUES (21, 02, 0, 0);
+INSERT INTO tbl_play VALUES (22, 02, 0, 0);
+INSERT INTO tbl_play VALUES (23, 02, 0, 0);
+INSERT INTO tbl_play VALUES (24, 02, 0, 0);
+INSERT INTO tbl_play VALUES (25, 02, 0, 0);
+INSERT INTO tbl_play VALUES (26, 02, 0, 0);
+INSERT INTO tbl_play VALUES (27, 02, 0, 0);
+INSERT INTO tbl_play VALUES (28, 02, 0, 0);
+INSERT INTO tbl_play VALUES (29, 02, 0, 0);
+INSERT INTO tbl_play VALUES (30, 02, 0, 0);
+INSERT INTO tbl_play VALUES (31, 02, 0, 0);
+INSERT INTO tbl_play VALUES (32, 02, 0, 0);
+INSERT INTO tbl_play VALUES (33, 02, 0, 0);
+INSERT INTO tbl_play VALUES (34, 02, 0, 0);

@@ -1,0 +1,27 @@
+admin_add_user: aus @ in email prüfen
+
+=========================================
+OK!
+überprüfen: trim() in datenbank!
+	    sql-select in user_enter_play1.php
+
+überprüfung des datums/uhrzeit in user_enter_play1.php
+- zu spät: ausgabe "zu spät", hidden fields betx, bety mit werten "-1"
+- anpassung chkform.js
+OK!
+=========================================
+
+eingabe der ergebnisse:
+- admin_choose_play_to_results.php
+	- auswahl nach recorded > 0, max(p_ts) + 90min > mktime()
+	- SELECT max(g.p_ts) FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 GROUP BY g.play
+
+- admin_enter_results1.php
+	- darstellung ohne tipps
+	- prüfung ob spiel schon fertig: p_ts + 90min - mktime() > 0
+
+- admin_enter_results2.php
+	- eintragung -1 : -1 für tipps für nichtgetippte spiele
+	- eintragung tbl_game.result1, .result2, tbl_points, tbl_wins
+	- darstellung mit tipps und erreichten punkten
+	- darstellung/link zur statistik

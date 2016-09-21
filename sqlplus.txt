@@ -1,0 +1,567 @@
+DELETE FROM tbl_wins;
+DELETE FROM tbl_points;
+DELETE FROM tbl_game;
+DELETE FROM tbl_play;
+DELETE FROM tbl_bet;
+DELETE FROM tbl_user;
+DELETE FROM tbl_team;
+
+
+DROP TABLE tbl_wins;
+DROP TABLE tbl_points;
+DROP TABLE tbl_game;
+DROP TABLE tbl_play;
+DROP TABLE tbl_bet;
+DROP TABLE tbl_user;
+DROP TABLE tbl_team;
+
+
+CREATE TABLE tbl_team (
+ id INT(2) PRIMARY KEY AUTO_INCREMENT,
+ name CHAR(50) NOT NULL UNIQUE,
+ short CHAR(6) UNIQUE, 
+ league INT(1) );
+
+CREATE TABLE tbl_user (
+ id INT(2) PRIMARY KEY AUTO_INCREMENT,
+ first_name CHAR(50) NOT NULL,
+ last_name CHAR(50) NOT NULL,
+ nick_name CHAR(50) NOT NULL,
+ password CHAR(10) NOT NULL,
+ email CHAR(50) UNIQUE,
+ registration TIMESTAMP, 
+ last_loggin TIMESTAMP,
+ show_tipps INT(1),
+ logged_in INT(1),
+ admin INT(1) );
+
+CREATE TABLE tbl_play (
+ id INT(5) PRIMARY KEY AUTO_INCREMENT,
+ season INT(2) NOT NULL,
+ recorded INT(1) NOT NULL,
+ completed INT(1) NOT NULL);
+
+CREATE TABLE tbl_game (
+ id INT(10) PRIMARY KEY AUTO_INCREMENT,
+ play INT(5) NOT NULL REFERENCES tbl_play(id),  
+ team1 INT(2) NOT NULL REFERENCES tbl_team(id),
+ team2 INT(2) NOT NULL REFERENCES tbl_team(id),
+ p_ts TIMESTAMP,
+ result1 INT(2),
+ result2 INT(2) );
+
+CREATE TABLE tbl_bet (
+ id INT(6) PRIMARY KEY AUTO_INCREMENT,
+ userID INT(2) REFERENCES tbl_user(id),
+ game INT(10) NOT NULL REFERENCES tbl_game(id),
+ bet1 INT(2) NOT NULL,
+ bet2 INT(2) NOT NULL,
+ bet_ts TIMESTAMP);
+
+CREATE TABLE tbl_points (
+ id INT(5) PRIMARY KEY AUTO_INCREMENT,
+ play INT(5) NOT NULL REFERENCES tbl_play(id),
+ userID INT(2) NOT NULL REFERENCES tbl_user(id),
+ points INT(2) );
+
+CREATE TABLE tbl_wins (
+ id INT(5) PRIMARY KEY AUTO_INCREMENT,
+ play INT(5) REFERENCES tbl_play(id),
+ userID INT(2) NOT NULL REFERENCES tbl_user(id),
+ wins INT(2) );
+
+# INSERT INTO tbl_team VALUES (0, '', '', 0);
+
+INSERT INTO tbl_team VALUES (1, '1. FC Kaiserslautern', '1.FCK', 1);
+INSERT INTO tbl_team VALUES (2, 'DSC Arminia Bielefeld', 'Biele', 1);
+INSERT INTO tbl_team VALUES (3, '1. FC Nürnberg', '1.FCN', 1);
+INSERT INTO tbl_team VALUES (4, 'Bayer 04 Leverkusen', 'Bayer', 1);
+INSERT INTO tbl_team VALUES (5, 'Borussia Dortmund', 'BVB', 1);
+INSERT INTO tbl_team VALUES (6, 'Borussia MönchenGladbach', 'MGladb', 1);
+INSERT INTO tbl_team VALUES (7, 'Hamburger SV', 'HSV', 1);
+INSERT INTO tbl_team VALUES (8, 'Hansa Rostock', 'Hansa', 1);
+INSERT INTO tbl_team VALUES (9, 'Hertha BSC Berlin', 'Hertha', 1);
+INSERT INTO tbl_team VALUES (10, 'FC Bayern München', 'FCB', 1);
+INSERT INTO tbl_team VALUES (11, 'FC Energie Cottbus', 'Cottb', 1);
+INSERT INTO tbl_team VALUES (12, 'Hannover 96', 'Hann96', 1);
+INSERT INTO tbl_team VALUES (13, 'FC Schalke 04', 'S04', 1);
+INSERT INTO tbl_team VALUES (14, 'VfL Bochum', 'Bochum', 1);
+INSERT INTO tbl_team VALUES (15, 'TSV 1860 München', '1860', 1);
+INSERT INTO tbl_team VALUES (16, 'VfB Stuttgart', 'VfB', 1);
+INSERT INTO tbl_team VALUES (17, 'VfL Wolfsburg', 'Wolfsb', 1);
+INSERT INTO tbl_team VALUES (18, 'Werder Bremen', 'Werder', 1);
+
+INSERT INTO tbl_team VALUES (19, 'SSV Reutlingen', 'Reutl', 2);
+INSERT INTO tbl_team VALUES (20, 'Karlsruher SC', 'KSC', 2);
+INSERT INTO tbl_team VALUES (21, '1.FC Union Berlin', 'Union', 2);
+INSERT INTO tbl_team VALUES (22, 'TSV Alemannia Aachen', 'Aachen', 2);
+INSERT INTO tbl_team VALUES (23, 'SpVgg Greuther Fürth', 'Fürth', 2);
+INSERT INTO tbl_team VALUES (24, 'SpVgg Unterhaching', 'UnHach', 2);
+INSERT INTO tbl_team VALUES (25, '1.FC Schweinfurt 05', 'Schwei', 2);
+INSERT INTO tbl_team VALUES (26, 'LR Ahlen', 'Ahlen', 2);
+INSERT INTO tbl_team VALUES (27, 'MSV Duisburg', 'Duisb', 2);
+INSERT INTO tbl_team VALUES (28, '1. FC Köln', 'Köln', 2);
+INSERT INTO tbl_team VALUES (29, 'SV Waldhof Mannheim', 'Mannhe', 2);
+INSERT INTO tbl_team VALUES (30, 'SV Babelsberg 03', 'Babels', 2);
+INSERT INTO tbl_team VALUES (31, 'SC Freiburg', 'Freib', 2);
+INSERT INTO tbl_team VALUES (32, 'FSV Mainz 05', 'Mainz', 2);
+INSERT INTO tbl_team VALUES (33, 'Eintracht Frankfurt', 'Frank', 2);
+INSERT INTO tbl_team VALUES (34, 'FC St. Pauli', 'Pauli', 2);
+INSERT INTO tbl_team VALUES (35, '1.FC Saarbrücken', 'saarbr', 2);
+INSERT INTO tbl_team VALUES (36, 'Rot-Weiß Oberhausen', 'Oberha', 2);
+
+
+INSERT INTO tbl_user VALUES (1, 'Michael', 'Voigt', 'micha', 'micha', 'michael.voigt@web.de', NULL, NULL, 0, 0, 1);
+INSERT INTO tbl_user VALUES (2, 'Markus', 'Heinicke', 'markus', 'markus', 'mivola@gmx.de', NULL, NULL, 0, 0, 0);
+INSERT INTO tbl_user VALUES (3, 'Chris', 'Hünerfürst', 'chris', 'chris', 'michavoigt@gmx.de', NULL, NULL, 0, 0, 0);
+INSERT INTO tbl_user VALUES (4, 'Tobias', 'Buschmann', 'tobi', 'tobi', 'michael.voigt@web.de1', NULL, NULL, 0, 0, 0);
+INSERT INTO tbl_user VALUES (5, 'Nico', 'Schreier', 'nico', 'nico', 'michael.voigt@web.de2', NULL, NULL, 0, 0, 0);
+INSERT INTO tbl_user VALUES (6, 'Stev', 'Thomas', 'stev', 'stev', 'michael.voigt@web.de3', NULL, NULL, 0, 0, 0);
+
+
+INSERT INTO tbl_play VALUES (1, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (1, 1, 16, 2, '28-JUL-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (2, 1, 11, 7, '28-JUL-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (3, 1, 14, 18, '28-JUL-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (4, 1, 15, 1, '28-JUL-01', '1530', 0, 4);
+INSERT INTO tbl_game VALUES (5, 1, 5, 3, '28-JUL-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (6, 1, 6, 10, '28-JUL-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (7, 1, 4, 17, '28-JUL-01', '1530', 2, 1);
+INSERT INTO tbl_game VALUES (8, 1, 12, 9, '29-JUL-01', '1730', 0, 0);
+INSERT INTO tbl_game VALUES (9, 1, 13, 8, '29-JUL-01', '1845', 3, 1);
+
+INSERT INTO tbl_bet VALUES (1, 1, 1, 1, 1);
+INSERT INTO tbl_bet VALUES (2, 1, 2, 1, 1);
+INSERT INTO tbl_bet VALUES (3, 1, 3, 2, 1);
+INSERT INTO tbl_bet VALUES (4, 1, 4, 1, 1);
+INSERT INTO tbl_bet VALUES (5, 1, 5, 3, 0);
+INSERT INTO tbl_bet VALUES (6, 1, 6, 1, 2);
+INSERT INTO tbl_bet VALUES (7, 1, 7, 2, 1);
+INSERT INTO tbl_bet VALUES (8, 1, 8, 1, 2);
+INSERT INTO tbl_bet VALUES (9, 1, 9, 2, 1);
+
+INSERT INTO tbl_bet VALUES (10, 3, 1, 2, 0);
+INSERT INTO tbl_bet VALUES (11, 3, 2, 1, 2);
+INSERT INTO tbl_bet VALUES (12, 3, 3, 2, 1);
+INSERT INTO tbl_bet VALUES (13, 3, 4, 1, 0);
+INSERT INTO tbl_bet VALUES (14, 3, 5, 2, 0);
+INSERT INTO tbl_bet VALUES (15, 3, 6, 1, 1);
+INSERT INTO tbl_bet VALUES (16, 3, 7, 2, 0);
+INSERT INTO tbl_bet VALUES (17, 3, 8, 1, 3);
+INSERT INTO tbl_bet VALUES (18, 3, 9, 2, 0);
+
+INSERT INTO tbl_bet VALUES (19, 5, 1, 1, 1);
+INSERT INTO tbl_bet VALUES (20, 5, 2, 1, 0);
+INSERT INTO tbl_bet VALUES (21, 5, 3, 2, 0);
+INSERT INTO tbl_bet VALUES (22, 5, 4, 1, 2);
+INSERT INTO tbl_bet VALUES (23, 5, 5, 3, 1);
+INSERT INTO tbl_bet VALUES (24, 5, 6, 1, 1);
+INSERT INTO tbl_bet VALUES (25, 5, 7, 2, 1);
+INSERT INTO tbl_bet VALUES (26, 5, 8, 1, 3);
+INSERT INTO tbl_bet VALUES (27, 5, 9, 3, 1);
+
+INSERT INTO tbl_bet VALUES (28, 6, 1, 1, 1);
+INSERT INTO tbl_bet VALUES (29, 6, 2, 1, 1);
+INSERT INTO tbl_bet VALUES (30, 6, 3, 2, 1);
+INSERT INTO tbl_bet VALUES (31, 6, 4, 2, 1);
+INSERT INTO tbl_bet VALUES (32, 6, 5, 3, 2);
+INSERT INTO tbl_bet VALUES (33, 6, 6, 1, 3);
+INSERT INTO tbl_bet VALUES (34, 6, 7, 2, 1);
+INSERT INTO tbl_bet VALUES (35, 6, 8, 1, 2);
+INSERT INTO tbl_bet VALUES (36, 6, 9, 3, 0);
+
+INSERT INTO tbl_points VALUES (1, 1, 1, 11);
+INSERT INTO tbl_points VALUES (2, 1, 2, 3);
+INSERT INTO tbl_points VALUES (3, 1, 3, 6);
+INSERT INTO tbl_points VALUES (4, 1, 4, 0);
+INSERT INTO tbl_points VALUES (5, 1, 5, 11);
+INSERT INTO tbl_points VALUES (6, 1, 6, 7);
+
+INSERT INTO tbl_wins VALUES (1, 1, 5, 1);
+INSERT INTO tbl_wins VALUES (2, 1, 1, 1);
+
+
+INSERT INTO tbl_play VALUES (2, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (10, 2, 17, 12, '04-AUG-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (11, 2, 9, 5, '04-AUG-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (12, 2, 2, 15, '04-AUG-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (13, 2, 10, 13, '04-AUG-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (14, 2, 18, 11, '04-AUG-01', '1530', 3, 2);
+INSERT INTO tbl_game VALUES (15, 2, 8, 4, '04-AUG-01', '1530', 0, 3);
+INSERT INTO tbl_game VALUES (16, 2, 7, 16, '04-AUG-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (17, 2, 3, 14, '05-AUG-01', '1730', 2, 0);
+INSERT INTO tbl_game VALUES (18, 2, 1, 6, '05-AUG-01', '1730', 3, 2);
+
+INSERT INTO tbl_bet VALUES (37, 1, 10, 2, 1);
+INSERT INTO tbl_bet VALUES (38, 1, 11, 2, 2);
+INSERT INTO tbl_bet VALUES (39, 1, 12, 1, 0);
+INSERT INTO tbl_bet VALUES (40, 1, 13, 1, 1);
+INSERT INTO tbl_bet VALUES (41, 1, 14, 2, 1);
+INSERT INTO tbl_bet VALUES (42, 1, 15, 1, 1);
+INSERT INTO tbl_bet VALUES (43, 1, 16, 1, 1);
+INSERT INTO tbl_bet VALUES (44, 1, 17, 1, 2);
+INSERT INTO tbl_bet VALUES (45, 1, 18, 2, 1);
+
+INSERT INTO tbl_bet VALUES (46, 2, 10, 1, 3);
+INSERT INTO tbl_bet VALUES (47, 2, 11, 1, 1);
+INSERT INTO tbl_bet VALUES (48, 2, 12, 1, 1);
+INSERT INTO tbl_bet VALUES (49, 2, 13, 0, 2);
+INSERT INTO tbl_bet VALUES (50, 2, 14, 2, 0);
+INSERT INTO tbl_bet VALUES (51, 2, 15, 2, 1);
+INSERT INTO tbl_bet VALUES (52, 2, 16, 2, 1);
+INSERT INTO tbl_bet VALUES (53, 2, 17, 0, 1);
+INSERT INTO tbl_bet VALUES (54, 2, 18, 0, 1);
+
+INSERT INTO tbl_bet VALUES (55, 3, 10, 1, 0);
+INSERT INTO tbl_bet VALUES (56, 3, 11, 0, 1);
+INSERT INTO tbl_bet VALUES (57, 3, 12, 2, 0);
+INSERT INTO tbl_bet VALUES (58, 3, 13, 1, 0);
+INSERT INTO tbl_bet VALUES (59, 3, 14, 0, 0);
+INSERT INTO tbl_bet VALUES (60, 3, 15, 1, 1);
+INSERT INTO tbl_bet VALUES (61, 3, 16, 1, 1);
+INSERT INTO tbl_bet VALUES (62, 3, 17, 1, 1);
+INSERT INTO tbl_bet VALUES (63, 3, 18, 2, 2);
+
+INSERT INTO tbl_bet VALUES (64, 5, 10, 1, 0);
+INSERT INTO tbl_bet VALUES (65, 5, 11, 2, 2);
+INSERT INTO tbl_bet VALUES (66, 5, 12, 3, 1);
+INSERT INTO tbl_bet VALUES (67, 5, 13, 1, 1);
+INSERT INTO tbl_bet VALUES (68, 5, 14, 2, 0);
+INSERT INTO tbl_bet VALUES (69, 5, 15, 0, 0);
+INSERT INTO tbl_bet VALUES (70, 5, 16, 1, 1);
+INSERT INTO tbl_bet VALUES (71, 5, 17, 1, 1);
+INSERT INTO tbl_bet VALUES (72, 5, 18, 3, 1);
+
+INSERT INTO tbl_bet VALUES (73, 6, 10, 3, 1);
+INSERT INTO tbl_bet VALUES (74, 6, 11, 2, 1);
+INSERT INTO tbl_bet VALUES (75, 6, 12, 2, 0);
+INSERT INTO tbl_bet VALUES (76, 6, 13, 1, 0);
+INSERT INTO tbl_bet VALUES (77, 6, 14, 2, 1);
+INSERT INTO tbl_bet VALUES (78, 6, 15, 1, 2);
+INSERT INTO tbl_bet VALUES (79, 6, 16, 3, 1);
+INSERT INTO tbl_bet VALUES (80, 6, 17, 1, 1);
+INSERT INTO tbl_bet VALUES (81, 6, 18, 1, 0);
+
+INSERT INTO tbl_points VALUES (7, 2, 1, 4);
+INSERT INTO tbl_points VALUES (8, 2, 2, 4);
+INSERT INTO tbl_points VALUES (9, 2, 3, 5);
+INSERT INTO tbl_points VALUES (10, 2, 4, 0);
+INSERT INTO tbl_points VALUES (11, 2, 5, 4);
+INSERT INTO tbl_points VALUES (12, 2, 6, 8);
+
+INSERT INTO tbl_wins VALUES (3, 2, 6, 1);
+
+
+INSERT INTO tbl_play VALUES (3, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (19, 3, 16, 18, '11-AUG-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (20, 3, 11, 3, '11-AUG-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (21, 3, 14, 9, '11-AUG-01', '1530', 1, 3);
+INSERT INTO tbl_game VALUES (22, 3, 15, 7, '11-AUG-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (23, 3, 5, 17, '11-AUG-01', '1530', 4, 0);
+INSERT INTO tbl_game VALUES (24, 3, 1, 2, '11-AUG-01', '1530', 2, 1);
+INSERT INTO tbl_game VALUES (25, 3, 4, 10, '11-AUG-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (26, 3, 12, 8, '12-AUG-01', '1730', 0, 1);
+INSERT INTO tbl_game VALUES (27, 3, 6, 13, '12-AUG-01', '1730', 0, 0);
+
+INSERT INTO tbl_points VALUES (13, 3, 1, 19);
+INSERT INTO tbl_points VALUES (14, 3, 2, 10);
+INSERT INTO tbl_points VALUES (15, 3, 3, 10);
+INSERT INTO tbl_points VALUES (16, 3, 4, 0);
+INSERT INTO tbl_points VALUES (17, 3, 5, 14);
+INSERT INTO tbl_points VALUES (18, 3, 6, 9);
+
+INSERT INTO tbl_wins VALUES (4, 3, 1, 1);
+
+
+INSERT INTO tbl_play VALUES (4, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (28, 4, 17, 14, '18-AUG-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (29, 4, 13, 4, '18-AUG-01', '1530', 3, 3);
+INSERT INTO tbl_game VALUES (30, 4, 3, 16, '18-AUG-01', '1530', 2, 4);
+INSERT INTO tbl_game VALUES (31, 4, 10, 12, '18-AUG-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (32, 4, 18, 15, '18-AUG-01', '1530', 1, 3);
+INSERT INTO tbl_game VALUES (33, 4, 8, 5, '18-AUG-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (34, 4, 7, 1, '18-AUG-01', '1530', 2, 3);
+INSERT INTO tbl_game VALUES (35, 4, 9, 11, '19-AUG-01', '1730', 2, 3);
+INSERT INTO tbl_game VALUES (36, 4, 2, 6, '19-AUG-01', '1730', 0, 2);
+
+INSERT INTO tbl_points VALUES (19, 4, 1, 8);
+INSERT INTO tbl_points VALUES (20, 4, 2, 5);
+INSERT INTO tbl_points VALUES (21, 4, 3, 8);
+INSERT INTO tbl_points VALUES (22, 4, 4, 0);
+INSERT INTO tbl_points VALUES (23, 4, 5, 7);
+INSERT INTO tbl_points VALUES (24, 4, 6, 2);
+
+INSERT INTO tbl_wins VALUES (5, 4, 1, 1);
+INSERT INTO tbl_wins VALUES (6, 4, 3, 1);
+
+
+INSERT INTO tbl_play VALUES (5, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (37, 5, 16, 9, '08-SEP-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (38, 5, 11, 17, '08-SEP-01', '1530', 3, 3);
+INSERT INTO tbl_game VALUES (39, 5, 14, 8, '08-SEP-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (40, 5, 15, 3, '08-SEP-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (41, 5, 5, 10, '08-SEP-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (42, 5, 6, 4, '08-SEP-01', '1530', 0, 1);
+INSERT INTO tbl_game VALUES (43, 5, 12, 13, '08-SEP-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (44, 5, 1, 18, '09-SEP-01', '1730', 2, 1);
+INSERT INTO tbl_game VALUES (45, 5, 2, 7, '09-SEP-01', '1730', 2, 1);
+
+INSERT INTO tbl_points VALUES (25, 5, 1, 0);
+INSERT INTO tbl_points VALUES (26, 5, 2, 9);
+INSERT INTO tbl_points VALUES (27, 5, 3, 6);
+INSERT INTO tbl_points VALUES (28, 5, 4, 0);
+INSERT INTO tbl_points VALUES (29, 5, 5, 8);
+INSERT INTO tbl_points VALUES (30, 5, 6, 10);
+
+INSERT INTO tbl_wins VALUES (7, 5, 6, 1);
+
+
+INSERT INTO tbl_play VALUES (6, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (46, 6, 17, 16, '15-SEP-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (47, 6, 4, 12, '15-SEP-01', '1530', 3, 1);
+INSERT INTO tbl_game VALUES (48, 6, 3, 1, '15-SEP-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (49, 6, 10, 14, '15-SEP-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (50, 6, 18, 2, '15-SEP-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (51, 6, 13, 5, '15-SEP-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (52, 6, 7, 6, '15-SEP-01', '1530', 3, 3);
+INSERT INTO tbl_game VALUES (53, 6, 9, 15, '16-SEP-01', '1730', 2, 1);
+INSERT INTO tbl_game VALUES (54, 6, 8, 11, '16-SEP-01', '1730', 0, 0);
+
+INSERT INTO tbl_points VALUES (31, 6, 1, 9);
+INSERT INTO tbl_points VALUES (32, 6, 2, 3);
+INSERT INTO tbl_points VALUES (33, 6, 3, 7);
+INSERT INTO tbl_points VALUES (34, 6, 4, 0);
+INSERT INTO tbl_points VALUES (35, 6, 5, 10);
+INSERT INTO tbl_points VALUES (36, 6, 6, 8);
+
+INSERT INTO tbl_wins VALUES (8, 6, 5, 1);
+
+
+INSERT INTO tbl_play VALUES (7, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (55, 7, 16, 8, '22-SEP-01', '1530', 2, 1);
+INSERT INTO tbl_game VALUES (56, 7, 11, 10, '22-SEP-01', '1530', 0, 3);
+INSERT INTO tbl_game VALUES (57, 7, 14, 13, '22-SEP-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (58, 7, 2, 3, '22-SEP-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (59, 7, 5, 4, '22-SEP-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (60, 7, 1, 9, '22-SEP-01', '1530', 4, 1);
+INSERT INTO tbl_game VALUES (61, 7, 7, 18, '22-SEP-01', '1530', 0, 4);
+INSERT INTO tbl_game VALUES (62, 7, 15, 17, '23-SEP-01', '1730', 2, 1);
+INSERT INTO tbl_game VALUES (63, 7, 6, 12, '23-SEP-01', '1730', 2, 2);
+
+INSERT INTO tbl_points VALUES (37, 7, 1, 9);
+INSERT INTO tbl_points VALUES (38, 7, 2, 8);
+INSERT INTO tbl_points VALUES (39, 7, 3, 6);
+INSERT INTO tbl_points VALUES (40, 7, 4, 7);
+INSERT INTO tbl_points VALUES (41, 7, 5, 10);
+INSERT INTO tbl_points VALUES (42, 7, 6, 4);
+
+INSERT INTO tbl_wins VALUES (9, 7, 5, 1);
+
+
+INSERT INTO tbl_play VALUES (8, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (64, 8, 17, 1, '29-SEP-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (65, 8, 9, 2, '29-SEP-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (66, 8, 3, 7, '29-SEP-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (67, 8, 13, 11, '29-SEP-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (68, 8, 18, 6, '29-SEP-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (69, 8, 8, 15, '29-SEP-01', '1530', 2, 2);
+INSERT INTO tbl_game VALUES (70, 8, 12, 5, '29-SEP-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (71, 8, 10, 16, '30-SEP-01', '1730', 4, 0);
+INSERT INTO tbl_game VALUES (72, 8, 4, 14, '30-SEP-01', '1730', 4, 1);
+
+INSERT INTO tbl_points VALUES (43, 8, 1, 7);
+INSERT INTO tbl_points VALUES (44, 8, 2, 3);
+INSERT INTO tbl_points VALUES (45, 8, 3, 3);
+INSERT INTO tbl_points VALUES (46, 8, 4, 8);
+INSERT INTO tbl_points VALUES (47, 8, 5, 11);
+INSERT INTO tbl_points VALUES (48, 8, 6, 9);
+
+INSERT INTO tbl_wins VALUES (10, 8, 5, 1);
+
+
+INSERT INTO tbl_play VALUES (9, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (73, 9, 16, 13, '13-OCT-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (74, 9, 11, 4, '13-OCT-01', '1530', 2, 3);
+INSERT INTO tbl_game VALUES (75, 9, 15, 10, '13-OCT-01', '1530', 1, 5);
+INSERT INTO tbl_game VALUES (76, 9, 14, 12, '13-OCT-01', '1530', 2, 2);
+INSERT INTO tbl_game VALUES (77, 9, 1, 9, '13-OCT-01', '1530', 3, 1);
+INSERT INTO tbl_game VALUES (78, 9, 6, 5, '13-OCT-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (79, 9, 7, 9, '13-OCT-01', '1530', 4, 0);
+INSERT INTO tbl_game VALUES (80, 9, 2, 17, '14-OCT-01', '1730', 0, 4);
+INSERT INTO tbl_game VALUES (81, 9, 18, 3, '14-OCT-01', '1730', 3, 0);
+
+INSERT INTO tbl_points VALUES (49, 9, 1, 5);
+INSERT INTO tbl_points VALUES (50, 9, 2, 5);
+INSERT INTO tbl_points VALUES (51, 9, 3, 4);
+INSERT INTO tbl_points VALUES (52, 9, 4, 6);
+INSERT INTO tbl_points VALUES (53, 9, 5, 9);
+INSERT INTO tbl_points VALUES (54, 9, 6, 5);
+
+INSERT INTO tbl_wins VALUES (11, 9, 5, 1);
+
+
+INSERT INTO tbl_play VALUES (10, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (82, 10, 3, 6, '20-OCT-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (83, 10, 9, 18, '20-OCT-01', '1530', 3, 1);
+INSERT INTO tbl_game VALUES (84, 10, 10, 1, '20-OCT-01', '1530', 4, 1);
+INSERT INTO tbl_game VALUES (85, 10, 8, 2, '20-OCT-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (86, 10, 13, 15, '20-OCT-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (87, 10, 12, 11, '20-OCT-01', '1530', 4, 0);
+INSERT INTO tbl_game VALUES (88, 10, 4, 16, '20-OCT-01', '1530', 4, 1);
+INSERT INTO tbl_game VALUES (89, 10, 17, 7, '21-OCT-01', '1730', 0, 1);
+INSERT INTO tbl_game VALUES (90, 10, 5, 14, '21-OCT-01', '1730', 0, 2);
+
+INSERT INTO tbl_points VALUES (55, 10, 1, 6);
+INSERT INTO tbl_points VALUES (56, 10, 2, 12);
+INSERT INTO tbl_points VALUES (57, 10, 3, 9);
+INSERT INTO tbl_points VALUES (58, 10, 4, 5);
+INSERT INTO tbl_points VALUES (59, 10, 5, 9);
+INSERT INTO tbl_points VALUES (60, 10, 6, 9);
+
+INSERT INTO tbl_wins VALUES (12, 10, 2, 1);
+
+
+INSERT INTO tbl_play VALUES (11, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (91, 11, 16, 12, '27-OCT-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (92, 11, 11, 5, '27-OCT-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (93, 11, 2, 10, '27-OCT-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (94, 11, 15, 4, '27-OCT-01', '1530', 1, 4);
+INSERT INTO tbl_game VALUES (95, 11, 18, 17, '27-OCT-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (96, 11, 6, 14, '27-OCT-01', '1530', 2, 2);
+INSERT INTO tbl_game VALUES (97, 11, 1, 13, '27-OCT-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (98, 11, 3, 9, '28-OCT-01', '1730', 1, 3);
+INSERT INTO tbl_game VALUES (99, 11, 7, 8, '28-OCT-01', '1730', 0, 1);
+
+INSERT INTO tbl_points VALUES (61, 11, 1, 0);
+INSERT INTO tbl_points VALUES (62, 11, 2, 5);
+INSERT INTO tbl_points VALUES (63, 11, 3, 5);
+INSERT INTO tbl_points VALUES (64, 11, 4, 8);
+INSERT INTO tbl_points VALUES (65, 11, 5, 9);
+INSERT INTO tbl_points VALUES (66, 11, 6, 5);
+
+INSERT INTO tbl_wins VALUES (13, 11, 5, 1);
+
+
+INSERT INTO tbl_play VALUES (12, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (100, 12, 17, 3, '03-NOV-01', '1530', 5, 0);
+INSERT INTO tbl_game VALUES (101, 12, 4, 1, '03-NOV-01', '1530', 2, 1);
+INSERT INTO tbl_game VALUES (102, 12, 13, 2, '03-NOV-01', '1530', 3, 1);
+INSERT INTO tbl_game VALUES (103, 12, 10, 7, '03-NOV-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (104, 12, 5, 16, '03-NOV-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (105, 12, 8, 18, '03-NOV-01', '1530', 0, 1);
+INSERT INTO tbl_game VALUES (106, 12, 12, 15, '03-NOV-01', '1530', 0, 3);
+INSERT INTO tbl_game VALUES (107, 12, 9, 6, '04-NOV-01', '1730', 3, 0);
+INSERT INTO tbl_game VALUES (108, 12, 14, 11, '04-NOV-01', '1730', 3, 1);
+
+INSERT INTO tbl_points VALUES (67, 12, 1, 15);
+INSERT INTO tbl_points VALUES (68, 12, 2, 4);
+INSERT INTO tbl_points VALUES (69, 12, 3, 7);
+INSERT INTO tbl_points VALUES (70, 12, 4, 12);
+INSERT INTO tbl_points VALUES (71, 12, 5, 9);
+INSERT INTO tbl_points VALUES (72, 12, 6, 13);
+
+INSERT INTO tbl_wins VALUES (14, 12, 1, 1);
+
+
+INSERT INTO tbl_play VALUES (13, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (109, 13, 16, 14, '17-NOV-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (110, 13, 9, 17, '17-NOV-01', '1530', 2, 0);
+INSERT INTO tbl_game VALUES (111, 13, 2, 4, '17-NOV-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (112, 13, 15, 5, '17-NOV-01', '1530', 1, 3);
+INSERT INTO tbl_game VALUES (113, 13, 18, 10, '17-NOV-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (114, 13, 1, 12, '17-NOV-01', '1530', 5, 1);
+INSERT INTO tbl_game VALUES (115, 13, 7, 13, '17-NOV-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (116, 13, 3, 8, '18-NOV-01', '1730', 2, 0);
+INSERT INTO tbl_game VALUES (117, 13, 6, 11, '18-NOV-01', '1730', 0, 0);
+
+INSERT INTO tbl_points VALUES (73, 13, 1, 6);
+INSERT INTO tbl_points VALUES (74, 13, 2, 7);
+INSERT INTO tbl_points VALUES (75, 13, 3, 9);
+INSERT INTO tbl_points VALUES (76, 13, 4, 5);
+INSERT INTO tbl_points VALUES (77, 13, 5, 8);
+INSERT INTO tbl_points VALUES (78, 13, 6, 8);
+
+INSERT INTO tbl_wins VALUES (15, 13, 3, 1);
+
+
+INSERT INTO tbl_play VALUES (14, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (118, 14, 17, 6, '24-NOV-01', '1530', 3, 1);
+INSERT INTO tbl_game VALUES (119, 14, 11, 16, '24-NOV-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (120, 14, 10, 3, '24-NOV-01', '1530', 0, 0);
+INSERT INTO tbl_game VALUES (121, 14, 13, 18, '24-NOV-01', '1530', 1, 4);
+INSERT INTO tbl_game VALUES (122, 14, 4, 7, '24-NOV-01', '1530', 4, 1);
+INSERT INTO tbl_game VALUES (123, 14, 8, 9, '24-NOV-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (124, 14, 12, 2, '24-NOV-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (125, 14, 14, 15, '25-NOV-01', '1730', 1, 3);
+INSERT INTO tbl_game VALUES (126, 14, 5, 1, '25-NOV-01', '1800', 3, 0);
+
+INSERT INTO tbl_points VALUES (79, 14, 1, 2);
+INSERT INTO tbl_points VALUES (80, 14, 2, 2);
+INSERT INTO tbl_points VALUES (81, 14, 3, 6);
+INSERT INTO tbl_points VALUES (82, 14, 4, 3);
+INSERT INTO tbl_points VALUES (83, 14, 5, 5);
+INSERT INTO tbl_points VALUES (84, 14, 6, 13);
+
+INSERT INTO tbl_wins VALUES (16, 14, 6, 1);
+
+
+INSERT INTO tbl_play VALUES (15, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (127, 15, 16, 6, '01-DEC-01', '1530', 1, 1);
+INSERT INTO tbl_game VALUES (128, 15, 2, 5, '01-DEC-01', '1530', 0, 2);
+INSERT INTO tbl_game VALUES (129, 15, 3, 13, '01-DEC-01', '1530', 0, 3);
+INSERT INTO tbl_game VALUES (130, 15, 15, 11, '01-DEC-01', '1530', 1, 0);
+INSERT INTO tbl_game VALUES (131, 15, 18, 4, '01-DEC-01', '1530', 2, 1);
+INSERT INTO tbl_game VALUES (132, 15, 8, 17, '01-DEC-01', '1530', 1, 2);
+INSERT INTO tbl_game VALUES (133, 15, 1, 14, '01-DEC-01', '1530', 3, 0);
+INSERT INTO tbl_game VALUES (134, 15, 9, 10, '02-DEC-01', '1730', 2, 1);
+INSERT INTO tbl_game VALUES (135, 15, 7, 12, '02-DEC-01', '1730', 4, 3);
+
+INSERT INTO tbl_points VALUES (85, 15, 1, 4);
+INSERT INTO tbl_points VALUES (86, 15, 2, 4);
+INSERT INTO tbl_points VALUES (87, 15, 3, 9);
+INSERT INTO tbl_points VALUES (88, 15, 4, 0);
+INSERT INTO tbl_points VALUES (89, 15, 5, 4);
+INSERT INTO tbl_points VALUES (90, 15, 6, 0);
+
+INSERT INTO tbl_wins VALUES (17, 15, 3, 1);
+
+
+INSERT INTO tbl_play VALUES (16, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (136, 16, 16, 15, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (137, 16, 11, 1, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (138, 16, 4, 3, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (139, 16, 10, 17, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (140, 16, 5, 7, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (141, 16, 6, 8, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (142, 16, 12, 18, '08-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (143, 16, 14, 2, '09-DEC-01', '1730', , );
+INSERT INTO tbl_game VALUES (144, 16, 13, 9, '09-DEC-01', '1730', , );
+
+
+INSERT INTO tbl_play VALUES (17, 1, 1, 1);
+
+INSERT INTO tbl_game VALUES (145, 17, 2, 11, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (146, 17, 9, 4, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (147, 17, 3, 12, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (148, 17, 15, 6, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (149, 17, 18, 5, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (150, 17, 8, 10, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (151, 17, 7, 14, '15-DEC-01', '1530', , );
+INSERT INTO tbl_game VALUES (152, 17, 17, 13, '16-DEC-01', '1730', , );
+INSERT INTO tbl_game VALUES (153, 17, 1, 16, '16-DEC-01', '1730', , );
