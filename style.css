@@ -1,0 +1,34 @@
+body, dd, dl {
+
+}
+
+p, tr, td, input, select, textarea {
+  color: #535353;
+  font-family: verdana, arial, helvetica, sans serif;
+  font-size: 9pt;
+
+}
+
+a:link          {color: #3E5E96; text-decoration: none}
+a:visited       {color: #009cff; text-decoration: none}
+a:active        {color: #4853df; text-decoration: underline}
+a:visited:hover {color: #00008a; text-decoration: underline}
+a:hover         {color: #000064; text-decoration: underline}
+
+h1, h2, h3, h4, b {
+  color: #000000;
+  font-family: verdana, arial, helvetica, sans serif;
+  font-size: 10pt;
+
+}
+
+.big {
+
+  font-size: 13pt;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.capt {
+  text-transform:uppercase;
+  font-size: 13pt;
+}

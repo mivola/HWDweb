@@ -1,0 +1,247 @@
+<?PHP
+session_start();
+extract($_SESSION);
+
+$play = $HTTP_POST_VARS["play"];
+require("connect_db.php");
+
+$bets1=1;
+// mit bet: Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2, ".$season."_tbl_bet b where play=1 and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id
+$resultPlayBL1 = mysql_query("Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2, ".$season."_tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id and b.userID=".$act_userid." order by g.p_ts, g.id");
+// SELECT g.id, g.p_ts, t1.name, t2.name2, b.bet1, g.bet2 FROM ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2, ".$season."_tbl_bet b where g.play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id order by g.id
+if (mysql_num_rows($resultPlayBL1) < 9) {
+//if (mysql_num_rows($resultPlayBL1) == 0) {
+  $bets1=0;
+  // SELECT g.id, g.p_ts, t1.name, t2.name2 FROM ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2 where g.play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id
+  $resultPlayBL1 = mysql_query("Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
+}
+
+$bets2=1;
+$resultPlayBL2 = mysql_query("Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2, ".$season."_tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id and b.userID=".$act_userid." order by g.p_ts, g.id");
+if (mysql_num_rows($resultPlayBL2) == 0) {
+  $bets2=0;
+  $resultPlayBL2 = mysql_query("Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
+}
+
+//$resultPlayBL1 = mysql_query("Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2, ".$season."_tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id");
+//$resultPlayBL2 = mysql_query("Select * from ".$season."_tbl_game g, ".$season."_tbl_team1 t1, ".$season."_tbl_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2");
+
+$resultBL1 = mysql_query("Select * from ".$season."_tbl_team1 where league=1 order by name");
+$resultBL2 = mysql_query("Select * from ".$season."_tbl_team1 where league=2 order by name");
+
+require("close_db.php");
+
+$maxi = 9;
+if (mysql_num_rows($resultPlayBL2) > 0) {
+  $maxi = 12;
+}
+
+require("top.php");
+
+echo "<body bgcolor=\"#000000\"><br><b>Tipps f&uuml;r ".$play.". Spieltag eintragen:</b><br><br>";
+
+?>
+
+<script src="js/chkForm.js" type="text/javascript"></script>
+
+<form name="play" method="post" action="user_enter_play2.php" onSubmit="return chk_user_play1()">
+<input name=playID type=hidden value=<?PHP echo $play ?>>
+  <table border="0">
+    <tr><td colspan=6><b>1. Bundesliga</b><br>
+        <font size=3>na, wieder keine Ahnung was du tippen sollst? Schau doch mal bei <a href="http://www.betandwin.de/sportsmicrosite/betsframe/default.asp?page=homepage" target="_blank">bet&win.de</a> vorbei!<br>
+        oder probiers mal <a href="http://www.sport1.de/coremedia/generator/www.sport1.de/Sportarten/Fussball/Bundesliga/Main.html" target="_blank">hier</a> oder <a href="http://www.bundesliga.de/liga/" target="_blank">dort</a>.
+        </font></td>
+    </tr>
+    <tr style="background-color:<?PHP echo $table_head; ?>;">
+      <td valign=top><b>SpNr.</b></td>
+      <td valign=top><b>Datum</b></td>
+      <td valign=top align=center><b>Uhrzeit</b></td>
+      <td valign=top><b>Heim</b></td>
+      <td valign=top><b>Gast</b></td>
+      <td valign=top><b>Tipp</b></td>
+    </tr>
+
+
+<?PHP
+
+  $j = 0;
+  $k = 0;
+  for ($j=1; $j<=9; $j++){
+
+    $row = mysql_fetch_array($resultPlayBL1);
+
+    if ($bets1 > 0){
+      $game=$row["game"];
+    }
+    else{
+      $game=$row[0];
+    }
+
+    if (($j % 2) == 1) { $style = $table_lineA; }
+    else { $style = $table_lineB; }
+
+    echo "<tr style=\"background-color:".$style.";\">";
+    echo "<td><input type=hidden name=game".$j." value=".$game.">".$j.".</td>\n";
+
+    echo "<td>".date("d.m.Y", $row["p_ts"])."</td>\n";
+    echo "<td>".date("H:i", $row["p_ts"])."</td>\n";
+    echo "<td>".$row["name"]."</td>\n";
+    echo "<td>".$row["name2"]."</td>\n";
+    $k = $j + 12;
+
+    $bet1 = "";
+    $bet2 = "";
+
+    if (isset($row["bet1"])) { $bet1 = $row["bet1"]; }
+    if (isset($row["bet2"])) { $bet2 = $row["bet2"]; }
+    if ($bet1 == "-1") { $bet1 = ""; }
+    if ($bet2 == "-1") { $bet2 = ""; }
+
+    //prüfung auf mind. 1h (60*60=3600) bis Anpfiff:
+    //24.08.2005: Verkürzung auf 5min: 5*60=300
+    if (($row["p_ts"] - mktime()) < 300) {
+
+      if (isset($row["bet1"])){
+
+        echo "<td><input type=hidden name=bet".$j." value=".$bet1.">";
+        echo "<input type=hidden name=bet".$k." value=".$bet2.">";
+        //if ($bet1 < 0) {
+        if ($bet1 == "") {
+          echo "zu sp&auml;t!</td>\n";
+	}
+        else {
+          echo $bet1." : ".$bet2."</td>\n";
+        }
+      } // if isset
+      else {
+
+        echo "<td><input type=hidden name=bet".$j." value=-1>";
+        echo "<input type=hidden name=bet".$k." value=-1>";
+        echo "zu sp&auml;t!</td>\n";
+
+      }
+
+    } //if (($row["p_ts"] - mktime()) < 3600) {
+    else {
+
+      echo "<td><input type=text maxlength=2 size=2 name=bet".$j;
+
+      if ($bets1>0) {
+        echo " value=".$bet1;
+      }
+      echo "> : <input type=text maxlength=2 size=2 name=bet".$k;
+      if ($bets1>0) {
+        echo " value=".$bet2;
+      }
+      echo "></td>\n";
+    }
+    echo "</tr>\n";
+
+
+  } // for ($j
+
+if ($maxi>9){
+?>
+
+    <tr><td colspan=4><br><b>2. Bundesliga</b><br>
+        <font size=3>Infos zur 2. Liga: <a href="http://www.sport1.de/coremedia/generator/www.sport1.de/Sportarten/Fussball/Bundesliga2/Main.html" target="_blank">Sport1.de</a> oder <a href="http://www.bundesliga.de/liga2/" target="_blank">bundesliga.de</a>.
+        </font></td>
+    </tr>
+    <tr style="background-color:<?PHP echo $table_head; ?>;">
+      <td valign=top><b>SpNr.</b></td>
+      <td valign=top><b>Datum</b></td>
+      <td valign=top align=center><b>Uhrzeit</b></td>
+      <td valign=top><b>Heim</b></td>
+      <td valign=top><b>Gast</b></td>
+      <td valign=top><b>Tipp</b></td>
+    </tr>
+
+<?PHP
+
+  for ($j=10; $j<=12; $j++){
+
+    $row = mysql_fetch_array($resultPlayBL2);
+
+    if ($bets2 > 0){
+      $game=$row["game"];
+    }
+    else{
+      $game=$row[0];
+    }
+
+    if (($j % 2) == 1) { $style = $table_lineA; }
+    else { $style = $table_lineB; }
+
+    echo "<tr style=\"background-color:".$style.";\">";
+    echo "<td><input type=hidden name=game".$j." value=".$game.">".$j.".</td>\n";
+
+    echo "<td>".date("d.m.Y", $row["p_ts"])."</td>\n";
+    echo "<td>".date("H:i", $row["p_ts"])."</td>\n";
+    echo "<td>".$row["name"]."</td>\n";
+    echo "<td>".$row["name2"]."</td>\n";
+    $k = $j + 12;
+    //echo "<td><input type=text maxlength=2 size=2 name=bet".$j."> : <input type=text maxlength=2 size=2 name=bet".$k."></td>\n";
+
+    $bet1 = "";
+    $bet2 = "";
+
+    if (isset($row["bet1"])) { $bet1 = $row["bet1"]; }
+    if (isset($row["bet2"])) { $bet2 = $row["bet2"]; }
+    if ($bet1 == "-1") { $bet1 = ""; }
+    if ($bet2 == "-1") { $bet2 = ""; }
+
+    //prüfung auf mind. 1h (60*60=3600) bis Anpfiff:
+    //24.08.2005: Verkürzung auf 5min: 5*60=300
+    if (($row["p_ts"] - mktime()) < 300) {
+      if (isset($row["bet1"])){
+
+        echo "<td><input type=hidden name=bet".$j." value=".$bet1.">";
+        echo "<input type=hidden name=bet".$k." value=".$bet2.">";
+        //if ($bet1 < 0) {
+        if ($bet1 == "") {
+          echo "zu sp&auml;t!</td>\n";
+	}
+        else {
+          echo $bet1." : ".$bet2."</td>\n";
+        }
+      } // if isset
+      else {
+
+        echo "<td><input type=hidden name=bet".$j." value=-1>";
+        echo "<input type=hidden name=bet".$k." value=-1>";
+        echo "zu sp&auml;t!</td>\n";
+
+      }
+
+    }
+    else {
+
+      echo "<td><input type=text maxlength=2 size=2 name=bet".$j;
+      if ($bets1>0) {
+        echo " value=".$bet1;
+      }
+      echo "> : <input type=text maxlength=2 size=2 name=bet".$k;
+      if ($bets1>0) {
+        echo " value=".$bet2;
+      }
+      echo "></td>\n";
+    }
+
+    echo "</tr>\n";
+
+
+  } // for ($j
+
+} // if ($maxi>9)
+  //<tr><td colspan=5 align=right><br>nur 1. Liga speichern<input type=checkbox name="onlyBL"></td><td align=right><br><input type="submit" name="Submit" value="Spieltag speichern"></td></tr>
+  ?>
+
+  <tr><td colspan=6 align=right><br><input type="submit" name="Submit" value="Tipps speichern"></td></tr>
+  </table>
+</form>
+
+<?PHP
+
+require("bottom.php");
+
+?>
