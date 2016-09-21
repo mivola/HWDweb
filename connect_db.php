@@ -1,12 +1,10 @@
 <?php
 
-session_start();
-
 $parafile = "para.ini.inc";
 include ($parafile);
 
-session_register("season");
-session_register("db_name");
+$_SESSION['season']= $season;
+$_SESSION['db_name']= $db_name;
 
 $connect = mysql_connect($db_host, $db_user, $db_passwd) or die ("Verbindung zur Datenbank fehlgeschlagen!");
 
