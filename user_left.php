@@ -28,7 +28,7 @@ extract($_SESSION);
 		<tr><td><a href="mail1.php" target="right">Rundmail</a></td></tr>
 		<tr><td><a href="awb.htm" target="right">AWB</a></td></tr>
 		<tr><td><a href="contact1.php" target="right">Kontakt</a></td></tr>
-		<tr><td><a href="../hwd-ng" target="_blank">HWD History</a></td></tr>
+		<tr><td><a href="../hwd-history" target="_blank">HWD History</a></td></tr>
 		<tr><td><a href="logout.php" target="_parent">Logout</a></td></tr>
 	</table>
 
