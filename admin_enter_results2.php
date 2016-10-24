@@ -32,11 +32,12 @@ $resultUsers = mysql_query("SELECT * FROM tbl_user ORDER BY id");
 for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
   $row = mysql_fetch_array($resultUsers);
 //while($row = mysql_fetch_array($resultUsers)){
-  $users[$i] = $row["id"];
-  $user_names[$i] = $row["nick_name"];
-  $user_show_tipps[$i] = $row["show_tipps"];
-  $points[$users[$i]] = 0;
-  //echo $users[$i]."!<br>";
+  $tempId = $row["id"];
+  $users[$tempId] = $row["id"];
+  $user_names[$tempId] = $row["nick_name"];
+  $user_show_tipps[$tempId] = $row["show_tipps"];
+  $points[$users[$tempId]] = 0;
+  //echo $users[$tempId]."!<br>";
 } //for
 
 
