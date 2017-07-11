@@ -18,7 +18,7 @@ extract($_SESSION);
 	- in der Stauszeile auf das kleine rote Symbol doppelklicken<br>
 	<img src="images/cookie01.jpg"><br>
 	- danach erscheint ein Fenster in dem schon die blockierte Seite angezeigt wird<br>
-	- mit einem rechten Mausklick auf den Eintrag "http://mivola.mi.funpic.de/hwd15_16" das Kontextmen&uuml; &ouml;ffnen<br>
+	- mit einem rechten Mausklick auf den Eintrag "http://hwd.michavoigt.de/hwd17_18" das Kontextmen&uuml; &ouml;ffnen<br>
 	- w&auml;hle den Eintrag "Cookies von dieser Seite immer annehmen<br>
 	<img src="images/cookie02.jpg"><br>
 	- Dialog mit "Schliessen" beenden<br>
@@ -37,23 +37,16 @@ extract($_SESSION);
 	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd15_16" target="_blank">hier</a>.<br /> 
 	<br />
 	<div align="center">
-	<b>ACHTUNG: Jetzt ganz neu!</b>	HWD als Android App. Download hier und demnächst im Android Market!
+	<b>ACHTUNG: Ab 05/2017 ganz neu & ohne Werbung:</b>	HWD als Android App. Download nur <a href="https://github.com/mivola/hwd-app/releases/download/release-1.0.0/HWD-1.0.0-10.apk" target="_blank">hier</a> oder per QR Code!
 	</div>
-	                <div align="center">
-	URL: <a href="http://www.appsgeyser.com/getwidget/HWD." target="_blank">http://www.appsgeyser.com/getwidget/HWD.</a><br/>
-	Mirror: <a href="http://www.appsgeyser.com/247677" target="_blank">http://www.appsgeyser.com/247677</a>
-			</div>
 			<br>
 	                <div align="center">
-                        <img src="http://chart.apis.google.com/chart?cht=qr&amp;chs=300x300&amp;chld=L|0&amp;chl=http%3A%2F%2Fwww.appsgeyser.com%2FHWD.apk" style="width:111px;">
-                    </div>
-
-                    <div style="margin-top: 5px" align="center">
-                        <img src="images/scan_text.png">
+						<!-- erstellt mit https://www.qrcode-monkey.de -->
+                        <img src="qrcode.png" style="width:111px;">
                     </div>
 		    
 		    <div align="center">
-			Get <a href="https://play.google.com/store/apps/details?id=la.droid.qr&hl=de" target="_blank">QR Droid</a><br/>
+			Hier bekommst du einen <a href="https://play.google.com/store/apps/details?id=com.application_4u.qrcode.barcode.scanner.reader.flashlight&rdid=com.application_4u.qrcode.barcode.scanner.reader.flashlight" target="_blank">QR Code Scanner</a><br/>
 		    </div>
 		    
 	<br>
