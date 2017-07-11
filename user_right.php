@@ -12,8 +12,8 @@ extract($_SESSION);
 	<table widht="75%"><tr><td>
 	<p align="center"><font color=red size="6"><strong>FEHLER!</strong></font></p>
 	<p>
-	Fehler bei der Anmeldung: Offensichtlich ist dein Browser nicht richtig für diese Seite konfiguriert.<br>
-	Zur L&ouml;sung dieses Problems musst du die Cookies für die Seite "mivola.mi.funpic.de" zulassen.<br><br>
+	Fehler bei der Anmeldung: Offensichtlich ist dein Browser nicht richtig fÃ¼r diese Seite konfiguriert.<br>
+	Zur L&ouml;sung dieses Problems musst du die Cookies fÃ¼r die Seite "mivola.mi.funpic.de" zulassen.<br><br>
 	Hier eine Kurzanleitung f&uuml;r den Internet Explorer:<br>
 	- in der Stauszeile auf das kleine rote Symbol doppelklicken<br>
 	<img src="images/cookie01.jpg"><br>
@@ -30,11 +30,11 @@ extract($_SESSION);
 	</td></tr></table>
 <?php } else { //if ?>
 
-	Herzlich willkommen bei der Online-Version von HWD zur Saison 2016/2017.</b>
+	Herzlich willkommen bei der Online-Version von HWD zur Saison 2017/2018.</b>
 	<br><br><br>
-	Wie gewohnt steht euch rechtzeitig die neue Tippseite zur Verfügung.<br>
+	Wie gewohnt steht euch rechtzeitig die neue Tippseite zur VerfÃ¼gung.<br>
 	<br />
-	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd15_16" target="_blank">hier</a>.<br /> 
+	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd16_17" target="_blank">hier</a>.<br /> 
 	<br />
 	<div align="center">
 	<b>ACHTUNG: Ab 05/2017 ganz neu & ohne Werbung:</b>	HWD als Android App. Download nur <a href="https://github.com/mivola/hwd-app/releases/download/release-1.0.0/HWD-1.0.0-10.apk" target="_blank">hier</a> oder per QR Code!
