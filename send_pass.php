@@ -3,7 +3,7 @@ session_start();
 extract($_POST);
 extract($_SESSION);
 
-$name = $HTTP_POST_VARS["name"];
+$name = $_POST["name"];
 
 require("connect_db.php");
 
