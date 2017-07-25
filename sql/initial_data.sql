@@ -33,7 +33,6 @@ INSERT INTO `tbl_user` (`id`, `first_name`, `last_name`, `nick_name`, `password`
 (6,	'Tobias',	'Buschmann',	'tobi',	'tobi',	'koehra@gmx.de',	1041968570,	1309377541,	1,	1,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	1,	1,	1), 
 (4,	'Nico',	'Schreier',	'nico',	'hwdtips',	'nico_at_work@gmx.de',	1041968570,	1306224890,	3,	0,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0), 
 (9,	'Jan',	'Thomas',	'janosch',	'bayern',	'janoschick@web.de',	1154442831,	1305652335,	1,	0,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0), 
-(11,	'Sven',	'Lantsch',	'sven',	'sven',	'mandy_sven@hotmail.com',	1184959635,	1309569209,	1,	0,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0), 
 (13,	'Christian',	'Schroeter',	'schroe89',	'schroe89',	'schroe89@web.de',	1406013485,	1406013485,	2,	1,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0);
 
 -- --------------------------------------------------------
