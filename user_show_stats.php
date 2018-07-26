@@ -8,7 +8,7 @@ $wins         = mysql_query("SELECT u.id, u.nick_name AS nick_name, SUM(w.wins) 
 $extra_wins   = mysql_query("SELECT u.id, u.nick_name AS nick_name, SUM(e.wins) AS wins FROM tbl_user u, tbl_extra_wins e WHERE u.id=e.userID GROUP BY u.id ORDER BY wins DESC");
 $max_points   = mysql_query("SELECT u.id, u.nick_name, p.play, p.points FROM tbl_points p, tbl_user u WHERE u.id=p.userID ORDER BY points DESC, u.id, p.play");
 $min_points   = mysql_query("SELECT u.id, u.nick_name, p.play, p.points FROM tbl_points p, tbl_user u WHERE u.id=p.userID ORDER BY points ASC, u.id, p.play");
-$three_points = mysql_query("SELECT u.id, count(*) FROM tbl_game g, tbl_bet b, tbl_user u WHERE u.id=b.userid AND b.game=g.id AND b.bet1=g.result1 AND b.bet2=g.result2 GROUP BY u.id ORDER BY u.id");
+$three_points = mysql_query("SELECT u.id, count(*) FROM tbl_game g, tbl_bet b, tbl_user u, tbl_play p WHERE p.id=g.play AND p.completed > 0 AND u.id=b.userid AND b.game=g.id AND b.bet1=g.result1 AND b.bet2=g.result2 GROUP BY u.id ORDER BY u.id");
 
 $max_points_row = 5;
 
