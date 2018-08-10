@@ -33,7 +33,7 @@ INSERT INTO `tbl_user` (`id`, `first_name`, `last_name`, `nick_name`, `password`
 (6,	'Tobias',	'Buschmann',	'tobi',	'tobi',	'koehra@gmx.de',	1041968570,	1309377541,	1,	1,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	1,	1,	1), 
 (4,	'Nico',	'Schreier',	'nico',	'hwdtips',	'nico_at_work@gmx.de',	1041968570,	1306224890,	3,	0,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0), 
 (9,	'Jan',	'Thomas',	'janosch',	'bayern',	'janoschick@web.de',	1154442831,	1305652335,	1,	0,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0), 
-(13,	'Christian',	'Schroeter',	'schroe89',	'schroe89',	'schroe89@web.de',	1406013485,	1406013485,	2,	1,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0);
+(13,	'Christian',	'Schroeter',	'schroe89',	'tipphaus',	'schroe89@web.de',	1406013485,	1406013485,	2,	1,	'#099990',	'#ccccc0',	'#ffff22',	'#aaaa00',	'#EBEB00',	'#CC0000',	0,	0,	0);
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `tbl_extra_wins` (
 --
 
 INSERT INTO `tbl_extra_wins` (`userID`, `season`, `champ`, `second`, `third`, `forth`, `fifth`, `down1`, `down2`, `down3`, `up1`, `up2`, `up3`, `fired`, `fired2`, `wins`) VALUES
-(0, 17, 10, 5, 13, 4, 17, 7, 31, 44, 2, 24, 23, 16, 43, 0);
+(0, 18, 10, 5, 13, 4, 17, 7, 31, 44, 2, 24, 23, 16, 43, 0);
 
 -- --------------------------------------------------------
 
@@ -123,40 +123,40 @@ CREATE TABLE IF NOT EXISTS `tbl_play` (
 --
 
 INSERT INTO `tbl_play` (`id`, `season`, `recorded`, `completed`) VALUES
-(1, 17, 0, 0), 
-(2, 17, 0, 0), 
-(3, 17, 0, 0), 
-(4, 17, 0, 0), 
-(5, 17, 0, 0), 
-(6, 17, 0, 0), 
-(7, 17, 0, 0), 
-(8, 17, 0, 0), 
-(9, 17, 0, 0), 
-(10, 17, 0, 0), 
-(11, 17, 0, 0), 
-(12, 17, 0, 0), 
-(13, 17, 0, 0), 
-(14, 17, 0, 0), 
-(15, 17, 0, 0), 
-(16, 17, 0, 0), 
-(17, 17, 0, 0), 
-(18, 17, 0, 0), 
-(19, 17, 0, 0), 
-(20, 17, 0, 0), 
-(21, 17, 0, 0), 
-(22, 17, 0, 0), 
-(23, 17, 0, 0), 
-(24, 17, 0, 0), 
-(25, 17, 0, 0), 
-(26, 17, 0, 0), 
-(27, 17, 0, 0), 
-(28, 17, 0, 0), 
-(29, 17, 0, 0), 
-(30, 17, 0, 0), 
-(31, 17, 0, 0), 
-(32, 17, 0, 0), 
-(33, 17, 0, 0), 
-(34, 17, 0, 0);
+(1, 18, 0, 0), 
+(2, 18, 0, 0), 
+(3, 18, 0, 0), 
+(4, 18, 0, 0), 
+(5, 18, 0, 0), 
+(6, 18, 0, 0), 
+(7, 18, 0, 0), 
+(8, 18, 0, 0), 
+(9, 18, 0, 0), 
+(10, 18, 0, 0), 
+(11, 18, 0, 0), 
+(12, 18, 0, 0), 
+(13, 18, 0, 0), 
+(14, 18, 0, 0), 
+(15, 18, 0, 0), 
+(16, 18, 0, 0), 
+(17, 18, 0, 0), 
+(18, 18, 0, 0), 
+(19, 18, 0, 0), 
+(20, 18, 0, 0), 
+(21, 18, 0, 0), 
+(22, 18, 0, 0), 
+(23, 18, 0, 0), 
+(24, 18, 0, 0), 
+(25, 18, 0, 0), 
+(26, 18, 0, 0), 
+(27, 18, 0, 0), 
+(28, 18, 0, 0), 
+(29, 18, 0, 0), 
+(30, 18, 0, 0), 
+(31, 18, 0, 0), 
+(32, 18, 0, 0), 
+(33, 18, 0, 0), 
+(34, 18, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -195,12 +195,12 @@ INSERT INTO `tbl_team` (`id`, `name`, `short`, `league`, `icon`) VALUES
 (6, 'Borussia MönchenGladbach', 'MGladb', 1, 'MGladb.png'),
 (22, 'TSV Alemannia Aachen', 'Aachen', 3, 'Aachen.png'),
 (32, 'FSV Mainz 05', 'Mainz', 1, 'Mainz.png'),
-(1, '1.FC Kaiserslautern', '1.FCK', 2, '1.FCK.png'),
-(2, '1.FC Köln', 'Köln', 1, 'Köln.png'),
+(1, '1.FC Kaiserslautern', '1.FCK', 3, '1.FCK.png'),
+(2, '1.FC Köln', 'Köln', 2, 'Köln.png'),
 (3, 'SC Freiburg', 'Freib', 1, 'Freib.png'),
 (4, 'Bayer 04 Leverkusen', 'Bayer', 1, 'Bayer.png'),
 (5, 'Borussia Dortmund', 'BVB', 1, 'BVB.png'),
-(7, 'Hamburger SV', 'HSV', 1, 'HSV.png'),
+(7, 'Hamburger SV', 'HSV', 2, 'HSV.png'),
 (8, 'Hansa Rostock', 'Hansa', 3, 'Hansa.png'),
 (9, 'Hertha BSC Berlin', 'Hertha', 1, 'Hertha.png'),
 (10, 'FC Bayern München', 'FCB', 1, 'FCB.png'),
@@ -216,14 +216,14 @@ INSERT INTO `tbl_team` (`id`, `name`, `short`, `league`, `icon`) VALUES
 (20, 'Karlsruher SC', 'KSC', 3, 'KSC.png'),
 (21, 'Osnabrück', 'Osna', 3, 'Osna.png'),
 (23, 'SpVgg Greuther Fürth', 'Fürth', 2, 'Fürth.png'),
-(24, 'SC Paderborn 07', 'SCPad', 3, 'SCPad.png'),
+(24, 'SC Paderborn 07', 'SCPad', 2, 'SCPad.png'),
 (25, 'St. Pauli', 'Pauli', 2, 'Pauli.png'),
 (26, 'TuS Koblenz', 'Kobl', 3, 'Kobl.png'),
 (27, 'MSV Duisburg', 'Duisb', 2, 'Duisb.png'),
 (28, 'DSC Arminia Bielefeld', 'Biele', 2, 'Biele.png'),
 (29, 'Energie Cottbus', 'Cottb', 3, 'Cottb.png'),
 (30, 'Hoffenheim', 'Hoff', 1, 'Hoff.png'),
-(31, '1.FC Nürnberg', '1.FCN', 2, '1.FCN.png'),
+(31, '1.FC Nürnberg', '1.FCN', 1, '1.FCN.png'),
 (33, 'Carl Zeiss Jena', 'Jena', 3, '""'),
 (34, 'Wehen', 'Wehen', 3, '""'),
 (35, 'Kickers Offenbach', 'Kicker', 3, 'Kicker.png'),
@@ -233,9 +233,9 @@ INSERT INTO `tbl_team` (`id`, `name`, `short`, `league`, `icon`) VALUES
 (39, 'FSV Frankfurt', 'FSVFr', 3, 'FSVFr.png'),
 (40, 'FC Ingolstadt 04', 'Ingol', 2, 'Ingol.png'),
 (41, '1. FC Union Berlin', 'Union', 2, 'Union.png'),
-(42, 'Fortuna Düsseldorf', 'Fortun', 2, 'Fortun.png'),
+(42, 'Fortuna Düsseldorf', 'Fortun', 1, 'Fortun.png'),
 (43, 'Dynamo Dresden', 'Dynamo', 2, 'Dynamo.png'),
-(44, 'Eintracht Braunschweig', 'Braun', 2, 'Braun.png'),
+(44, 'Eintracht Braunschweig', 'Braun', 3, 'Braun.png'),
 (45, 'SV Sandhausen', 'SVSand', 2, 'SVSand.png'),
 (46, 'VfR Aalen', 'Aalen', 3, 'Aalen.png'),
 (47, 'SSV Jahn Regensburg', 'JahnR', 2, 'JahnR.png'),
@@ -244,6 +244,7 @@ INSERT INTO `tbl_team` (`id`, `name`, `short`, `league`, `icon`) VALUES
 (50, 'SV Darmstadt 98', 'Darm98', 2, 'Darm98.png'),
 (51, 'FC Würzburger Kickers', 'Wuerz', 3, 'Wuerz.png'),
 (52, 'Holstein Kiel', 'Kiel', 2, 'Kiel.png'),
+(53, '1. FC Magdeburg', 'Magde', 2, 'Magdeburg.png'),
 (-1, 'NULL', 'NULL', 2, '""');
 
 -- --------------------------------------------------------
