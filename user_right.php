@@ -4,7 +4,7 @@ extract($_SESSION);
 ?>
 
 <?PHP require("top.php") ?>
-<body bgcolor="#000000">
+<body>
 <br><br>
 <p><b>
 

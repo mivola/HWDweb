@@ -107,7 +107,7 @@ echo $value;
   require("top.php");
 ?>
 
-<body bgcolor="#000000">
+<body>
 
 <?
 if ($name && $message) {

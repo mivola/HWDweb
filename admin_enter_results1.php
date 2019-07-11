@@ -18,7 +18,7 @@ require("close_db.php");
 
 require("top.php");
 
-echo "<body bgcolor=\"#000000\"><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br>";
+echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br>";
 
 ?>
 

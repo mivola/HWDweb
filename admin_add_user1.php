@@ -5,7 +5,7 @@ extract($_SESSION);
 require("top.php");
 
 ?>
-<body bgcolor="#000000">
+<body>
 <br><b>neuen User anlegen</b><br><br>
 
 <form name="add_user_form" method="post" action="admin_add_user2.php">

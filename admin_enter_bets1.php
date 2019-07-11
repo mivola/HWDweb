@@ -44,7 +44,7 @@ if (mysql_num_rows($resultPlayBL2) > 0) {
 
 require("top.php");
 
-echo "<body bgcolor=\"#000000\"><br><b>Tipps f&uuml;r <font color=red>".$username[0]."</font> f&uuml;r den ".$play.". Spieltag eintragen:</b><br><br>";
+echo "<body><br><b>Tipps f&uuml;r <font color=red>".$username[0]."</font> f&uuml;r den ".$play.". Spieltag eintragen:</b><br><br>";
 
 ?>
 

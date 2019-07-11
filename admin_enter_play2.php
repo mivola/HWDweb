@@ -100,7 +100,7 @@ require("close_db.php");
 
 require("top.php");
 
-echo "<body bgcolor=\"#000000\"><br><b>Folgende Spiele des ".$play.". Spieltags erfolgreich gespeichert</b><br><br>";
+echo "<body><br><b>Folgende Spiele des ".$play.". Spieltags erfolgreich gespeichert</b><br><br>";
 
 // echo $query;
 // echo "<br>".$hour.", ".$min.", 0,".substr($date, 3, 2).", ".substr($date, 0, 2).", ".substr($date, 6, 4);

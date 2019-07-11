@@ -17,7 +17,7 @@ require("close_db.php");
 require("top.php");
 
 ?>
-<body bgcolor="#000000">
+<body>
 <br><b>Spieler und Spieltag ausw&auml;hlen</b><br>
 
 <form name="choose_play_form" method="post" action="admin_enter_bets1.php">

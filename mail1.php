@@ -12,7 +12,7 @@ require("top.php");
 
 ?>
 
-<body bgcolor="#000000">
+<body>
 <p align="center">&nbsp;</p>
 <p align="center">Hier k&ouml;nnt ihr eine Mail an alle anderen Teilnehmer schicken und
 denen kr&auml;tig auf den Geist gehen ;-)</p>

@@ -37,7 +37,7 @@ require("close_db.php");
 
 require("top.php");
 
-echo "<body bgcolor=\"#000000\"><br><b>".$play.". Spieltag eingeben</b><br><br>";
+echo "<body><br><b>".$play.". Spieltag eingeben</b><br><br>";
 
 $i = 0;
 $BL1 = array();

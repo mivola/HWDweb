@@ -64,7 +64,7 @@ require("close_db.php");
 
 require("top.php");
 
-echo "<body bgcolor=\"#000000\"><br><b>Aktuelle Stastistik</b><br><br>";
+echo "<body><br><b>Aktuelle Stastistik</b><br><br>";
 
 ?>
 

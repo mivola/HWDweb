@@ -366,7 +366,7 @@ require("close_db.php");
 
 require("top.php");
 
-echo "<body bgcolor=\"#000000\"><br><b>Folgende Ergebnisse des ".$play.". Spieltags erfolgreich gespeichert</b><br><br>";
+echo "<body><br><b>Folgende Ergebnisse des ".$play.". Spieltags erfolgreich gespeichert</b><br><br>";
 
 ?>
 

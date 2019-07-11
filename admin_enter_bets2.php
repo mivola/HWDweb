@@ -61,7 +61,7 @@ require("close_db.php");
 
 require("top.php");
 
-echo "<body bgcolor=#000000><br><b>Folgende Tipps wurden f&uuml;r <font color=red>".$username[0]."</font> f&uuml;r den ".$playID.". Spieltag eingetragen:</b><br><br>";
+echo "<body><br><b>Folgende Tipps wurden f&uuml;r <font color=red>".$username[0]."</font> f&uuml;r den ".$playID.". Spieltag eingetragen:</b><br><br>";
 
 ?>
 

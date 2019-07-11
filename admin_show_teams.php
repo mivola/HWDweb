@@ -14,7 +14,7 @@ require("top.php");
 
 ?>
 
-<body bgcolor="#000000">
+<body>
 <br><b>Teams verwalten</b><br><br>
 <form name=admin_teams method=post action=admin_save_teams.php onSubmit="return chk_admin_teams()">
 <table border="0">
