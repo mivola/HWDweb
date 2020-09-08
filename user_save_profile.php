@@ -14,7 +14,7 @@ if ($pass1 != "") {
 }
 $str = $str." WHERE id=".$act_userid;
 
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 

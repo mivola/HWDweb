@@ -9,29 +9,29 @@ require("connect_db.php");
 
 //id  play  team1  team2  p_ts  result1  result2  id  name  short  league  id2  name2  short2  league2
 $games1 = 1;
-//$resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
-$resultPlayBL1 = mysql_query("Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
+//$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
+$resultPlayBL1 = mysqli_query($connectedDb, "Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
 $stringResultPlayBL1 = "Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id";
 //echo "Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id";
-if (mysql_num_rows($resultPlayBL1) == 0) {
+if (mysqli_num_rows($resultPlayBL1) == 0) {
   $games1 = 0;
-//  $resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
+//  $resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
 }
 
 $games2=1;
-//$resultPlayBL2 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.id");
-$resultPlayBL2 = mysql_query("Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
+//$resultPlayBL2 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.id");
+$resultPlayBL2 = mysqli_query($connectedDb, "Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
 $stringResultPlayBL2 = "Select t1.id, t2.id2, g.p_ts from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.id";
-if (mysql_num_rows($resultPlayBL2) == 0) {
+if (mysqli_num_rows($resultPlayBL2) == 0) {
   $games2=0;
-//  $resultPlayBL2 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.id");
+//  $resultPlayBL2 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.id");
 }
 
 $str = "Select * from tbl_team where league=1 order by name";
-$resultBL1 = mysql_query($str);
-$resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
+$resultBL1 = mysqli_query($connectedDb, $str);
+$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
 $str = "Select * from tbl_team where league=2 order by name";
-$resultBL2 = mysql_query($str);
+$resultBL2 = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 
@@ -42,14 +42,14 @@ echo "<body bgcolor=\"#000000\"><br><b>".$play.". Spieltag eingeben</b><br><br>"
 $i = 0;
 $BL1 = array();
 $BL1_order = array();
-while($row = mysql_fetch_array($resultBL1)) {
+while($row = mysqli_fetch_array($resultBL1)) {
   $BL1[$i] = $row;
   $i++;
 }
 
 $i = 0;
 $BL2 = array();
-while($row = mysql_fetch_array($resultBL2)) {
+while($row = mysqli_fetch_array($resultBL2)) {
   $BL2[$i] = $row;
   $i++;
 }
@@ -119,7 +119,7 @@ function opencal(feld,startdat) {
     $id2 = -2;
 
     if ($games1 == 1){
-      $rowGame = mysql_fetch_array($resultPlayBL1);
+      $rowGame = mysqli_fetch_array($resultPlayBL1);
 
       if (isset($rowGame["p_ts"])){
         $date = date("d.m.Y",$rowGame["p_ts"]);
@@ -273,7 +273,7 @@ function opencal(feld,startdat) {
     $id2 = -2;
 
     if ($games2 == 1){
-      $rowGame = mysql_fetch_array($resultPlayBL2);
+      $rowGame = mysqli_fetch_array($resultPlayBL2);
 
       if ($rowGame["p_ts"] <> NULL){
         $date = date("d.m.Y",$rowGame["p_ts"]);

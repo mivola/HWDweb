@@ -4,7 +4,7 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$username = mysql_fetch_row(mysql_query("SELECT nick_name from tbl_user WHERE id=".$act_userid));
+$username = mysqli_fetch_row(mysqli_query($connectedDb, "SELECT nick_name from tbl_user WHERE id=".$act_userid));
 
 require("close_db.php");
 

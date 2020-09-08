@@ -40,12 +40,12 @@ require("connect_db.php");
 //$str = "SELECT * FROM tbl_extra_wins ew, tbl_user u WHERE ew.userID=0 AND ew.userID=u.id";
 $str = "SELECT * FROM tbl_extra_wins ew WHERE ew.userID=0";
 //echo $str."<br>";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 $wins = 0;
 $echoStr = "";
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
 
 //Meister
   if ( ($row["champ"] > 0) && ($row["champ"] == $champ) ) { $wins = $wins + 1; }
@@ -122,11 +122,11 @@ $email_body = "Folgende Extratipps wurden gespeichert:\n\n<br><br>";
 
 $str = "DELETE FROM tbl_extra_wins WHERE userID=".$act_userid;
 //echo $str;
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 $str = "INSERT INTO tbl_extra_wins values ($act_userid, $season, $champ, $second, $third, $forth, $fifth, $down1, $down2, $down3, $up1, $up2, $up3, $fired, $fired2, $wins)";
 //echo $str;
 //$str = "UPDATE tbl_extra_wins SET champ=".$champ." WHERE userID=".$act_userid;
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 //echo $str;
 
 //init string; just add column name of table extra_wins
@@ -134,72 +134,72 @@ $initStr = "SELECT t.name AS team_name FROM tbl_extra_wins ew, tbl_team t WHERE 
 
 //champ
 $str = $initStr."champ";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $champ = $result["team_name"];
 
 //second
 $str = $initStr."second";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $second = $result["team_name"];
 
 //third
 $str = $initStr."third";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $third = $result["team_name"];
 
 //forth
 $str = $initStr."forth";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $forth = $result["team_name"];
 
 //fifth
 $str = $initStr."fifth";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $fifth = $result["team_name"];
 
 //down1
 $str = $initStr."down1";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $down1 = $result["team_name"];
 
 //down2
 $str = $initStr."down2";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $down2 = $result["team_name"];
 
 //down3
 $str = $initStr."down3";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $down3 = $result["team_name"];
 
 //up1
 $str = $initStr."up1";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $up1 = $result["team_name"];
 
 //up2
 $str = $initStr."up2";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $up2 = $result["team_name"];
 
 //up3
 $str = $initStr."up3";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $up3 = $result["team_name"];
 
 //fired
 $str = $initStr."fired";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $fired = $result["team_name"];
 
 //fired2
 $str = $initStr."fired2";
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $fired2 = $result["team_name"];
 
 //email
 $str = "SELECT u.email AS mail FROM tbl_user u WHERE u.id=".$act_userid;
-$result = mysql_fetch_array( mysql_query($str) );
+$result = mysqli_fetch_array( mysqli_query($connectedDb, $str) );
 $email = $result["mail"];
 
 

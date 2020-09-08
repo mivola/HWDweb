@@ -7,35 +7,35 @@ require("connect_db.php");
 
 $bets1=1;
 // mit bet: Select * from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=1 and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id
-$resultPlayBL1 = mysql_query("Select *, b.id AS betId from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id and b.userID=".$act_userid." order by g.p_ts, g.id");
+$resultPlayBL1 = mysqli_query($connectedDb, "Select *, b.id AS betId from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id and b.userID=".$act_userid." order by g.p_ts, g.id");
 // SELECT g.id, g.p_ts, t1.name, t2.name2, b.bet1, g.bet2 FROM tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where g.play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id order by g.id
-if (mysql_num_rows($resultPlayBL1) < 9) {
-//if (mysql_num_rows($resultPlayBL1) == 0) {
+if (mysqli_num_rows($resultPlayBL1) < 9) {
+//if (mysqli_num_rows($resultPlayBL1) == 0) {
   $bets1=0;
   // SELECT g.id, g.p_ts, t1.name, t2.name2 FROM tbl_game g, tbl_team t1, view_team2 t2 where g.play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id
-  $resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
+  $resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
 }
 
 $bets2=1;
-$resultPlayBL2 = mysql_query("Select *, b.id AS betId from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id and b.userID=".$act_userid." order by g.p_ts, g.id");
-if (mysql_num_rows($resultPlayBL2) == 0) {
+$resultPlayBL2 = mysqli_query($connectedDb, "Select *, b.id AS betId from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id and b.userID=".$act_userid." order by g.p_ts, g.id");
+if (mysqli_num_rows($resultPlayBL2) == 0) {
   $bets2=0;
-  $resultPlayBL2 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
+  $resultPlayBL2 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
 }
 
-//$resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id");
-//$resultPlayBL2 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2");
+//$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2, tbl_bet b where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id");
+//$resultPlayBL2 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2");
 
-$resultBL1 = mysql_query("Select * from tbl_team where league=1 order by name");
-$resultBL2 = mysql_query("Select * from tbl_team where league=2 order by name");
+$resultBL1 = mysqli_query($connectedDb, "Select * from tbl_team where league=1 order by name");
+$resultBL2 = mysqli_query($connectedDb, "Select * from tbl_team where league=2 order by name");
 
 
 //abfrage nach frühester startzeit des spieltages
 $joker1 = 0;
 $joker1Set = 0;
 $joker1AlreadyUsed = 0;
-$resultJoker = mysql_query("SELECT min(p_ts) as min FROM tbl_game g WHERE g.play=".$play);
-$row = mysql_fetch_array($resultJoker);
+$resultJoker = mysqli_query($connectedDb, "SELECT min(p_ts) as min FROM tbl_game g WHERE g.play=".$play);
+$row = mysqli_fetch_array($resultJoker);
 $now = mktime();
 //echo "\n<br>".$now;
 //echo "\n<br>".$row["min"];
@@ -48,7 +48,7 @@ if (($row["min"] - $now) < 300) {
 require("close_db.php");
 
 $maxi = 9;
-if (mysql_num_rows($resultPlayBL2) > 0) {
+if (mysqli_num_rows($resultPlayBL2) > 0) {
   $maxi = 12;
 }
 
@@ -85,7 +85,7 @@ echo "<body><br><b>Tipps f&uuml;r ".$play.". Spieltag eintragen:</b><br><br>";
   $k = 0;
   for ($j=1; $j<=9; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL1);
+    $row = mysqli_fetch_array($resultPlayBL1);
 
     if ($bets1 > 0){
       $game=$row["game"];
@@ -227,7 +227,7 @@ if ($maxi>9){
 
   for ($j=10; $j<=12; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL2);
+    $row = mysqli_fetch_array($resultPlayBL2);
 
     if ($bets2 > 0){
       $game=$row["game"];

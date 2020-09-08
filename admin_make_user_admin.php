@@ -5,7 +5,7 @@ extract($_SESSION);
 require("connect_db.php");
 
 $str = "Update tbl_user set admin=$option where id=$userid";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 

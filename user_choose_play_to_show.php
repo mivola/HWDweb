@@ -6,7 +6,7 @@ require("connect_db.php");
 
 //$str = "SELECT id FROM tbl_play WHERE recorded > 0 AND season=".$season;
 $str = "SELECT g.play AS play, min(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 AND season=".$season." GROUP BY g.play ORDER BY g.play DESC";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 
@@ -22,7 +22,7 @@ require("top.php");
 <?PHP
 
 $i = 0;
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   $plays[$i] = $row["play"];
   $i++;
 }

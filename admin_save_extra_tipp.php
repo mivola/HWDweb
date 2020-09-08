@@ -6,9 +6,9 @@ extract($_POST);
 require("connect_db.php");
 
 //$str = "SELECT * FROM tbl_extra_wins WHERE userID > 0";
-$result2 = mysql_query("SELECT * FROM tbl_extra_wins WHERE userID > 0");
+$result2 = mysqli_query($connectedDb, "SELECT * FROM tbl_extra_wins WHERE userID > 0");
 
-while($row = mysql_fetch_array($result2)) {
+while($row = mysqli_fetch_array($result2)) {
 
   $wins = 0;
 
@@ -95,15 +95,15 @@ while($row = mysql_fetch_array($result2)) {
 
   $str = "UPDATE tbl_extra_wins SET wins=".$wins." WHERE userID=".$row["userID"];
 //echo $str;
-  $result = mysql_query($str);
+  $result = mysqli_query($connectedDb, $str);
 
 }
 
 $str = "DELETE FROM tbl_extra_wins WHERE userID=0";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 $str = "INSERT INTO tbl_extra_wins values (0, $season, $champ, $second, $third, $forth, $fifth, $down1, $down2, $down3, $up1, $up2, $up3, $fired, $fired2, 0)";
 //$str = "UPDATE tbl_extra_wins SET champ=".$champ." WHERE userID=".$act_userid;
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 //echo $str;
 //$str = "UPDATE tbl_user SET email='".$tmp_email."', show_tipps=".$show_tipps.", show_long=".$tmp_show_long.", table_head='$table_head', table_lineA='$table_lineA', table_lineB='$table_lineB', table_colA='$table_colA', table_colB='$table_colB', table_max_points='$table_max_points' ";
 

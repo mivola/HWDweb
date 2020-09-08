@@ -32,26 +32,26 @@ for ($i=1; $i <= $maxi; $i++){
   $bet2 = trim($bets[$i+12]);
   if ($bet1 == "") { $bet1 = "-1"; }
   if ($bet2 == "") { $bet2 = "-1"; }
-  $result1 = mysql_query("DELETE FROM tbl_bet WHERE game=".$game." AND userID=".$new_user_id);
+  $result1 = mysqli_query($connectedDb, "DELETE FROM tbl_bet WHERE game=".$game." AND userID=".$new_user_id);
   $query = "INSERT INTO tbl_bet (userID, game, bet1, bet2, bet_ts) VALUES (".$new_user_id.", ".$game.", ".$bet1.", ".$bet2.", ".time().")";
   //echo $query;
-  $resultBets[$i] = mysql_query($query);
+  $resultBets[$i] = mysqli_query($connectedDb, $query);
 
   //echo "<br>".$query;
 }
 
 
 //Select * from tbl_bet b, tbl_game g, tbl_team t1, view_team2 t2 where play=1 and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id
-//$resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1");
-$resultPlayBL1 = mysql_query("Select * from tbl_bet b, tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id and b.userID=".$new_user_id." order by g.id");
-$resultPlayBL2 = mysql_query("Select * from tbl_bet b, tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id and b.userID=".$new_user_id." order by g.id");
-$username = mysql_fetch_row(mysql_query("SELECT nick_name from tbl_user WHERE id=".$new_user_id));
+//$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1");
+$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_bet b, tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 and b.game=g.id and b.userID=".$new_user_id." order by g.id");
+$resultPlayBL2 = mysqli_query($connectedDb, "Select * from tbl_bet b, tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 and b.game=g.id and b.userID=".$new_user_id." order by g.id");
+$username = mysqli_fetch_row(mysqli_query($connectedDb, "SELECT nick_name from tbl_user WHERE id=".$new_user_id));
 
-//$resultBL1 = mysql_query("Select * from tbl_team where league=1 order by name");
-//$resultBL2 = mysql_query("Select * from tbl_team where league=2 order by name");
+//$resultBL1 = mysqli_query($connectedDb, "Select * from tbl_team where league=1 order by name");
+//$resultBL2 = mysqli_query($connectedDb, "Select * from tbl_team where league=2 order by name");
 
 $maxi = 9;
-if (mysql_num_rows($resultPlayBL2) > 0) {
+if (mysqli_num_rows($resultPlayBL2) > 0) {
   $maxi = 12;
 }
 
@@ -83,7 +83,7 @@ echo "<body bgcolor=#000000><br><b>Folgende Tipps wurden f&uuml;r <font color=re
   $k = 0;
   for ($j=1; $j<=9; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL1);
+    $row = mysqli_fetch_array($resultPlayBL1);
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
 
@@ -122,7 +122,7 @@ echo "<body bgcolor=#000000><br><b>Folgende Tipps wurden f&uuml;r <font color=re
 
   for ($j=10; $j<=12; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL2);
+    $row = mysqli_fetch_array($resultPlayBL2);
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
 

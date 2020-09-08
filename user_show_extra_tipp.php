@@ -4,8 +4,8 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$result = mysql_query("SELECT * FROM tbl_extra_wins e WHERE userID=0");
-while($row = mysql_fetch_array($result)){
+$result = mysqli_query($connectedDb, "SELECT * FROM tbl_extra_wins e WHERE userID=0");
+while($row = mysqli_fetch_array($result)){
   $act_champ = $row["champ"];
   $act_second = $row["second"];
   $act_third = $row["third"];
@@ -27,14 +27,14 @@ $lastAllowedLeague = 1;
 $play_str = "SELECT g.play AS play, min(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g, tbl_team t WHERE p.id=g.play AND g.team1 = t.id AND t.league = ".$lastAllowedLeague." AND p.recorded > 0 AND season=".$season." AND g.play=".$lastPlayAllowed." GROUP BY g.play";
 
 //echo $play_str;
-$play = mysql_query($play_str);
-$resultPlays = mysql_query("SELECT * FROM tbl_play WHERE completed>0 AND id>1");
+$play = mysqli_query($connectedDb, $play_str);
+$resultPlays = mysqli_query($connectedDb, "SELECT * FROM tbl_play WHERE completed>0 AND id>1");
 //$str = "SELECT g.play AS play, max(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND season=".$season." AND p.id=3 AND p_ts<SYSDATE() GROUP BY g.play";
-//$resultPlays = mysql_query($str);
+//$resultPlays = mysqli_query($connectedDb, $str);
 
-$result = mysql_query("SELECT e.* FROM tbl_user u, tbl_extra_wins e WHERE u.id=".$act_userid." AND e.userID=u.id");
+$result = mysqli_query($connectedDb, "SELECT e.* FROM tbl_user u, tbl_extra_wins e WHERE u.id=".$act_userid." AND e.userID=u.id");
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   if ( !isset($row["champ"])){ $champ=0; } else { $champ = $row["champ"]; }
   if ( !isset($row["second"])){ $second=0; } else { $second = $row["second"]; }
   if ( !isset($row["third"])){ $third=0; } else { $third = $row["third"]; }
@@ -50,16 +50,16 @@ while($row = mysql_fetch_array($result)) {
   if ( !isset($row["fired2"])){ $fired2=0; } else { $fired2 = $row["fired2"]; }
 }
 
-$resultBL1 = mysql_query("SELECT * FROM tbl_team WHERE league=1 ORDER BY name");
-$resultBL2 = mysql_query("SELECT * FROM tbl_team WHERE league=2 ORDER BY name");
+$resultBL1 = mysqli_query($connectedDb, "SELECT * FROM tbl_team WHERE league=1 ORDER BY name");
+$resultBL2 = mysqli_query($connectedDb, "SELECT * FROM tbl_team WHERE league=2 ORDER BY name");
 
-//$result_users = mysql_query("SELECT u.nick_name, e.* FROM tbl_user u, tbl_extra_wins e WHERE u.id=e.userID");
+//$result_users = mysqli_query($connectedDb, "SELECT u.nick_name, e.* FROM tbl_user u, tbl_extra_wins e WHERE u.id=e.userID");
 
-$resultUsers = mysql_query("SELECT * FROM tbl_user u, tbl_extra_wins e WHERE u.id=e.userID ORDER BY u.id");
-//$resultUsers = mysql_query("SELECT * FROM tbl_user ORDER BY id");
-for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
+$resultUsers = mysqli_query($connectedDb, "SELECT * FROM tbl_user u, tbl_extra_wins e WHERE u.id=e.userID ORDER BY u.id");
+//$resultUsers = mysqli_query($connectedDb, "SELECT * FROM tbl_user ORDER BY id");
+for ($i = 1; $i <= mysqli_num_rows($resultUsers); $i++){
 
-  $row = mysql_fetch_array($resultUsers);
+  $row = mysqli_fetch_array($resultUsers);
   $users[$i] = $row["id"];
   $user_names[$i] = $row["nick_name"];
   $user_show_tipps[$i] = $row["show_tipps"];
@@ -90,14 +90,14 @@ require("close_db.php");
 $i = 0;
 $BL1 = array();
 $BL1_order = array();
-while($row = mysql_fetch_array($resultBL1)) {
+while($row = mysqli_fetch_array($resultBL1)) {
   $BL1[$i] = $row;
   $i++;
 }
 
 $i = 0;
 $BL2 = array();
-while($row = mysql_fetch_array($resultBL2)) {
+while($row = mysqli_fetch_array($resultBL2)) {
   $BL2[$i] = $row;
   $i++;
 }
@@ -120,7 +120,7 @@ echo "Extra-Tipps sind bis zum Beginn des ".$lastPlayAllowed.". Spieltags erlaub
 </b><br><br>
 
 <?PHP
-  if (mysql_num_rows($resultPlays) == 0) {
+  if (mysqli_num_rows($resultPlays) == 0) {
 	  echo "<form name=\"extra_tipp\" method=post action=\"user_save_extra_tipp.php\">";
 	  echo "<table>";
 	  echo "<tr style=background-color:".$table_head."><td align=right>Wer? Was?</td><td>Dein Tipp</td></tr>";
@@ -499,7 +499,7 @@ echo "Extra-Tipps sind bis zum Beginn des ".$lastPlayAllowed.". Spieltags erlaub
 	  $rightNow = mktime();
 	  $alreadyToLate = 0; // 0 == false
 	  //echo "0";
-	  while($row = mysql_fetch_array($play)) {
+	  while($row = mysqli_fetch_array($play)) {
 	    //echo "1";
 	    //echo "2: ".$rightNow;
 	    //echo "2: ".$row["p_ts"];
