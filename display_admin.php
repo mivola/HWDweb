@@ -4,11 +4,11 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$result = mysql_query("Select * from tbl_user where nick_name = '".$_REQUEST['name']."' and password = '".$_REQUEST['pass']."' and admin <> 0");
+$result = mysqli_query($connectedDb, "Select * from tbl_user where nick_name = '".$_REQUEST['name']."' and password = '".$_REQUEST['pass']."' and admin <> 0");
 
 require("close_db.php");
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   $act_userid = $row["id"];
   $first_name = $row["first_name"];
   $last_name = $row["last_name"];
@@ -28,7 +28,7 @@ while($row = mysql_fetch_array($result)) {
 }
 
 
-if (mysql_num_rows($result) == 0){
+if (mysqli_num_rows($result) == 0){
 
   require("index_top.php");
 
@@ -44,7 +44,7 @@ extract($_SESSION);
 
   require("connect_db.php");
 
-  $result = mysql_query("UPDATE tbl_user SET last_loggin=".mktime().", logged_in=1 WHERE id=".$act_userid);
+  $result = mysqli_query($connectedDb, "UPDATE tbl_user SET last_loggin=".mktime().", logged_in=1 WHERE id=".$act_userid);
 
   require("close_db.php");
 

@@ -4,7 +4,7 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$result = mysql_query("SELECT * FROM tbl_user WHERE id=".$act_userid);
+$result = mysqli_query($connectedDb, "SELECT * FROM tbl_user WHERE id=".$act_userid);
 
 require("close_db.php");
 
@@ -60,7 +60,7 @@ require("top.php");
 <table class="noBorder">
 <?PHP
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
 
   echo "<tr></tr><tr><td><b>Details</b></td></tr>\n";
   echo "<tr><td align=right>Vorname</td><td>".$row["first_name"]."</td></tr>\n";

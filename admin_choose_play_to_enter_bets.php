@@ -7,10 +7,10 @@ require("connect_db.php");
 // zum bearbeiten: Select distinct tbl_play.id from tbl_game, tbl_play, tbl_bet where tbl_game.play=tbl_play.id and tbl_bet.game=tbl_game.id and recorded>0 and season=2 and tbl_bet.userID=1
 $str = "SELECT id FROM tbl_play WHERE recorded > 0 AND completed = 0 AND season=".$season;
 $str = "SELECT g.play AS play, max(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 AND completed = 0 AND season=".$season." GROUP BY g.play";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 $str = "SELECT * from tbl_user";
-$users = mysql_query($str);
+$users = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 
@@ -26,14 +26,14 @@ require("top.php");
 <?PHP
 
 $i = 0;
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   $plays[$i] = $row["play"];
   $i++;
 }
 
 if ($i > 0) {
   echo "<select name=new_user_id size=1>\n";
-  while($row = mysql_fetch_array($users)) {
+  while($row = mysqli_fetch_array($users)) {
     if ($act_userid != $row["id"]) {
       echo "<option value=".$row["id"].">".$row["nick_name"]."</option>\n";
     }

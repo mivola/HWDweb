@@ -4,19 +4,19 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-  $resultUsers = mysql_query("SELECT * FROM tbl_user u ORDER BY u.id");
-  for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
+  $resultUsers = mysqli_query($connectedDb, "SELECT * FROM tbl_user u ORDER BY u.id");
+  for ($i = 1; $i <= mysqli_num_rows($resultUsers); $i++){
 
-    $row = mysql_fetch_array($resultUsers);
+    $row = mysqli_fetch_array($resultUsers);
     $users[$i] = $row["id"];
     $user_names[$i] = $row["nick_name"];
     $user_show_tipps[$i] = $row["show_tipps"];
 
   } //for
 
-$resultPlays = mysql_query("SELECT id, recorded FROM tbl_play WHERE season=".$season." ORDER BY id");
+$resultPlays = mysqli_query($connectedDb, "SELECT id, recorded FROM tbl_play WHERE season=".$season." ORDER BY id");
 $j = 1;
-while ($row = mysql_fetch_row($resultPlays)) {
+while ($row = mysqli_fetch_row($resultPlays)) {
   $plays[$j] = $row[0];
   $recorded[$j] = $row[1];
   $j++;
@@ -24,7 +24,7 @@ while ($row = mysql_fetch_row($resultPlays)) {
 
 foreach($plays as $play) {
 
-  $resultUsers = mysql_query("SELECT *, u.id AS userID FROM tbl_user u, tbl_points p, tbl_wins w WHERE p.userID=u.id AND p.play=".$play." AND w.userID=u.id AND w.play=p.play ORDER BY u.id");
+  $resultUsers = mysqli_query($connectedDb, "SELECT *, u.id AS userID FROM tbl_user u, tbl_points p, tbl_wins w WHERE p.userID=u.id AND p.play=".$play." AND w.userID=u.id AND w.play=p.play ORDER BY u.id");
     
   foreach ($users as $user_id){
     $results[$play][$user_id] = "---";
@@ -32,9 +32,9 @@ foreach($plays as $play) {
   
   $sum = 0;
   
-  for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
+  for ($i = 1; $i <= mysqli_num_rows($resultUsers); $i++){
   
-    $row = mysql_fetch_array($resultUsers);
+    $row = mysqli_fetch_array($resultUsers);
 //    $results[$play][$i] = $row["points"];
 //    $wins[$play][$i] = $row["wins"];
 //echo "row.userID: ".$row["userID"]."\n";
@@ -51,7 +51,7 @@ foreach($plays as $play) {
   
   //durchschnitt
   if ($sum > 0){
-    $results[$play][-13] = round($sum/mysql_num_rows($resultUsers), 2);
+    $results[$play][-13] = round($sum/mysqli_num_rows($resultUsers), 2);
     if (! strpos($results[$play][-13], ".")) {
       $results[$play][-13] = $results[$play][-13].".00";
     }

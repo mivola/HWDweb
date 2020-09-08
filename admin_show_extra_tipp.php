@@ -4,9 +4,9 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$result = mysql_query("SELECT e.* FROM tbl_extra_wins e WHERE e.userID=0");
+$result = mysqli_query($connectedDb, "SELECT e.* FROM tbl_extra_wins e WHERE e.userID=0");
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   if ( !isset($row["champ"])){ $champ=0; } else { $champ = $row["champ"]; }
   if ( !isset($row["second"])){ $second=0; } else { $second = $row["second"]; }
   if ( !isset($row["third"])){ $third=0; } else { $third = $row["third"]; }
@@ -22,22 +22,22 @@ while($row = mysql_fetch_array($result)) {
   if ( !isset($row["fired2"])){ $fired2=0; } else { $fired2 = $row["fired2"]; }
 }
 
-$resultBL1 = mysql_query("SELECT * FROM tbl_team WHERE league=1 ORDER BY name");
-$resultBL2 = mysql_query("SELECT * FROM tbl_team WHERE league=2 ORDER BY name");
+$resultBL1 = mysqli_query($connectedDb, "SELECT * FROM tbl_team WHERE league=1 ORDER BY name");
+$resultBL2 = mysqli_query($connectedDb, "SELECT * FROM tbl_team WHERE league=2 ORDER BY name");
 
 require("close_db.php");
 
 $i = 0;
 $BL1 = array();
 $BL1_order = array();
-while($row = mysql_fetch_array($resultBL1)) {
+while($row = mysqli_fetch_array($resultBL1)) {
   $BL1[$i] = $row;
   $i++;
 }
 
 $i = 0;
 $BL2 = array();
-while($row = mysql_fetch_array($resultBL2)) {
+while($row = mysqli_fetch_array($resultBL2)) {
   $BL2[$i] = $row;
   $i++;
 }
