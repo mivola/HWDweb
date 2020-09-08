@@ -24,14 +24,14 @@ for ($i=1; $i <= 24; $i++){
 require("connect_db.php");
 
 $str = "SELECT * from tbl_user";
-$users_email = mysql_query($str);
+$users_email = mysqli_query($connectedDb, $str);
 $min_points = -3;
 
-$resultUsers = mysql_query("SELECT * FROM tbl_user ORDER BY id");
+$resultUsers = mysqli_query($connectedDb, "SELECT * FROM tbl_user ORDER BY id");
 
-for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
-  $row = mysql_fetch_array($resultUsers);
-//while($row = mysql_fetch_array($resultUsers)){
+for ($i = 1; $i <= mysqli_num_rows($resultUsers); $i++){
+  $row = mysqli_fetch_array($resultUsers);
+//while($row = mysqli_fetch_array($resultUsers)){
   $tempId = $row["id"];
   $users[$tempId] = $row["id"];
   $user_names[$tempId] = $row["nick_name"];
@@ -51,7 +51,7 @@ for ($i=1; $i <= 12; $i++){
   // save the result of the current game
   $query = "UPDATE tbl_game SET result1=".$res1.", result2=".$res2." WHERE id=".$game;
   //echo $query."<br>\n";
-  $resultBL1[$i] = mysql_query($query);
+  $resultBL1[$i] = mysqli_query($connectedDb, $query);
 
   //echo "<br>".$query;
 
@@ -65,8 +65,8 @@ for ($i=1; $i <= 12; $i++){
       $user_bets2[$userid][$i][1] = -1;
 //echo("SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid);
       $query = "SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid;
-      $bets = mysql_query($query);
-      $row = mysql_fetch_array($bets);
+      $bets = mysqli_query($connectedDb, $query);
+      $row = mysqli_fetch_array($bets);
       $bet1 = $row["bet1"];
       $bet2 = $row["bet2"];
       if ($bet1 == "") { $bet1 = -1; }
@@ -308,31 +308,31 @@ if ($cnt_max_points == 2) {
     // Points und Win-Punkte eintragen
     foreach ($users as $userid){
       //echo "<br><br>spieler: ".$userid."; punkte: ".$points[$userid];
-      mysql_query("DELETE FROM tbl_points WHERE play=".$play." AND userID=".$userid);
+      mysqli_query($connectedDb, "DELETE FROM tbl_points WHERE play=".$play." AND userID=".$userid);
       $query = "INSERT INTO tbl_points (play, userID, points) VALUES (".$play.", ".$userid.", ".$points[$userid].")";
-      mysql_query($query);
-      mysql_query("DELETE FROM tbl_wins WHERE play=".$play." AND userID=".$userid);
+      mysqli_query($connectedDb, $query);
+      mysqli_query($connectedDb, "DELETE FROM tbl_wins WHERE play=".$play." AND userID=".$userid);
       if ($max_points == $points[$userid]){
         $query = "INSERT INTO tbl_wins (play, userID, wins) VALUES (".$play.", ".$userid.", $max_points_win)";
-        mysql_query($query);
+        mysqli_query($connectedDb, $query);
       } else if ($max_points2 == $points[$userid]){
         $query = "INSERT INTO tbl_wins (play, userID, wins) VALUES (".$play.", ".$userid.", $max_points2_win)";
-        mysql_query($query);
+        mysqli_query($connectedDb, $query);
       } else if ($max_points3 == $points[$userid]){
         $query = "INSERT INTO tbl_wins (play, userID, wins) VALUES (".$play.", ".$userid.", $max_points3_win)";
-        mysql_query($query);
+        mysqli_query($connectedDb, $query);
       } else if ($max_points4 == $points[$userid]){
         $query = "INSERT INTO tbl_wins (play, userID, wins) VALUES (".$play.", ".$userid.", $max_points4_win)";
-        mysql_query($query);
+        mysqli_query($connectedDb, $query);
       } else if ($max_points5 == $points[$userid]){
         $query = "INSERT INTO tbl_wins (play, userID, wins) VALUES (".$play.", ".$userid.", $max_points5_win)";
-        mysql_query($query);
+        mysqli_query($connectedDb, $query);
       } else {
         $query = "INSERT INTO tbl_wins (play, userID, wins) VALUES (".$play.", ".$userid.", 0)";
-        mysql_query($query);
+        mysqli_query($connectedDb, $query);
       } // if ($max_points == $points[$userid]){
     } // foreach
-    mysql_query("UPDATE tbl_play SET completed=1 WHERE id=".$play);
+    mysqli_query($connectedDb, "UPDATE tbl_play SET completed=1 WHERE id=".$play);
 
     $header = "From: HWD<admin@hwd.bts-computer.de>\n";
     $header .= "Reply-To: HWD<admin@hwd.bts-computer.de>\n";
@@ -343,7 +343,7 @@ if ($cnt_max_points == 2) {
 
     $to = "";
     $i = 0;
-    while($row = mysql_fetch_array($users_email)) {
+    while($row = mysqli_fetch_array($users_email)) {
       if ($i > 0) { $to .= ", "; }
       $to .= $row["email"];
       $i++;
@@ -355,10 +355,10 @@ if ($cnt_max_points == 2) {
   } // if ($free > -1)
 
 
-//$resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
+//$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.id");
 //echo("SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.p_ts, g.id");
-$resultPlayBL1 = mysql_query("SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.p_ts, g.id");
-$resultPlayBL2 = mysql_query("SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.p_ts, g.id");
+$resultPlayBL1 = mysqli_query($connectedDb, "SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.p_ts, g.id");
+$resultPlayBL2 = mysqli_query($connectedDb, "SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.p_ts, g.id");
 
 //SELECT * FROM tbl_wins w WHERE play=".$play."
 
@@ -398,7 +398,7 @@ echo "<body bgcolor=\"#000000\"><br><b>Folgende Ergebnisse des ".$play.". Spielt
   for ($j=1; $j<=9; $j++){
     $k = $j + 12;
 
-    $row = mysql_fetch_array($resultPlayBL1);
+    $row = mysqli_fetch_array($resultPlayBL1);
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
 
@@ -540,7 +540,7 @@ echo "<body bgcolor=\"#000000\"><br><b>Folgende Ergebnisse des ".$play.". Spielt
   for ($j=10; $j<=12; $j++){
     $k = $j + 12;
 
-    $row = mysql_fetch_array($resultPlayBL2);
+    $row = mysqli_fetch_array($resultPlayBL2);
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
 

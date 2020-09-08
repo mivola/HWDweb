@@ -5,7 +5,7 @@ extract($_SESSION);
 require("connect_db.php");
 
 $str = "Delete from tbl_user where id=$userid";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 

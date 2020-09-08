@@ -8,7 +8,7 @@ require("connect_db.php");
 // $str = "Select id from tbl_play where recorded=0 and season=".$season;
 //$str = "SELECT g.play AS play, max(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 GROUP BY g.play";
 $str = "SELECT g.play AS play, min(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 AND p.completed=0 AND season=".$season." GROUP BY g.play";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 
@@ -26,7 +26,7 @@ require("top.php");
 
 $t = mktime() - 7200;
 $i = 0;
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   if ($row["p_ts"] < $t){
     $plays[$i] = $row["play"];
     $i++;

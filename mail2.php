@@ -5,7 +5,7 @@ extract($_SESSION);
 
 require("connect_db.php");
 $str = "SELECT * from tbl_user";
-$users = mysql_query($str);
+$users = mysqli_query($connectedDb, $str);
 require("close_db.php");
 
 
@@ -68,7 +68,7 @@ echo $value;
 
     $to = "";
     $i = 0;
-    while($row = mysql_fetch_array($users)) {
+    while($row = mysqli_fetch_array($users)) {
       if ($i > 0) { $to .= "; "; }
       $to .= $row["email"];
       $i++;

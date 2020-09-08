@@ -5,9 +5,9 @@ extract($_SESSION);
 require("connect_db.php");
 $min_points = -3;
 
-$resultUsers = mysql_query("SELECT * FROM tbl_user ORDER BY id");
-for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
-  $row = mysql_fetch_array($resultUsers);
+$resultUsers = mysqli_query($connectedDb, "SELECT * FROM tbl_user ORDER BY id");
+for ($i = 1; $i <= mysqli_num_rows($resultUsers); $i++){
+  $row = mysqli_fetch_array($resultUsers);
   $users[$row["id"]] = $row["id"];
   $user_names[$row["id"]] = $row["nick_name"];
   $user_show_tipps[$row["id"]] = $row["show_tipps"];
@@ -16,14 +16,18 @@ for ($i = 1; $i <= mysql_num_rows($resultUsers); $i++){
   //echo $users[$i]."!<br>";
 } //for
 
+//echo '<pre>'; print_r($_REQUEST); echo '</pre>';
+//echo "play: ".$_REQUEST['play'];
+//echo '<pre>'; print_r($_SESSION); echo '</pre>';
 
 $str_resultPlayBL1 = "SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$_REQUEST['play']." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.p_ts, g.id";
 $str_resultPlayBL2 = "SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$_REQUEST['play']." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.p_ts, g.id";
-$resultPlayBL1 = mysql_query($str_resultPlayBL1);
-$resultPlayBL2 = mysql_query($str_resultPlayBL2);
+$resultPlayBL1 = mysqli_query($connectedDb, $str_resultPlayBL1);
+$resultPlayBL2 = mysqli_query($connectedDb, $str_resultPlayBL2);
 
-for ($i = 1; $i <= mysql_num_rows($resultPlayBL1); $i++){
-  $row = mysql_fetch_array($resultPlayBL1);
+for ($i = 1; $i <= mysqli_num_rows($resultPlayBL1); $i++){
+  $row = mysqli_fetch_array($resultPlayBL1);
+  //echo "row: ".$row;
   $games[$i] = $row["id"];
   $team1[$i] = $row["name"];
   $team2[$i] = $row["name2"];
@@ -36,7 +40,7 @@ for ($i = 1; $i <= mysql_num_rows($resultPlayBL1); $i++){
 }
 
 for ($i = 10; $i < 13; $i++){
-  $row = mysql_fetch_array($resultPlayBL2);
+  $row = mysqli_fetch_array($resultPlayBL2);
   $games[$i] = $row["id"];
   $team1[$i] = $row["name"];
   $team2[$i] = $row["name2"];
@@ -65,8 +69,9 @@ for ($i=1; $i <= 12; $i++){
       $user_bets2[$userid][$i][1] = -1;
 
       $query = "SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid;
-      $bets = mysql_query($query);
-      $row = mysql_fetch_array($bets);
+      $bets = mysqli_query($connectedDb, $query);
+	  //echo "bets: ".$bets." for: SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid;
+      $row = mysqli_fetch_array($bets);
       $bet1 = $row["bet1"];
       $bet2 = $row["bet2"];
       if ($bet1 == "") { $bet1 = -1; }
@@ -321,10 +326,10 @@ if ($cnt_max_points == 2) {
 
 
 
-//$resultPlayBL1 = mysql_query("SELECT g.id, t1.name, t2.name2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$_REQUEST[play]." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.id");
-//$resultPlayBL2 = mysql_query("SELECT g.id, t1.name, t2.name2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$_REQUEST[play]." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.id");
-$resultPlayBL1 = mysql_query($str_resultPlayBL1);
-$resultPlayBL2 = mysql_query($str_resultPlayBL2);
+//$resultPlayBL1 = mysqli_query($connectedDb, "SELECT g.id, t1.name, t2.name2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$_REQUEST[play]." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.id");
+//$resultPlayBL2 = mysqli_query($connectedDb, "SELECT g.id, t1.name, t2.name2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$_REQUEST[play]." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.id");
+$resultPlayBL1 = mysqli_query($connectedDb, $str_resultPlayBL1);
+$resultPlayBL2 = mysqli_query($connectedDb, $str_resultPlayBL2);
 
 
 require("close_db.php");
@@ -363,7 +368,7 @@ echo "<body><br><b>Tipps und Ergebnisse des ".$_REQUEST['play'].". Spieltags:</b
   for ($j=1; $j<=9; $j++){
     $k = $j + 12;
 
-    $row = mysql_fetch_array($resultPlayBL1);
+    $row = mysqli_fetch_array($resultPlayBL1);
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
 
@@ -512,7 +517,7 @@ echo "<body><br><b>Tipps und Ergebnisse des ".$_REQUEST['play'].". Spieltags:</b
   for ($j=10; $j<=12; $j++){
     $k = $j + 12;
 
-    $row = mysql_fetch_array($resultPlayBL2);
+    $row = mysqli_fetch_array($resultPlayBL2);
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
 
