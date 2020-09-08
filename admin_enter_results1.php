@@ -8,11 +8,11 @@ $freeChkBox = 1;
 
 require("connect_db.php");
 
-$resultPlayBL1 = mysql_query("SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.p_ts, g.id");
-$resultPlayBL2 = mysql_query("SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.p_ts, g.id");
+$resultPlayBL1 = mysqli_query($connectedDb, "SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=1 ORDER BY g.p_ts, g.id");
+$resultPlayBL2 = mysqli_query($connectedDb, "SELECT g.id, t1.name, t1.short, t2.name2, t2.short2, p_ts, result1, result2 from tbl_game g, tbl_team t1, view_team2 t2 WHERE play=".$play." AND t1.id=g.team1 AND t2.id2=g.team2 AND t1.league=2 ORDER BY g.p_ts, g.id");
 
-$resultBL1 = mysql_query("Select * from tbl_team where league=1 order by name");
-$resultBL2 = mysql_query("Select * from tbl_team where league=2 order by name");
+$resultBL1 = mysqli_query($connectedDb, "Select * from tbl_team where league=1 order by name");
+$resultBL2 = mysqli_query($connectedDb, "Select * from tbl_team where league=2 order by name");
 
 require("close_db.php");
 
@@ -50,7 +50,7 @@ echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br
   $k = 0;
   for ($j=1; $j<=9; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL1);
+    $row = mysqli_fetch_array($resultPlayBL1);
 
     $game=$row["id"];
 
@@ -136,7 +136,7 @@ echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br
 
   for ($j=10; $j<=12; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL2);
+    $row = mysqli_fetch_array($resultPlayBL2);
 
     $game=$row["id"];
 

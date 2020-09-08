@@ -4,7 +4,7 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$result = mysql_query("Select * from tbl_user ORDER BY ID");
+$result = mysqli_query($connectedDb, "Select * from tbl_user ORDER BY ID");
 
 require("close_db.php");
 
@@ -30,7 +30,7 @@ require("top.php");
 
 <?PHP
 
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   if (($row["id"] % 2) == 1) { $style = "table_lineA"; }
   else { $style = "table_lineB"; }
 

@@ -10,7 +10,7 @@ $str = "SELECT id FROM tbl_play WHERE recorded > 0 AND completed = 0 AND season=
 $str = "SELECT g.play AS play, max(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 AND completed = 0 AND season=".$season." GROUP BY g.play";
 //$str = "SELECT g.play AS play, max(g.p_ts) AS p_ts FROM tbl_play p, tbl_game g WHERE p.id=g.play AND p.recorded > 0 AND completed = 0 AND season=".$season." AND p.id=3 AND p_ts<SYSDATE() GROUP BY g.play";
 //$str = "SELECT g.play AS play, max(g.p_ts) AS p_ts FROM 4_tbl_play p, 4_tbl_game g WHERE p.id=g.play AND p.recorded > 0 AND completed = 0 AND season=4 AND p.id=3 AND p_ts<SYSDATE() GROUP BY g.play";
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 
@@ -28,7 +28,7 @@ require("top.php");
 $t = mktime() - 3600; // 1 Stunde vor Spielbeginn
 $t = mktime() - 60 * 2; // 2 Minuten vor Spielbeginn
 $i = 0;
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   if ($row["p_ts"] > $t){
     $plays[$i] = $row["play"];
     $i++;

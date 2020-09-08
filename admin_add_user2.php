@@ -12,7 +12,7 @@ require("connect_db.php");
 
 $query = "Insert into tbl_user (`first_name` , `last_name` , `nick_name` , `password` , `email` , `registration` , `last_loggin` , `show_tipps` , `show_long` , `logged_in` , `admin` , `phpMySQL` ) Values ('".$first_name_new."', '".$last_name_new."', '".$nick_name_new."', '".$nick_name_new."', '".$email_new."', '".time()."', ".time().", 0, 0, 0, ".$admin_new.", 0)";
 
-$result = mysql_query($query);
+$result = mysqli_query($connectedDb, $query);
 
 //Fehlerüberprüfung!!!
 

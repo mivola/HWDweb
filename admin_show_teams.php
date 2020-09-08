@@ -4,9 +4,9 @@ extract($_SESSION);
 
 require("connect_db.php");
 
-$resultBL1 = mysql_query("SELECT * FROM tbl_team WHERE league=1 ORDER BY id");
-$resultBL2 = mysql_query("SELECT * FROM tbl_team WHERE league=2 ORDER BY id");
-$resultPlays = mysql_query("SELECT * FROM tbl_play WHERE recorded>0");
+$resultBL1 = mysqli_query($connectedDb, "SELECT * FROM tbl_team WHERE league=1 ORDER BY id");
+$resultBL2 = mysqli_query($connectedDb, "SELECT * FROM tbl_team WHERE league=2 ORDER BY id");
+$resultPlays = mysqli_query($connectedDb, "SELECT * FROM tbl_play WHERE recorded>0");
 
 require("close_db.php");
 
@@ -27,7 +27,7 @@ require("top.php");
 
 <?PHP
 
-while($row = mysql_fetch_array($resultBL1)) {
+while($row = mysqli_fetch_array($resultBL1)) {
 
   if (($row["id"] % 2) == 1) { $style = $table_lineA; }
   else { $style = $table_lineB; }
@@ -52,7 +52,7 @@ while($row = mysql_fetch_array($resultBL1)) {
 
 <?PHP
 
-while($row = mysql_fetch_array($resultBL2)) {
+while($row = mysqli_fetch_array($resultBL2)) {
 
   if (($row["id"] % 2) == 1) { $style = $table_lineA; }
   else { $style = $table_lineB; }
@@ -67,7 +67,7 @@ while($row = mysql_fetch_array($resultBL2)) {
 } // while
 
 ?>
-<?PHP if (mysql_num_rows($resultPlays) == 0) { ?>
+<?PHP if (mysqli_num_rows($resultPlays) == 0) { ?>
 <tr><td colspan=3 align=right><input type=reset value="Reset">&nbsp;&nbsp;&nbsp;<input type=submit value="Teams speichern"></td></tr>
 <?PHP } ?>
 </table>

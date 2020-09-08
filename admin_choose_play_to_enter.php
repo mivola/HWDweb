@@ -5,7 +5,7 @@ extract($_SESSION);
 require("connect_db.php");
 
 $str = "Select id from tbl_play where recorded=0 and season=".$season;
-$result = mysql_query($str);
+$result = mysqli_query($connectedDb, $str);
 
 require("close_db.php");
 
@@ -21,7 +21,7 @@ require("top.php");
 <?PHP
 
 $i = 0;
-while($row = mysql_fetch_array($result)) {
+while($row = mysqli_fetch_array($result)) {
   $plays[$i] = $row["id"];
   $i++;
 }

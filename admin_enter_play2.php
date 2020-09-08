@@ -26,13 +26,13 @@ $date = array($date1, $date2, $date3);
 require("connect_db.php");
 
 $str = "SELECT * from tbl_user";
-$users = mysql_query($str);
-$users2 = mysql_query($str);
+$users = mysqli_query($connectedDb, $str);
+$users2 = mysqli_query($connectedDb, $str);
 
-$result1 = mysql_query("DELETE FROM tbl_game WHERE play=".$play);
+$result1 = mysqli_query($connectedDb, "DELETE FROM tbl_game WHERE play=".$play);
 if (isset($rueck)) {
   $p = $play + 17;
-  $result1 = mysql_query("DELETE FROM tbl_game WHERE play=".$p);
+  $result1 = mysqli_query($connectedDb, "DELETE FROM tbl_game WHERE play=".$p);
 }
 
 
@@ -50,12 +50,12 @@ for ($i=1; $i <= $maxi; $i++){
 
   $query = "INSERT INTO tbl_game (play, team1, team2, p_ts) VALUES (".$play.", ".$team1.", ".$team2.", ".$mktime.")";
 
-  $resultBL1[$i] = mysql_query($query);
+  $resultBL1[$i] = mysqli_query($connectedDb, $query);
 
   if (isset($rueck) && $i < 10) {
     $p = $play + 17;
     $query = "INSERT INTO tbl_game (play, team1, team2) VALUES (".$p.", ".$team2.", ".$team1.")";
-    $resultBL1_rueck[$i] = mysql_query($query);
+    $resultBL1_rueck[$i] = mysqli_query($connectedDb, $query);
   }
 
 
@@ -64,16 +64,16 @@ for ($i=1; $i <= $maxi; $i++){
 
 if (isset($free)) {
   if ($maxi==9) {
-    $result1 = mysql_query("UPDATE tbl_play SET recorded=1 WHERE id=".$play);
+    $result1 = mysqli_query($connectedDb, "UPDATE tbl_play SET recorded=1 WHERE id=".$play);
   }
   else {
-    $result1 = mysql_query("UPDATE tbl_play SET recorded=2 WHERE id=".$play);
+    $result1 = mysqli_query($connectedDb, "UPDATE tbl_play SET recorded=2 WHERE id=".$play);
   }
 
     //email-adressen sammeln
     $to = "";
     $i = 0;
-    while($row = mysql_fetch_array($users)) {
+    while($row = mysqli_fetch_array($users)) {
       if ($i > 0) { $to .= ", "; }
       $to .= $row["email"];
       $i++;
@@ -84,13 +84,13 @@ if (isset($free)) {
 //    $body .= "Jetzt kannst du deine Tipps unter hwd.michavoigt.de eintragen!";
 //    mail($to, $subject, $body, $header);
 }
-$resultPlayBL1 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
-$resultPlayBL2 = mysql_query("Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
+$resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
+$resultPlayBL2 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=2 order by g.p_ts, g.id");
 
 // Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=2 and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1
 
-$resultBL1 = mysql_query("Select * from tbl_team where league=1 order by name");
-$resultBL2 = mysql_query("Select * from tbl_team where league=2 order by name");
+$resultBL1 = mysqli_query($connectedDb, "Select * from tbl_team where league=1 order by name");
+$resultBL2 = mysqli_query($connectedDb, "Select * from tbl_team where league=2 order by name");
 
 // g.team1, t1.name, t2.name
 // select * from tbl_game g, tbl_team t1 where g.play=1 and t1.id=g.team1
@@ -127,7 +127,7 @@ echo "<body><br><b>Folgende Spiele des ".$play.". Spieltags erfolgreich gespeich
   $email_body .= "1. Liga\n\n";
   for ($j=1; $j<=9; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL1);
+    $row = mysqli_fetch_array($resultPlayBL1);
 
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
@@ -168,7 +168,7 @@ if ($maxi>9){
   $email_body .= "\n\n\n2. Liga\n\n";
   for ($j=10; $j<=12; $j++){
 
-    $row = mysql_fetch_array($resultPlayBL2);
+    $row = mysqli_fetch_array($resultPlayBL2);
 
     if (($j % 2) == 1) { $style = $table_lineA; }
     else { $style = $table_lineB; }
@@ -215,7 +215,7 @@ if (isset($free)) {
   echo "<br>Dieser Spieltag wurde freigegeben. Tipps können jetzt eingegeben werden.<br>";
   echo "Email wurde an folgende Adressen versandt:<br>";
 
-  while($row = mysql_fetch_array($users2)) {
+  while($row = mysqli_fetch_array($users2)) {
   
     mail($row["email"], $subject, $body."\n\n".$email_body, $header);
     echo $row["email"];

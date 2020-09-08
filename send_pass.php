@@ -7,14 +7,14 @@ $name = $_POST["name"];
 
 require("connect_db.php");
 
-$result = mysql_query("SELECT password, email FROM tbl_user WHERE nick_name='".$name."'");
+$result = mysqli_query($connectedDb, "SELECT password, email FROM tbl_user WHERE nick_name='".$name."'");
 //echo "SELECT password, email FROM tbl_user WHERE nick_name='".$name."'";
 
 require("close_db.php");
 
 session_destroy();
 
-  while ($row = mysql_fetch_row ($result)) {
+  while ($row = mysqli_fetch_row($result)) {
     $pass = $row[0];
     $email = $row[1];
   }
