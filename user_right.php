@@ -30,11 +30,11 @@ extract($_SESSION);
 	</td></tr></table>
 <?php } else { //if ?>
 
-	Herzlich willkommen bei der Online-Version von HWD zur Saison 2019/2020.</b>
+	Herzlich willkommen bei der Online-Version von HWD zur Saison 2021/2022.</b>
 	<br><br><br>
-	Wie gewohnt steht euch rechtzeitig die neue Tippseite zur Verf&uuml;gung. Ich bin gespannt zu erfahren wie viele von euch auf RBL als kommenden Meister (oder Absteiger) tippen ;-)<br>
+	Wie gewohnt steht euch rechtzeitig die neue Tippseite zur Verf&uuml;gung. Ich freue mich auf eine spannende Tipprunde und die Auswertung beim Griechen :-)<br>
 	<br />
-	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd18_19" target="_blank">hier</a>.<br /> 
+	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd20_21" target="_blank">hier</a>.<br /> 
 	<br />
 	<div align="center">
 	<b>ACHTUNG: Ab 05/2017 ganz neu & ohne Werbung:</b>	HWD als Android App. Download nur <a href="https://github.com/mivola/hwd-app/releases/download/release-1.0.0/HWD-1.0.0-10.apk" target="_blank">hier</a> oder per QR Code!
