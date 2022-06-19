@@ -30,25 +30,14 @@ extract($_SESSION);
 	</td></tr></table>
 <?php } else { //if ?>
 
-	Herzlich willkommen bei der Online-Version von HWD zur Saison 2021/2022.</b>
+	Herzlich willkommen bei der Online-Version von HWD zur Saison 2022/2023.</b>
 	<br><br><br>
-	Wie gewohnt steht euch rechtzeitig die neue Tippseite zur Verf&uuml;gung. Ich freue mich auf eine spannende Tipprunde und die Auswertung beim Griechen :-)<br>
+	Zwei großen Namen der Sportwettenwelt kehren nach 7-jähriger Abstinenz zu HWD zurück. Wir sind gespannt wie sich Rossi & Micha beim Comeback schlagen werden :-)<br>
 	<br />
-	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd20_21" target="_blank">hier</a>.<br /> 
+	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd21_22" target="_blank">hier</a>. Auch die <a href="http://hwd.bts-computer.de/hwd-history" target="_blank">HWD-History</a> ist natürlich aktualisiert!<br /> 
 	<br />
 	<div align="center">
-	<b>ACHTUNG: Ab 05/2017 ganz neu & ohne Werbung:</b>	HWD als Android App. Download nur <a href="https://github.com/mivola/hwd-app/releases/download/release-1.0.0/HWD-1.0.0-10.apk" target="_blank">hier</a> oder per QR Code!
-	</div>
-			<br>
-	                <div align="center">
-						<!-- erstellt mit https://www.qrcode-monkey.de -->
-                        <img src="qrcode.png" style="width:111px;">
-                    </div>
-		    
-		    <div align="center">
-			Hier bekommst du einen <a href="https://play.google.com/store/apps/details?id=com.application_4u.qrcode.barcode.scanner.reader.flashlight&rdid=com.application_4u.qrcode.barcode.scanner.reader.flashlight" target="_blank">QR Code Scanner</a><br/>
-		    </div>
-		    
+	<b>Auch die HWD-App für Android wurde aktualisiert. Download nur <a href="https://github.com/mivola/hwd-app/releases/download/release-1.0.1/HWD-1.0.1.apk" target="_blank">hier</a>!
 	<br>
 	</p>
 	
