@@ -111,8 +111,8 @@ function opencal(feld,startdat) {
       $time1 = "15";
       $time2 = "30";
     } else {    
-      $time1 = "18";
-      $time2 = "00";
+      $time1 = "17";
+      $time2 = "30";
     }
     
     $id1 = -1;

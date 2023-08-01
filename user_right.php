@@ -18,7 +18,7 @@ extract($_SESSION);
 	- in der Stauszeile auf das kleine rote Symbol doppelklicken<br>
 	<img src="images/cookie01.jpg"><br>
 	- danach erscheint ein Fenster in dem schon die blockierte Seite angezeigt wird<br>
-	- mit einem rechten Mausklick auf den Eintrag "http://hwd.bts-computer.de/hwd19_20" das Kontextmen&uuml; &ouml;ffnen<br>
+	- mit einem rechten Mausklick auf den Eintrag "http://hwd.bts-computer.de/" das Kontextmen&uuml; &ouml;ffnen<br>
 	- w&auml;hle den Eintrag "Cookies von dieser Seite immer annehmen<br>
 	<img src="images/cookie02.jpg"><br>
 	- Dialog mit "Schliessen" beenden<br>
@@ -30,14 +30,14 @@ extract($_SESSION);
 	</td></tr></table>
 <?php } else { //if ?>
 
-	Herzlich willkommen bei der Online-Version von HWD zur Saison 2022/2023.</b>
+	Herzlich willkommen bei der Online-Version von HWD zur Saison 2023/2024.</b>
 	<br><br><br>
-	Zwei großen Namen der Sportwettenwelt kehren nach 7-jähriger Abstinenz zu HWD zurück. Wir sind gespannt wie sich Rossi & Micha beim Comeback schlagen werden :-)<br>
+	Nach der sehr erfolgreichen Rückkehr der HWD Legenden Rossi & Micha in der vergangenen Saison, wird nun zu sehen sein, ob dies nur eine Ein-Saisons-Fliege war oder wirklich Sachverstand dahintersteckt...<br>
 	<br />
-	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd21_22" target="_blank">hier</a>. Auch die <a href="http://hwd.bts-computer.de/hwd-history" target="_blank">HWD-History</a> ist natürlich aktualisiert!<br /> 
+	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd22_23" target="_blank">hier</a>. Auch die <a href="http://hwd.bts-computer.de/hwd-history" target="_blank">HWD-History</a> ist natürlich aktualisiert!<br /> 
 	<br />
 	<div align="center">
-	<b>Auch die HWD-App für Android wurde aktualisiert. Download nur <a href="https://github.com/mivola/hwd-app/releases/download/release-1.0.1/HWD-1.0.1.apk" target="_blank">hier</a>!
+	<b>Die HWD-App für Android wurde eingestellt, stattdessen empfehlen wir einfach einen <a href="https://blog.deinhandy.de/internetseite-auf-startbildschirm-hinzufuegen-so-funktionierts-bei-android-und-ios" target="_blank">Shortcut auf dem Startbildschirm zu erstellen!</a>!
 	<br>
 	</p>
 	
