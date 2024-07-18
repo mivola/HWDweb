@@ -65,7 +65,7 @@ echo "<body><br><b>Tipps f&uuml;r ".$play.". Spieltag eintragen:</b><br><br>";
   <table>
     <tr><td colspan=6 class="noBorder"><b>1. Bundesliga</b><br>
         <font>na, wieder keine Ahnung was du tippen sollst? Schau doch mal bei <a href="https://www.bwin.com/de/fu%C3%9Fball" target="_blank">bet&win.de</a> vorbei!<br>
-        oder probiers mal <a href="http://www.sport1.de/de/fussball/fussball_bundesliga/" target="_blank">sport1.de</a> oder <a href="http://www.bundesliga.de/de/liga/tabelle/" target="_blank">bundesliga.de</a>.
+        oder probiers mal <a href="https://www.sport1.de/daten/fussball/bundesliga/tabelle" target="_blank">sport1.de</a> oder <a href="http://www.bundesliga.de/de/liga/tabelle/" target="_blank">bundesliga.de</a>.
         </font></td>
     </tr>
     <tr style="background-color:<?PHP echo $table_head; ?>;">
@@ -210,7 +210,7 @@ if ($maxi>9){
 ?>
 
     <tr><td colspan=4 class="noBorder"><br><b>2. Bundesliga</b><br>
-        <font>Infos zur 2. Liga: <a href="http://www.sport1.de/de/fussball/fussball_bundesliga2/" target="_blank">Sport1.de</a> oder <a href="http://www.bundesliga.de/de/liga2/tabelle/" target="_blank">bundesliga.de</a>.
+        <font>Infos zur 2. Liga: <a href="https://www.sport1.de/daten/fussball/2-bundesliga/tabelle" target="_blank">Sport1.de</a> oder <a href="https://www.bundesliga.com/de/2bundesliga/tabelle" target="_blank">bundesliga.de</a>.
         </font></td>
     </tr>
     <tr style="background-color:<?PHP echo $table_head; ?>;">

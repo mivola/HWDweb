@@ -29,7 +29,7 @@ echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br
   <table border="0">
     <tr>
     	<td colspan=6><b>1. Bundesliga</b><br>
-    		<a href="http://www.dfb.de/index.php?id=500017&liga=bl1m&saison=<?PHP echo $season ?>&saisonl=20<?PHP echo $season ?>&spieltag=<?PHP echo $play ?>&cHash=d3589159deb822853ffc9abd331e0a00" target="_blank">zur DFB-Seite</a>
+    		<a href="https://www.dfb.de/bundesliga/spieltagtabelle/?spieledb_path=/datencenter/bundesliga/20<?PHP echo $season ?>-<?PHP echo $season+1 ?>/F<?PHP echo $play ?>&spieledb_path=%2Fde%2Fcompetitions%2Fbundesliga%2Fseasons%2F20<?PHP echo $season ?>-<?PHP echo $season+1 ?>%2Fmatchday%2F<?PHP echo $play ?>" target="_blank">zur DFB-Seite</a>
     		|
     		<a href="http://www.gaijin.at/olsutc.php" target="_blank">Timestamp Generator</a>
     	</td>
@@ -120,7 +120,7 @@ echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br
 
     <tr>
     	<td colspan=4><br><b>2. Bundesliga</b><br>
-		    <a href="http://www.dfb.de/index.php?id=500031&liga=bl2m&saison=<?PHP echo $season ?>&saisonl=20<?PHP echo $season ?>&spieltag=<?PHP echo $play ?>&cHash=d3589159deb822853ffc9abd331e0a00" target="_blank">zur DFB-Seite</a>
+		    <a href="https://www.dfb.de/2-bundesliga/spieltagtabelle/?no_cache=1&spieledb_path=%2Fde%2Fcompetitions%2F2-bundesliga%2Fseasons%2F20<?PHP echo $season ?>-<?PHP echo $season+1 ?>%2Fmatchday%2F<?PHP echo $play ?>" target="_blank">zur DFB-Seite</a>
 	    </td>
     </tr>
     <tr style="background-color:<?PHP echo $table_head; ?>;">
