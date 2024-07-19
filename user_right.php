@@ -30,11 +30,11 @@ extract($_SESSION);
 	</td></tr></table>
 <?php } else { //if ?>
 
-	Herzlich willkommen bei der Online-Version von HWD zur Saison 2023/2024.</b>
+	Herzlich willkommen bei der Online-Version von HWD zur Saison 2024/2025.</b>
 	<br><br><br>
-	Nach der sehr erfolgreichen Rückkehr der HWD Legenden Rossi & Micha in der vergangenen Saison, wird nun zu sehen sein, ob dies nur eine Ein-Saisons-Fliege war oder wirklich Sachverstand dahintersteckt...<br>
+	Neu: Es wird die berühmt-berüchtigte "Maximal 4 gleiche Tipps"-Regel überprüft!<br>
 	<br />
-	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd22_23" target="_blank">hier</a>. Auch die <a href="http://hwd.bts-computer.de/hwd-history" target="_blank">HWD-History</a> ist natürlich aktualisiert!<br /> 
+	Die Tipps der vergangenen Saison gibt es <a href="http://hwd.bts-computer.de/hwd23_24" target="_blank">hier</a>. Auch die <a href="http://hwd.bts-computer.de/hwd-history" target="_blank">HWD-History</a> ist natürlich aktualisiert!<br /> 
 	<br />
 	<div align="center">
 	<b>Die HWD-App für Android wurde eingestellt, stattdessen empfehlen wir einfach einen <a href="https://blog.deinhandy.de/internetseite-auf-startbildschirm-hinzufuegen-so-funktionierts-bei-android-und-ios" target="_blank">Shortcut auf dem Startbildschirm zu erstellen!</a>!
