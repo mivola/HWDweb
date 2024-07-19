@@ -212,7 +212,7 @@ if (isset($free)) {
   $body .= "Jetzt kannst du deine Tipps unter hwd.michavoigt.de eintragen!\n\n";
   $body .= "Damit im Notfall auch jeder die richtigen Spielansetzungen hat, gibt es diese ab jetzt per Email:\n";
 
-  echo "<br>Dieser Spieltag wurde freigegeben. Tipps können jetzt eingegeben werden.<br>";
+  echo "<br>Dieser Spieltag wurde freigegeben. Tipps kÃ¶nnen jetzt eingegeben werden.<br>";
   echo "Email wurde an folgende Adressen versandt:<br>";
 
   while($row = mysqli_fetch_array($users2)) {

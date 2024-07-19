@@ -68,7 +68,7 @@ while($row = mysqli_fetch_array($result)) {
     }
   }
 
-  echo "<td><a href=admin_del_user.php?userid=".$row['id']." onClick=\"return confirm('User wirklich l&ouml;schen?')\">löschen</a></td>";
+  echo "<td><a href=admin_del_user.php?userid=".$row['id']." onClick=\"return confirm('User wirklich l&ouml;schen?')\">lÃ¶schen</a></td>";
 
 
   echo "</tr>\n";

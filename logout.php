@@ -16,7 +16,7 @@ session_destroy();
 
 require("index_top.php");
 
-echo "<font size=4 color=red>Erfolgreich abgemeldet!<br>Danke für die Teilnahme bei HWD!</font><br><br>";
+echo "<font size=4 color=red>Erfolgreich abgemeldet!<br>Danke fÃ¼r die Teilnahme bei HWD!</font><br><br>";
 
 require("index_bottom.php");
 

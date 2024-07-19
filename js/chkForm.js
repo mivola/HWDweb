@@ -28,7 +28,7 @@ function chk_admin_play1() {
 
     // date1
     if(date1.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 1. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 1. Spiels!");
       date1.focus();
       return false;
     } // if
@@ -47,14 +47,14 @@ function chk_admin_play1() {
     if (date1.value.charAt(9) < "0" || date1.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 1. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 1. Spiels!");
       date1.focus();
       return false;
     }
 
     // hour1
     if(hour1.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 1. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 1. Spiels!");
       hour1.focus();
       return false;
     } // if
@@ -64,14 +64,14 @@ function chk_admin_play1() {
     if (hour1.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 1. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 1. Spiels!");
       hour1.focus();
       return false;
     }
 
     // min1
     if(min1.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 1. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 1. Spiels!");
       min1.focus();
       return false;
     } // if
@@ -81,14 +81,14 @@ function chk_admin_play1() {
     if (min1.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 1. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 1. Spiels!");
       min1.focus();
       return false;
     }
 
     // team1
     if (team1.value == 0) {
-      alert("Bitte Heimteam für 1. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 1. Spiel wÃ¤hlen!");
       team1.focus();
       return false;
     }
@@ -103,7 +103,7 @@ function chk_admin_play1() {
 
     // team13
     if (team13.value == 0) {
-      alert("Bitte Gastteam für 1. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 1. Spiel wÃ¤hlen!");
       team13.focus();
       return false;
     }
@@ -123,7 +123,7 @@ function chk_admin_play1() {
 
     // date2
     if(date2.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 2. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 2. Spiels!");
       date2.focus();
       return false;
     } // if
@@ -142,14 +142,14 @@ function chk_admin_play1() {
     if (date2.value.charAt(9) < "0" || date2.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 2. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 2. Spiels!");
       date2.focus();
       return false;
     }
 
     // hour2
     if(hour2.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 2. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 2. Spiels!");
       hour2.focus();
       return false;
     } // if
@@ -159,14 +159,14 @@ function chk_admin_play1() {
     if (hour2.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 2. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 2. Spiels!");
       hour2.focus();
       return false;
     }
 
     // min2
     if(min2.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 2. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 2. Spiels!");
       min2.focus();
       return false;
     } // if
@@ -176,14 +176,14 @@ function chk_admin_play1() {
     if (min2.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 2. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 2. Spiels!");
       min2.focus();
       return false;
     }
 
     // team2
     if (team2.value == 0) {
-      alert("Bitte Heimteam für 2. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 2. Spiel wÃ¤hlen!");
       team2.focus();
       return false;
     }
@@ -198,7 +198,7 @@ function chk_admin_play1() {
 
     // team14
     if (team14.value == 0) {
-      alert("Bitte Gastteam für 2. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 2. Spiel wÃ¤hlen!");
       team14.focus();
       return false;
     }
@@ -218,7 +218,7 @@ function chk_admin_play1() {
 
     // date3
     if(date3.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 3. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 3. Spiels!");
       date3.focus();
       return false;
     } // if
@@ -237,14 +237,14 @@ function chk_admin_play1() {
     if (date3.value.charAt(9) < "0" || date3.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 3. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 3. Spiels!");
       date3.focus();
       return false;
     }
 
     // hour3
     if(hour3.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 3. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 3. Spiels!");
       hour3.focus();
       return false;
     } // if
@@ -254,14 +254,14 @@ function chk_admin_play1() {
     if (hour3.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 3. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 3. Spiels!");
       hour3.focus();
       return false;
     }
 
     // min3
     if(min3.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 3. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 3. Spiels!");
       min3.focus();
       return false;
     } // if
@@ -271,14 +271,14 @@ function chk_admin_play1() {
     if (min3.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 3. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 3. Spiels!");
       min3.focus();
       return false;
     }
 
     // team3
     if (team3.value == 0) {
-      alert("Bitte Heimteam für 3. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 3. Spiel wÃ¤hlen!");
       team3.focus();
       return false;
     }
@@ -293,7 +293,7 @@ function chk_admin_play1() {
 
     // team15
     if (team15.value == 0) {
-      alert("Bitte Gastteam für 3. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 3. Spiel wÃ¤hlen!");
       team15.focus();
       return false;
     }
@@ -313,7 +313,7 @@ function chk_admin_play1() {
 
     // date4
     if(date4.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 4. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 4. Spiels!");
       date4.focus();
       return false;
     } // if
@@ -332,14 +332,14 @@ function chk_admin_play1() {
     if (date4.value.charAt(9) < "0" || date4.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 4. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 4. Spiels!");
       date4.focus();
       return false;
     }
 
     // hour4
     if(hour4.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 4. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 4. Spiels!");
       hour4.focus();
       return false;
     } // if
@@ -349,14 +349,14 @@ function chk_admin_play1() {
     if (hour4.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 4. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 4. Spiels!");
       hour4.focus();
       return false;
     }
 
     // min4
     if(min4.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 4. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 4. Spiels!");
       min4.focus();
       return false;
     } // if
@@ -366,14 +366,14 @@ function chk_admin_play1() {
     if (min4.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 4. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 4. Spiels!");
       min4.focus();
       return false;
     }
 
     // team4
     if (team4.value == 0) {
-      alert("Bitte Heimteam für 4. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 4. Spiel wÃ¤hlen!");
       team4.focus();
       return false;
     }
@@ -388,7 +388,7 @@ function chk_admin_play1() {
 
     // team16
     if (team16.value == 0) {
-      alert("Bitte Gastteam für 4. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 4. Spiel wÃ¤hlen!");
       team16.focus();
       return false;
     }
@@ -408,7 +408,7 @@ function chk_admin_play1() {
 
     // date5
     if(date5.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 5. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 5. Spiels!");
       date5.focus();
       return false;
     } // if
@@ -427,14 +427,14 @@ function chk_admin_play1() {
     if (date5.value.charAt(9) < "0" || date5.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 5. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 5. Spiels!");
       date5.focus();
       return false;
     }
 
     // hour5
     if(hour5.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 5. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 5. Spiels!");
       hour5.focus();
       return false;
     } // if
@@ -444,14 +444,14 @@ function chk_admin_play1() {
     if (hour5.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 5. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 5. Spiels!");
       hour5.focus();
       return false;
     }
 
     // min5
     if(min5.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 5. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 5. Spiels!");
       min5.focus();
       return false;
     } // if
@@ -461,14 +461,14 @@ function chk_admin_play1() {
     if (min5.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 5. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 5. Spiels!");
       min5.focus();
       return false;
     }
 
     // team5
     if (team5.value == 0) {
-      alert("Bitte Heimteam für 5. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 5. Spiel wÃ¤hlen!");
       team5.focus();
       return false;
     }
@@ -483,7 +483,7 @@ function chk_admin_play1() {
 
     // team17
     if (team17.value == 0) {
-      alert("Bitte Gastteam für 5. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 5. Spiel wÃ¤hlen!");
       team17.focus();
       return false;
     }
@@ -503,7 +503,7 @@ function chk_admin_play1() {
 
     // date6
     if(date6.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 6. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 6. Spiels!");
       date6.focus();
       return false;
     } // if
@@ -522,14 +522,14 @@ function chk_admin_play1() {
     if (date6.value.charAt(9) < "0" || date6.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 6. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 6. Spiels!");
       date6.focus();
       return false;
     }
 
     // hour6
     if(hour6.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 6. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 6. Spiels!");
       hour6.focus();
       return false;
     } // if
@@ -539,14 +539,14 @@ function chk_admin_play1() {
     if (hour6.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 6. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 6. Spiels!");
       hour6.focus();
       return false;
     }
 
     // min6
     if(min6.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 6. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 6. Spiels!");
       min6.focus();
       return false;
     } // if
@@ -556,14 +556,14 @@ function chk_admin_play1() {
     if (min6.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 6. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 6. Spiels!");
       min6.focus();
       return false;
     }
 
     // team6
     if (team6.value == 0) {
-      alert("Bitte Heimteam für 6. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 6. Spiel wÃ¤hlen!");
       team6.focus();
       return false;
     }
@@ -578,7 +578,7 @@ function chk_admin_play1() {
 
     // team18
     if (team18.value == 0) {
-      alert("Bitte Gastteam für 6. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 6. Spiel wÃ¤hlen!");
       team18.focus();
       return false;
     }
@@ -598,7 +598,7 @@ function chk_admin_play1() {
 
     // date7
     if(date7.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 7. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 7. Spiels!");
       date7.focus();
       return false;
     } // if
@@ -617,14 +617,14 @@ function chk_admin_play1() {
     if (date7.value.charAt(9) < "0" || date7.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 7. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 7. Spiels!");
       date7.focus();
       return false;
     }
 
     // hour7
     if(hour7.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 7. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 7. Spiels!");
       hour7.focus();
       return false;
     } // if
@@ -634,14 +634,14 @@ function chk_admin_play1() {
     if (hour7.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 7. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 7. Spiels!");
       hour7.focus();
       return false;
     }
 
     // min7
     if(min7.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 7. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 7. Spiels!");
       min7.focus();
       return false;
     } // if
@@ -651,14 +651,14 @@ function chk_admin_play1() {
     if (min7.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 7. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 7. Spiels!");
       min7.focus();
       return false;
     }
 
     // team7
     if (team7.value == 0) {
-      alert("Bitte Heimteam für 7. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 7. Spiel wÃ¤hlen!");
       team7.focus();
       return false;
     }
@@ -673,7 +673,7 @@ function chk_admin_play1() {
 
     // team19
     if (team19.value == 0) {
-      alert("Bitte Gastteam für 7. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 7. Spiel wÃ¤hlen!");
       team19.focus();
       return false;
     }
@@ -692,7 +692,7 @@ function chk_admin_play1() {
 
     // date8
     if(date8.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 8. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 8. Spiels!");
       date8.focus();
       return false;
     } // if
@@ -711,14 +711,14 @@ function chk_admin_play1() {
     if (date8.value.charAt(9) < "0" || date8.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 8. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 8. Spiels!");
       date8.focus();
       return false;
     }
 
     // hour8
     if(hour8.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 8. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 8. Spiels!");
       hour8.focus();
       return false;
     } // if
@@ -728,14 +728,14 @@ function chk_admin_play1() {
     if (hour8.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 8. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 8. Spiels!");
       hour8.focus();
       return false;
     }
 
     // min8
     if(min8.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 8. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 8. Spiels!");
       min8.focus();
       return false;
     } // if
@@ -745,14 +745,14 @@ function chk_admin_play1() {
     if (min8.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 8. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 8. Spiels!");
       min8.focus();
       return false;
     }
 
     // team8
     if (team8.value == 0) {
-      alert("Bitte Heimteam für 8. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 8. Spiel wÃ¤hlen!");
       team8.focus();
       return false;
     }
@@ -767,7 +767,7 @@ function chk_admin_play1() {
 
     // team20
     if (team20.value == 0) {
-      alert("Bitte Gastteam für 8. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 8. Spiel wÃ¤hlen!");
       team20.focus();
       return false;
     }
@@ -786,7 +786,7 @@ function chk_admin_play1() {
 
     // date9
     if(date9.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 9. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 9. Spiels!");
       date9.focus();
       return false;
     } // if
@@ -805,14 +805,14 @@ function chk_admin_play1() {
     if (date9.value.charAt(9) < "0" || date9.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 9. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 9. Spiels!");
       date9.focus();
       return false;
     }
 
     // hour9
     if(hour9.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 9. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 9. Spiels!");
       hour9.focus();
       return false;
     } // if
@@ -822,14 +822,14 @@ function chk_admin_play1() {
     if (hour9.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 9. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 9. Spiels!");
       hour9.focus();
       return false;
     }
 
     // min9
     if(min9.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 9. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 9. Spiels!");
       min9.focus();
       return false;
     } // if
@@ -839,14 +839,14 @@ function chk_admin_play1() {
     if (min9.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 9. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 9. Spiels!");
       min9.focus();
       return false;
     }
 
     // team9
     if (team9.value == 0) {
-      alert("Bitte Heimteam für 9. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 9. Spiel wÃ¤hlen!");
       team9.focus();
       return false;
     }
@@ -861,7 +861,7 @@ function chk_admin_play1() {
 
     // team21
     if (team21.value == 0) {
-      alert("Bitte Gastteam für 9. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 9. Spiel wÃ¤hlen!");
       team21.focus();
       return false;
     }
@@ -884,7 +884,7 @@ function chk_admin_play1() {
 
     // date10
     if(date10.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 10. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 10. Spiels!");
       date10.focus();
       return false;
     } // if
@@ -903,14 +903,14 @@ function chk_admin_play1() {
     if (date10.value.charAt(9) < "0" || date10.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 10. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 10. Spiels!");
       date10.focus();
       return false;
     }
 
     // hour10
     if(hour10.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 10. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 10. Spiels!");
       hour10.focus();
       return false;
     } // if
@@ -920,14 +920,14 @@ function chk_admin_play1() {
     if (hour10.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 10. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 10. Spiels!");
       hour10.focus();
       return false;
     }
 
     // min10
     if(min10.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 10. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 10. Spiels!");
       min10.focus();
       return false;
     } // if
@@ -937,14 +937,14 @@ function chk_admin_play1() {
     if (min10.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 10. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 10. Spiels!");
       min10.focus();
       return false;
     }
 
     // team10
     if (team10.value == 0) {
-      alert("Bitte Heimteam für 10. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 10. Spiel wÃ¤hlen!");
       team10.focus();
       return false;
     }
@@ -959,7 +959,7 @@ function chk_admin_play1() {
 
     // team22
     if (team22.value == 0) {
-      alert("Bitte Gastteam für 10. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 10. Spiel wÃ¤hlen!");
       team22.focus();
       return false;
     }
@@ -978,7 +978,7 @@ function chk_admin_play1() {
 
     // date11
     if(date11.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 11. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 11. Spiels!");
       date11.focus();
       return false;
     } // if
@@ -997,14 +997,14 @@ function chk_admin_play1() {
     if (date11.value.charAt(9) < "0" || date11.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 11. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 11. Spiels!");
       date11.focus();
       return false;
     }
 
     // hour11
     if(hour11.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 11. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 11. Spiels!");
       hour11.focus();
       return false;
     } // if
@@ -1014,14 +1014,14 @@ function chk_admin_play1() {
     if (hour11.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 11. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 11. Spiels!");
       hour11.focus();
       return false;
     }
 
     // min11
     if(min11.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 11. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 11. Spiels!");
       min11.focus();
       return false;
     } // if
@@ -1031,14 +1031,14 @@ function chk_admin_play1() {
     if (min11.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 11. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 11. Spiels!");
       min11.focus();
       return false;
     }
 
     // team11
     if (team11.value == 0) {
-      alert("Bitte Heimteam für 11. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 11. Spiel wÃ¤hlen!");
       team11.focus();
       return false;
     }
@@ -1053,7 +1053,7 @@ function chk_admin_play1() {
 
     // team23
     if (team23.value == 0) {
-      alert("Bitte Gastteam für 11. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 11. Spiel wÃ¤hlen!");
       team23.focus();
       return false;
     }
@@ -1072,7 +1072,7 @@ function chk_admin_play1() {
 
     // date12
     if(date12.value == "")  {
-      alert("Fehlende Eingabe für das Datum des 12. Spiels!");
+      alert("Fehlende Eingabe fÃ¼r das Datum des 12. Spiels!");
       date12.focus();
       return false;
     } // if
@@ -1091,14 +1091,14 @@ function chk_admin_play1() {
     if (date12.value.charAt(9) < "0" || date12.value.charAt(9) > "9") chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für das Datum des 12. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datum des 12. Spiels!");
       date12.focus();
       return false;
     }
 
     // hour12
     if(hour12.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 12. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 12. Spiels!");
       hour12.focus();
       return false;
     } // if
@@ -1108,14 +1108,14 @@ function chk_admin_play1() {
     if (hour12.value > 23) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 12. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 12. Spiels!");
       hour12.focus();
       return false;
     }
 
     // min12
     if(min12.value == "")  {
-      alert("Fehlende Eingabe für die Uhrzeit des 12. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r das Datumzeit des 12. Spiels!");
       min12.focus();
       return false;
     } // if
@@ -1125,14 +1125,14 @@ function chk_admin_play1() {
     if (min12.value > 59) chkZ = -1;
 
     if (chkZ == -1) {
-      alert("Keine gültige Eingabe für die Uhrzeit des 12. Spiels!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Uhrzeit des 12. Spiels!");
       min12.focus();
       return false;
     }
 
     // team12
     if (team12.value == 0) {
-      alert("Bitte Heimteam für 12. Spiel wählen!");
+      alert("Bitte Heimteam fÃ¼r 12. Spiel wÃ¤hlen!");
       team12.focus();
       return false;
     }
@@ -1147,7 +1147,7 @@ function chk_admin_play1() {
 
     // team24
     if (team24.value == 0) {
-      alert("Bitte Gastteam für 12. Spiel wählen!");
+      alert("Bitte Gastteam fÃ¼r 12. Spiel wÃ¤hlen!");
       team24.focus();
       return false;
     }
@@ -1180,7 +1180,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet1.value.length;i++) {
       if ((ziffern.indexOf(bet1.value.charAt(i)) == -1) && (bet1.value != "-1")) {
-        alert("Keine gültige Eingabe für das 1. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 1. Spiel!");
         bet1.focus();
         return false;
       }
@@ -1190,7 +1190,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet13.value.length;i++) {
       if ((ziffern.indexOf(bet13.value.charAt(i)) == -1) && (bet13.value != "-1")) {
-        alert("Keine gültige Eingabe für das 1. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 1. Spiel!");
         bet13.focus();
         return false;
       }
@@ -1200,7 +1200,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet2.value.length;i++) {
       if ((ziffern.indexOf(bet2.value.charAt(i)) == -1) && (bet2.value != "-1")) {
-        alert("Keine gültige Eingabe für das 2. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 2. Spiel!");
         bet2.focus();
         return false;
       }
@@ -1210,7 +1210,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet14.value.length;i++) {
       if ((ziffern.indexOf(bet14.value.charAt(i)) == -1) && (bet14.value != "-1")) {
-        alert("Keine gültige Eingabe für das 2. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 2. Spiel!");
         bet14.focus();
         return false;
       }
@@ -1220,7 +1220,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet3.value.length;i++) {
       if ((ziffern.indexOf(bet3.value.charAt(i)) == -1) && (bet3.value != "-1")) {
-        alert("Keine gültige Eingabe für das 3. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 3. Spiel!");
         bet3.focus();
         return false;
       }
@@ -1230,7 +1230,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet15.value.length;i++) {
       if ((ziffern.indexOf(bet15.value.charAt(i)) == -1) && (bet15.value != "-1")) {
-        alert("Keine gültige Eingabe für das 3. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 3. Spiel!");
         bet15.focus();
         return false;
       }
@@ -1240,7 +1240,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet4.value.length;i++) {
       if ((ziffern.indexOf(bet4.value.charAt(i)) == -1) && (bet4.value != "-1")) {
-        alert("Keine gültige Eingabe für das 4. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 4. Spiel!");
         bet4.focus();
         return false;
       }
@@ -1250,7 +1250,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet16.value.length;i++) {
       if ((ziffern.indexOf(bet16.value.charAt(i)) == -1) && (bet16.value != "-1")) {
-        alert("Keine gültige Eingabe für das 4. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 4. Spiel!");
         bet16.focus();
         return false;
       }
@@ -1260,7 +1260,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet5.value.length;i++) {
       if ((ziffern.indexOf(bet5.value.charAt(i)) == -1) && (bet5.value != "-1")) {
-        alert("Keine gültige Eingabe für das 5. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 5. Spiel!");
         bet5.focus();
         return false;
       }
@@ -1270,7 +1270,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet17.value.length;i++) {
       if ((ziffern.indexOf(bet17.value.charAt(i)) == -1) && (bet17.value != "-1")) {
-        alert("Keine gültige Eingabe für das 5. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 5. Spiel!");
         bet17.focus();
         return false;
       }
@@ -1280,7 +1280,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet6.value.length;i++) {
       if ((ziffern.indexOf(bet6.value.charAt(i)) == -1) && (bet6.value != "-1")) {
-        alert("Keine gültige Eingabe für das 6. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 6. Spiel!");
         bet6.focus();
         return false;
       }
@@ -1290,7 +1290,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet18.value.length;i++) {
       if ((ziffern.indexOf(bet18.value.charAt(i)) == -1) && (bet18.value != "-1")) {
-        alert("Keine gültige Eingabe für das 6. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 6. Spiel!");
         bet18.focus();
         return false;
       }
@@ -1300,7 +1300,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet7.value.length;i++) {
       if ((ziffern.indexOf(bet7.value.charAt(i)) == -1) && (bet7.value != "-1")) {
-        alert("Keine gültige Eingabe für das 7. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 7. Spiel!");
         bet7.focus();
         return false;
       }
@@ -1310,7 +1310,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet19.value.length;i++) {
       if ((ziffern.indexOf(bet19.value.charAt(i)) == -1) && (bet19.value != "-1")) {
-        alert("Keine gültige Eingabe für das 7. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 7. Spiel!");
         bet19.focus();
         return false;
       }
@@ -1320,7 +1320,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet8.value.length;i++) {
       if ((ziffern.indexOf(bet8.value.charAt(i)) == -1) && (bet8.value != "-1")) {
-        alert("Keine gültige Eingabe für das 8. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 8. Spiel!");
         bet8.focus();
         return false;
       }
@@ -1330,7 +1330,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet20.value.length;i++) {
       if ((ziffern.indexOf(bet20.value.charAt(i)) == -1) && (bet20.value != "-1")) {
-        alert("Keine gültige Eingabe für das 8. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 8. Spiel!");
         bet20.focus();
         return false;
       }
@@ -1340,7 +1340,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet9.value.length;i++) {
       if ((ziffern.indexOf(bet9.value.charAt(i)) == -1) && (bet9.value != "-1")) {
-        alert("Keine gültige Eingabe für das 9. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 9. Spiel!");
         bet9.focus();
         return false;
       }
@@ -1350,7 +1350,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet21.value.length;i++) {
       if ((ziffern.indexOf(bet21.value.charAt(i)) == -1) && (bet21.value != "-1")) {
-        alert("Keine gültige Eingabe für das 9. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 9. Spiel!");
         bet21.focus();
         return false;
       }
@@ -1360,7 +1360,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet10.value.length;i++) {
       if ((ziffern.indexOf(bet10.value.charAt(i)) == -1) && (bet10.value != "-1")) {
-        alert("Keine gültige Eingabe für das 10. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 10. Spiel!");
         bet10.focus();
         return false;
       }
@@ -1370,7 +1370,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet22.value.length;i++) {
       if ((ziffern.indexOf(bet22.value.charAt(i)) == -1) && (bet22.value != "-1")) {
-        alert("Keine gültige Eingabe für das 10. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 10. Spiel!");
         bet22.focus();
         return false;
       }
@@ -1380,7 +1380,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet11.value.length;i++) {
       if ((ziffern.indexOf(bet11.value.charAt(i)) == -1) && (bet11.value != "-1")) {
-        alert("Keine gültige Eingabe für das 11. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 11. Spiel!");
         bet11.focus();
         return false;
       }
@@ -1390,7 +1390,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet23.value.length;i++) {
       if ((ziffern.indexOf(bet23.value.charAt(i)) == -1) && (bet23.value != "-1")) {
-        alert("Keine gültige Eingabe für das 11. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 11. Spiel!");
         bet23.focus();
         return false;
       }
@@ -1400,7 +1400,7 @@ function chk_user_play1() {
 
     for (i=0;i<bet12.value.length;i++) {
       if ((ziffern.indexOf(bet12.value.charAt(i)) == -1) && (bet12.value != "-1")) {
-        alert("Keine gültige Eingabe für das 12. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 12. Spiel!");
         bet12.focus();
         return false;
       }
@@ -1410,13 +1410,15 @@ function chk_user_play1() {
 
     for (i=0;i<bet24.value.length;i++) {
       if ((ziffern.indexOf(bet24.value.charAt(i)) == -1) && (bet24.value != "-1")) {
-        alert("Keine gültige Eingabe für das 12. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 12. Spiel!");
         bet24.focus();
         return false;
       }
     }
 
   } // with
+
+  
 } // function
 
 
@@ -1429,14 +1431,14 @@ function chk_admin_results1(){
 //<1. Spiel
 
     if ((res1.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 1. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 1. Spiel!");
       res1.focus();
       return false;
     } // if
 if (res1.value != ""){
     for (i=0;i<res1.value.length;i++) {
       if ((ziffern.indexOf(res1.value.charAt(i)) == -1) && (res1.value != "-1")) {
-        alert("Keine gültige Eingabe für das 1. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 1. Spiel!");
         res1.focus();
         return false;
       }
@@ -1445,14 +1447,14 @@ if (res1.value != ""){
 //<1. Spiel
 
     if ((res13.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 1. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 1. Spiel!");
       res13.focus();
       return false;
     } // if
 
     for (i=0;i<res13.value.length;i++) {
       if ((ziffern.indexOf(res13.value.charAt(i)) == -1) && (res13.value != "-1")) {
-        alert("Keine gültige Eingabe für das 1. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 1. Spiel!");
         res13.focus();
         return false;
       }
@@ -1461,14 +1463,14 @@ if (res1.value != ""){
 //<2. Spiel
 
     if ((res2.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 2. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 2. Spiel!");
       res2.focus();
       return false;
     } // if
 
     for (i=0;i<res2.value.length;i++) {
       if ((ziffern.indexOf(res2.value.charAt(i)) == -1) && (res2.value != "-1")) {
-        alert("Keine gültige Eingabe für das 2. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 2. Spiel!");
         res2.focus();
         return false;
       }
@@ -1477,14 +1479,14 @@ if (res1.value != ""){
 //<2. Spiel
 
     if ((res14.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 2. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 2. Spiel!");
       res14.focus();
       return false;
     } // if
 
     for (i=0;i<res14.value.length;i++) {
       if ((ziffern.indexOf(res14.value.charAt(i)) == -1) && (res14.value != "-1")) {
-        alert("Keine gültige Eingabe für das 2. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 2. Spiel!");
         res14.focus();
         return false;
       }
@@ -1493,14 +1495,14 @@ if (res1.value != ""){
 //<3. Spiel
 
     if ((res3.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 3. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 3. Spiel!");
       res3.focus();
       return false;
     } // if
 
     for (i=0;i<res3.value.length;i++) {
       if ((ziffern.indexOf(res3.value.charAt(i)) == -1) && (res3.value != "-1")) {
-        alert("Keine gültige Eingabe für das 3. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 3. Spiel!");
         res3.focus();
         return false;
       }
@@ -1509,14 +1511,14 @@ if (res1.value != ""){
 //<3. Spiel
 
     if ((res15.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 3. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 3. Spiel!");
       res15.focus();
       return false;
     } // if
 
     for (i=0;i<res15.value.length;i++) {
       if ((ziffern.indexOf(res15.value.charAt(i)) == -1) && (res15.value != "-1")) {
-        alert("Keine gültige Eingabe für das 3. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 3. Spiel!");
         res15.focus();
         return false;
       }
@@ -1525,14 +1527,14 @@ if (res1.value != ""){
 //<4. Spiel
 
     if ((res4.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 4. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 4. Spiel!");
       res4.focus();
       return false;
     } // if
 
     for (i=0;i<res4.value.length;i++) {
       if ((ziffern.indexOf(res4.value.charAt(i)) == -1) && (res4.value != "-1")) {
-        alert("Keine gültige Eingabe für das 4. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 4. Spiel!");
         res4.focus();
         return false;
       }
@@ -1541,14 +1543,14 @@ if (res1.value != ""){
 //<4. Spiel
 
     if ((res16.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 4. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 4. Spiel!");
       res16.focus();
       return false;
     } // if
 
     for (i=0;i<res16.value.length;i++) {
       if ((ziffern.indexOf(res16.value.charAt(i)) == -1) && (res16.value != "-1")) {
-        alert("Keine gültige Eingabe für das 4. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 4. Spiel!");
         res16.focus();
         return false;
       }
@@ -1557,14 +1559,14 @@ if (res1.value != ""){
 //<5. Spiel
 
     if ((res5.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 5. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 5. Spiel!");
       res5.focus();
       return false;
     } // if
 
     for (i=0;i<res5.value.length;i++) {
       if ((ziffern.indexOf(res5.value.charAt(i)) == -1) && (res5.value != "-1")) {
-        alert("Keine gültige Eingabe für das 5. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 5. Spiel!");
         res5.focus();
         return false;
       }
@@ -1573,14 +1575,14 @@ if (res1.value != ""){
 //<5. Spiel
 
     if ((res17.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 5. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 5. Spiel!");
       res17.focus();
       return false;
     } // if
 
     for (i=0;i<res17.value.length;i++) {
       if ((ziffern.indexOf(res17.value.charAt(i)) == -1) && (res17.value != "-1")) {
-        alert("Keine gültige Eingabe für das 5. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 5. Spiel!");
         res17.focus();
         return false;
       }
@@ -1590,14 +1592,14 @@ if (res1.value != ""){
 //<6. Spiel
 
     if ((res6.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 6. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 6. Spiel!");
       res6.focus();
       return false;
     } // if
 
     for (i=0;i<res6.value.length;i++) {
       if ((ziffern.indexOf(res6.value.charAt(i)) == -1) && (res6.value != "-1")) {
-        alert("Keine gültige Eingabe für das 6. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 6. Spiel!");
         res6.focus();
         return false;
       }
@@ -1606,14 +1608,14 @@ if (res1.value != ""){
 //<6. Spiel
 
     if ((res18.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 6. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 6. Spiel!");
       res18.focus();
       return false;
     } // if
 
     for (i=0;i<res18.value.length;i++) {
       if ((ziffern.indexOf(res18.value.charAt(i)) == -1) && (res18.value != "-1")) {
-        alert("Keine gültige Eingabe für das 6. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 6. Spiel!");
         res18.focus();
         return false;
       }
@@ -1623,14 +1625,14 @@ if (res1.value != ""){
 //<7. Spiel
 
     if ((res7.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 7. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 7. Spiel!");
       res7.focus();
       return false;
     } // if
 
     for (i=0;i<res7.value.length;i++) {
       if ((ziffern.indexOf(res7.value.charAt(i)) == -1) && (res7.value != "-1")) {
-        alert("Keine gültige Eingabe für das 7. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 7. Spiel!");
         res7.focus();
         return false;
       }
@@ -1639,14 +1641,14 @@ if (res1.value != ""){
 //<7. Spiel
 
     if ((res19.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 7. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 7. Spiel!");
       res19.focus();
       return false;
     } // if
 
     for (i=0;i<res19.value.length;i++) {
       if ((ziffern.indexOf(res19.value.charAt(i)) == -1) && (res19.value != "-1")) {
-        alert("Keine gültige Eingabe für das 7. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 7. Spiel!");
         res19.focus();
         return false;
       }
@@ -1656,14 +1658,14 @@ if (res1.value != ""){
 //<8. Spiel
 
     if ((res8.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 8. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 8. Spiel!");
       res8.focus();
       return false;
     } // if
 
     for (i=0;i<res8.value.length;i++) {
       if ((ziffern.indexOf(res8.value.charAt(i)) == -1) && (res8.value != "-1")) {
-        alert("Keine gültige Eingabe für das 8. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 8. Spiel!");
         res8.focus();
         return false;
       }
@@ -1672,14 +1674,14 @@ if (res1.value != ""){
 //<8. Spiel
 
     if ((res20.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 8. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 8. Spiel!");
       res20.focus();
       return false;
     } // if
 
     for (i=0;i<res20.value.length;i++) {
       if ((ziffern.indexOf(res20.value.charAt(i)) == -1) && (res20.value != "-1")) {
-        alert("Keine gültige Eingabe für das 8. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 8. Spiel!");
         res20.focus();
         return false;
       }
@@ -1689,14 +1691,14 @@ if (res1.value != ""){
 //<9. Spiel
 
     if ((res9.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 9. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 9. Spiel!");
       res9.focus();
       return false;
     } // if
 
     for (i=0;i<res9.value.length;i++) {
       if ((ziffern.indexOf(res9.value.charAt(i)) == -1) && (res9.value != "-1")) {
-        alert("Keine gültige Eingabe für das 9. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 9. Spiel!");
         res9.focus();
         return false;
       }
@@ -1705,14 +1707,14 @@ if (res1.value != ""){
 //<9. Spiel
 
     if ((res21.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 9. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 9. Spiel!");
       res21.focus();
       return false;
     } // if
 
     for (i=0;i<res21.value.length;i++) {
       if ((ziffern.indexOf(res21.value.charAt(i)) == -1) && (res21.value != "-1")) {
-        alert("Keine gültige Eingabe für das 9. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 9. Spiel!");
         res21.focus();
         return false;
       }
@@ -1722,14 +1724,14 @@ if (res1.value != ""){
 //<10. Spiel
 
     if ((res10.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 10. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 10. Spiel!");
       res10.focus();
       return false;
     } // if
 
     for (i=0;i<res10.value.length;i++) {
       if ((ziffern.indexOf(res10.value.charAt(i)) == -1) && (res10.value != "-1")) {
-        alert("Keine gültige Eingabe für das 10. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 10. Spiel!");
         res10.focus();
         return false;
       }
@@ -1738,14 +1740,14 @@ if (res1.value != ""){
 //<10. Spiel
 
     if ((res22.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 10. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 10. Spiel!");
       res16.focus();
       return false;
     } // if
 
     for (i=0;i<res22.value.length;i++) {
       if ((ziffern.indexOf(res22.value.charAt(i)) == -1) && (res22.value != "-1")) {
-        alert("Keine gültige Eingabe für das 10. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 10. Spiel!");
         res22.focus();
         return false;
       }
@@ -1755,14 +1757,14 @@ if (res1.value != ""){
 //<11. Spiel
 
     if ((res11.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 11. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 11. Spiel!");
       res11.focus();
       return false;
     } // if
 
     for (i=0;i<res11.value.length;i++) {
       if ((ziffern.indexOf(res11.value.charAt(i)) == -1) && (res11.value != "-1")) {
-        alert("Keine gültige Eingabe für das 11. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 11. Spiel!");
         res11.focus();
         return false;
       }
@@ -1771,14 +1773,14 @@ if (res1.value != ""){
 //<11. Spiel
 
     if ((res23.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 11. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 11. Spiel!");
       res23.focus();
       return false;
     } // if
 
     for (i=0;i<res23.value.length;i++) {
       if ((ziffern.indexOf(res23.value.charAt(i)) == -1) && (res23.value != "-1")) {
-        alert("Keine gültige Eingabe für das 11. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 11. Spiel!");
         res23.focus();
         return false;
       }
@@ -1788,14 +1790,14 @@ if (res1.value != ""){
 //<12. Spiel
 
     if ((res12.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 12. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 12. Spiel!");
       res12.focus();
       return false;
     } // if
 
     for (i=0;i<res12.value.length;i++) {
       if ((ziffern.indexOf(res12.value.charAt(i)) == -1) && (res12.value != "-1")) {
-        alert("Keine gültige Eingabe für das 12. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 12. Spiel!");
         res12.focus();
         return false;
       }
@@ -1804,14 +1806,14 @@ if (res1.value != ""){
 //<12. Spiel
 
     if ((res24.value == "") && (free.checked == 1))  {
-      alert("Fehlende Eingabe für das 12. Spiel!");
+      alert("Fehlende Eingabe fÃ¼r das 12. Spiel!");
       res24.focus();
       return false;
     } // if
 
     for (i=0;i<res24.value.length;i++) {
       if ((ziffern.indexOf(res24.value.charAt(i)) == -1) && (res24.value != "-1")) {
-        alert("Keine gültige Eingabe für das 12. Spiel!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r das 12. Spiel!");
         res24.focus();
         return false;
       }
@@ -1832,14 +1834,14 @@ function chk_user_profile(){
 
     for (i=0;i<tmp_email.value.length;i++) {
       if (email_chars.indexOf(tmp_email.value.charAt(i)) == -1){
-        alert("Keine gültige Eingabe für die Email-Adresse!");
+        alert("Keine gÃ¼ltige Eingabe fÃ¼r die Email-Adresse!");
         tmp_email.focus();
         return false;
       }
     } // for
 
     if (((tmp_email.value.indexOf("@") == -1) || (tmp_email.value.indexOf(".") == -1)) || (tmp_email.value.indexOf("@") > tmp_email.value.lastIndexOf("."))){
-      alert("Keine gültige Eingabe für die Email-Adresse!");
+      alert("Keine gÃ¼ltige Eingabe fÃ¼r die Email-Adresse!");
       tmp_email.focus();
       return false;
     }
@@ -1847,7 +1849,7 @@ function chk_user_profile(){
     // passwörter vergleichen
     if ((pass1.value.length > 0) || (pass2.value.length > 0)) {
       if (pass1.value != pass2.value) {
-        alert("Die eingebenen Passwörter stimmen nicht überein!");
+        alert("Die eingebenen PasswÃ¶rter stimmen nicht Ã¼berein!");
         pass1.focus();
         return false;
       } // if
@@ -1876,7 +1878,7 @@ function chk_user_profile(){
   function PruefeZeichen(Feld, ZugelasseneZeichen, FehlerMeldung) {
 	  for (var Pos = 0; Pos < Feld.value.length; Pos++) {
 	    if (ZugelasseneZeichen.indexOf(Feld.value.charAt(Pos)) == -1) {
-	      FehlerMeldung += "Die Eingabe enth\xE4lt ein verbotenes Zeichen: '";
+	      FehlerMeldung += "Die Eingabe enthÃ¤lt ein verbotenes Zeichen: '";
 	      FehlerMeldung += Feld.value.charAt(Pos);
 	      FehlerMeldung += "'.\nNur diese Zeichen sind erlaubt:\n";
 	      FehlerMeldung += ZugelasseneZeichen;
