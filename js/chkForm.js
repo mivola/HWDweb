@@ -1417,7 +1417,38 @@ function chk_user_play1() {
     }
 
   } // with
+  
+  
+  // check for duplicate bets
+	let pairs = [];
 
+	// Collect all pairs
+	for (let i = 1; i <= 12; i++) {
+		let bet1 = document.querySelector(`input[name="bet${i}"]`).value;
+		let bet2 = document.querySelector(`input[name="bet${i+12}"]`).value;
+		if (bet1 != "" && bet2 != "") {
+			pairs.push([bet1, bet2]);
+		}
+	}
+
+	// Count the occurrences of each pair
+	let pairCount = {};
+	pairs.forEach(pair => {
+		let pairKey = pair.join(':');
+		if (pairCount[pairKey]) {
+			pairCount[pairKey]++;
+		} else {
+			pairCount[pairKey] = 1;
+		}
+	});
+
+	
+	for (let key in pairCount) {
+		if (pairCount[key] > 4) {
+			alert(`Verstoß gegen §3a (1a): mehr als 4 identische Tippergebnisse: ${key}`);
+			return false;
+		}
+	} 
   
 } // function
 
