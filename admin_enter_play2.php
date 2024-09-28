@@ -209,7 +209,7 @@ if (isset($free)) {
 
   $subject = "HWD: neuer Spieltag eingegeben";
   $body = "Der $play. Spieltag wurde von HWD eingegeben.\n\n";
-  $body .= "Jetzt kannst du deine Tipps unter hwd.michavoigt.de eintragen!\n\n";
+  $body .= "Jetzt kannst du deine Tipps unter hwd.bts-computer.de eintragen!\n\n";
   $body .= "Damit im Notfall auch jeder die richtigen Spielansetzungen hat, gibt es diese ab jetzt per Email:\n";
 
   echo "<br>Dieser Spieltag wurde freigegeben. Tipps können jetzt eingegeben werden.<br>";
