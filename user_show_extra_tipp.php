@@ -115,7 +115,7 @@ require("top.php");
 <br><b>
 
 <?PHP
-echo "Extra-Tipps sind bis zum Beginn des ".$lastPlayAllowed.". Spieltags erlaubt!";
+echo "Extra-Tipps sind bis zum Beginn des ".$lastPlayAllowed.". Spieltags der ".$lastAllowedLeague.". Bundesliga erlaubt!";
 ?>
 </b><br><br>
 
