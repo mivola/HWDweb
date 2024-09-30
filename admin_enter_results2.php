@@ -339,7 +339,7 @@ if ($cnt_max_points == 2) {
 
     $subject = "HWD: Ergebnisse eingegeben";
     $body = "Die Ergebnisse des $play. Spieltags wurden von HWD eingegeben.\n\n";
-    $body .= "Die genaue Auswertung kannst du unter hwd.michavoigt.de abrufen!";
+    $body .= "Die genaue Auswertung kannst du unter https://hwd.bts-computer.de/ abrufen!";
 
     $to = "";
     $i = 0;

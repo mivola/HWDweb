@@ -81,7 +81,7 @@ if (isset($free)) {
 
 //    $subject = "HWD: neuer Spieltag eingegeben";
 //    $body = "Der $play. Spieltag wurde von HWD eingegeben.\n\n";
-//    $body .= "Jetzt kannst du deine Tipps unter hwd.michavoigt.de eintragen!";
+//    $body .= "Jetzt kannst du deine Tipps unter https://hwd.bts-computer.de/ eintragen!";
 //    mail($to, $subject, $body, $header);
 }
 $resultPlayBL1 = mysqli_query($connectedDb, "Select * from tbl_game g, tbl_team t1, view_team2 t2 where play=".$play." and t1.id=g.team1 and t2.id2=g.team2 and t1.league=1 order by g.p_ts, g.id");
@@ -209,10 +209,10 @@ if (isset($free)) {
 
   $subject = "HWD: neuer Spieltag eingegeben";
   $body = "Der $play. Spieltag wurde von HWD eingegeben.\n\n";
-  $body .= "Jetzt kannst du deine Tipps unter hwd.bts-computer.de eintragen!\n\n";
+  $body .= "Jetzt kannst du deine Tipps unter https://hwd.bts-computer.de/ eintragen!\n\n";
   $body .= "Damit im Notfall auch jeder die richtigen Spielansetzungen hat, gibt es diese ab jetzt per Email:\n";
 
-  echo "<br>Dieser Spieltag wurde freigegeben. Tipps kÃ¶nnen jetzt eingegeben werden.<br>";
+  echo "<br>Dieser Spieltag wurde freigegeben. Tipps können jetzt eingegeben werden.<br>";
   echo "Email wurde an folgende Adressen versandt:<br>";
 
   while($row = mysqli_fetch_array($users2)) {
