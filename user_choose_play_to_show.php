@@ -14,7 +14,7 @@ require("top.php");
 
 ?>
 <body>
-<br><b>Spieltag ausw‰hlen</b><br>
+<br><b>Spieltag ausw√§hlen</b><br>
 
 <form name="choose_play_form" method="post" action="user_show_all_bets.php">
 <p>
