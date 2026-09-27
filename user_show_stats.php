@@ -17,6 +17,7 @@ while ($row4 = mysqli_fetch_row($three_points)) {
   $three_points_array[$row4[0]] = $row4[1]; // 3-Punkte: $row4[0]=u.id, $row4[1]=count(*)
 }
 
+$users = array();
 $i = 0;
 while ($row = mysqli_fetch_row($wins)) {
   $i++;

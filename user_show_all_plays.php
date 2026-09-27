@@ -22,6 +22,7 @@ while ($row = mysqli_fetch_row($resultPlays)) {
   $j++;
 }
 
+$wins = array();
 foreach($plays as $play) {
 
   $resultUsers = mysqli_query($connectedDb, "SELECT *, u.id AS userID FROM tbl_user u, tbl_points p, tbl_wins w WHERE p.userID=u.id AND p.play=".$play." AND w.userID=u.id AND w.play=p.play ORDER BY u.id");
