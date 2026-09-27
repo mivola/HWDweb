@@ -49,7 +49,7 @@ for ($i=1; $i <= 12; $i++){
   $game = $games[$i];
 
   // save the result of the current game
-  $query = "UPDATE tbl_game SET result1=".$res1.", result2=".$res2." WHERE id=".$game;
+  $query = "UPDATE tbl_game SET result1=".$res1.", result2=".$res2." WHERE id=".(int)$game;
   //echo $query."<br>\n";
   $resultBL1[$i] = mysqli_query($connectedDb, $query);
 
@@ -64,7 +64,7 @@ for ($i=1; $i <= 12; $i++){
       $user_bets2[$userid][$i][0] = -1;
       $user_bets2[$userid][$i][1] = -1;
 //echo("SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid);
-      $query = "SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid;
+      $query = "SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".(int)$game." AND b.userID=".$userid;
       $bets = mysqli_query($connectedDb, $query);
       $row = mysqli_fetch_array($bets);
       $bet1 = $row["bet1"];

@@ -68,7 +68,7 @@ for ($i=1; $i <= 12; $i++){
       $user_bets2[$userid][$i][0] = -1;
       $user_bets2[$userid][$i][1] = -1;
 
-      $query = "SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid;
+      $query = "SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".(int)$game." AND b.userID=".$userid;
       $bets = mysqli_query($connectedDb, $query);
 	  //echo "bets: ".$bets." for: SELECT * from tbl_game g, tbl_bet b WHERE g.id=b.game AND b.game=".$game." AND b.userID=".$userid;
       $row = mysqli_fetch_array($bets);
