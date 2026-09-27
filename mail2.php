@@ -20,23 +20,6 @@ $notall = 1;
 // and puts backslashes in front of characters that might cause
 // problems in the database.
 ////////////////////////////////
-  for(reset($HTTP_POST_VARS);
-            $key=key($HTTP_POST_VARS);
-            next($HTTP_POST_VARS)) {
-    $value=addslashes($HTTP_POST_VARS[$key]);
-    $value=str_replace("<br>","\n",$this);
-    //$HTTP_POST_VARS[$key] = addslashes($HTTP_POST_VARS[$key]);
-
-echo $value;
-
-    //$this = str_replace("\n","<br>",$this);
-    //$HTTP_POST_VARS[$key] = str_replace("<br>","\n",$this);
-    //$this = strtr($this, ">", " ");
-    //$this = strtr($this, "<", " ");
-    //$this = strtr($this, "|", " ");
-    //$$key = $this;
-    $$key = $value;
-  }
   ////////////////////////////////
   // This will catch if someone is trying to submit a blank
   // or incomplete form.
@@ -48,10 +31,10 @@ echo $value;
   //$email = $HTTP_POST_VARS["email"];
   //$subject = $HTTP_POST_VARS["subject"];
 
-  $name = $_REQUEST[name];
-  $message = $_REQUEST[message];
-  $email = $_REQUEST[email];
-  $subject = $_REQUEST[subject];
+  $name = $_REQUEST['name'];
+  $message = $_REQUEST['message'];
+  $email = $_REQUEST['email'];
+  $subject = $_REQUEST['subject'];
 
   //echo $name;
   //echo $email; 

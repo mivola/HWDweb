@@ -2,11 +2,11 @@
 session_start();
 extract($_SESSION);
 
-$first_name_new = trim($_REQUEST[first_name]);
-$last_name_new = trim($_REQUEST[last_name]);
-$nick_name_new = trim($_REQUEST[nick_name]);
-$email_new = trim($_REQUEST[email]);
-$admin_new = trim($_REQUEST[admin]);
+$first_name_new = trim($_REQUEST['first_name']);
+$last_name_new = trim($_REQUEST['last_name']);
+$nick_name_new = trim($_REQUEST['nick_name']);
+$email_new = trim($_REQUEST['email']);
+$admin_new = trim($_REQUEST['admin']);
 
 require("connect_db.php");
 

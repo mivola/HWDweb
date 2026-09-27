@@ -4,7 +4,7 @@ extract($_POST);
 extract($_SESSION);
 
 $play = $_POST["playID"];
-$free = $_REQUEST[free];
+$free = $_REQUEST['free'] ?? null;
 
 // Füllen der Arrays
 $dates[1] = $date1; $dates[2] = $date2; $dates[3] = $date3; $dates[4] = $date4; $dates[5] = $date5; $dates[6] = $date6; $dates[7] = $date7; $dates[8] = $date8; $dates[9] = $date9; $dates[10] = $date10; $dates[11] = $date11; $dates[12] = $date12;
