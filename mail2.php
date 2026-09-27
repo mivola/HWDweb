@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 extract($_POST);
 extract($_SESSION);
@@ -92,7 +92,7 @@ $notall = 1;
 
 <body>
 
-<?
+<?php
 if ($name && $message) {
 
   $body = "Vielen Dank für deine Nachricht:<br><br>";
@@ -103,10 +103,10 @@ if ($name && $message) {
 
   <p align="center">&nbsp;</p>
   <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif">
-  <? echo $body; ?>
+  <?php echo $body; ?>
   </font></p>
 
-<?
+<?php
 }
 else {
 
@@ -118,10 +118,10 @@ else {
 
   <p align="center">&nbsp;</p>
   <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif">
-  <? echo $body; ?>
+  <?php echo $body; ?>
   </font></p>
 
-<?
+<?php
 }
 ?>
 <?PHP 

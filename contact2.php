@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 extract($_POST);
 extract($_SESSION);
@@ -71,7 +71,7 @@ if (isset($HTTP_POST_VARS)) {
 
 <body>
 
-<?
+<?php
 if ($name && $message) {
 
   $body = "Vielen Dank für deine Nachricht:<br><br>";
@@ -81,9 +81,9 @@ if ($name && $message) {
 ?>
 
   <p align="center">&nbsp;</p>
-  <p align="center"><? echo $body; ?></p>
+  <p align="center"><?php echo $body; ?></p>
 
-<?
+<?php
 }
 else {
 
@@ -95,10 +95,10 @@ else {
 
   <p align="center">&nbsp;</p>
   <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif">
-  <? echo $body; ?>
+  <?php echo $body; ?>
   </font></p>
 
-<?
+<?php
 }
 ?>
 <?PHP require("bottom.php"); ?>
