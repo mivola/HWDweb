@@ -44,7 +44,7 @@ extract($_SESSION);
 
   require("connect_db.php");
 
-  $result = mysqli_query($connectedDb, "UPDATE tbl_user SET last_loggin=".mktime().", logged_in=1 WHERE id=".$act_userid);
+  $result = mysqli_query($connectedDb, "UPDATE tbl_user SET last_loggin=".time().", logged_in=1 WHERE id=".$act_userid);
 
   require("close_db.php");
 

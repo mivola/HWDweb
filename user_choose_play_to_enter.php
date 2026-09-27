@@ -25,8 +25,8 @@ require("top.php");
 
 <?PHP
 
-$t = mktime() - 3600; // 1 Stunde vor Spielbeginn
-$t = mktime() - 60 * 2; // 2 Minuten vor Spielbeginn
+$t = time() - 3600; // 1 Stunde vor Spielbeginn
+$t = time() - 60 * 2; // 2 Minuten vor Spielbeginn
 $i = 0;
 while($row = mysqli_fetch_array($result)) {
   if ($row["p_ts"] > $t){

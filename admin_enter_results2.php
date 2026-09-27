@@ -440,7 +440,7 @@ echo "<body><br><b>Folgende Ergebnisse des ".$play.". Spieltags erfolgreich gesp
       }
 
       // spiel schon angefangen
-      if (($row["p_ts"] - mktime()) < 3600) {
+      if (($row["p_ts"] - time()) < 3600) {
           if ($user_bets[$userid][$j] == "") {
             echo "<td style=\"background-color:".$style.";\">-&nbsp; :&nbsp; - (<b>0</b>)</td>\n";
           } else {
@@ -503,7 +503,7 @@ echo "<body><br><b>Folgende Ergebnisse des ".$play.". Spieltags erfolgreich gesp
           break;
       } // switch
       } // if (($results[$j] > -1) && ($results[$k] > -1)) {
-      } // if (($row["p_ts"] - mktime()) < 3600)
+      } // if (($row["p_ts"] - time()) < 3600)
     } // foreach
 
     echo "</td>";
@@ -582,7 +582,7 @@ echo "<body><br><b>Folgende Ergebnisse des ".$play.". Spieltags erfolgreich gesp
       }
 
       // spiel schon angefangen
-      if (($row["p_ts"] - mktime()) < 3600) {
+      if (($row["p_ts"] - time()) < 3600) {
           if ($user_bets[$userid][$j] == "") {
             echo "<td style=\"background-color:".$style.";\">-&nbsp; :&nbsp; - (<b>0</b>)</td>\n";
           } else {
@@ -645,7 +645,7 @@ echo "<body><br><b>Folgende Ergebnisse des ".$play.". Spieltags erfolgreich gesp
           break;
       } // switch
       } // if (($results[$j] > -1) && ($results[$k] > -1))
-      } // if (($row["p_ts"] - mktime()) < 3600)
+      } // if (($row["p_ts"] - time()) < 3600)
     } // foreach
 
     echo "</td>";

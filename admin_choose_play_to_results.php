@@ -24,7 +24,7 @@ require("top.php");
 
 <?PHP
 
-$t = mktime() - 7200;
+$t = time() - 7200;
 $i = 0;
 while($row = mysqli_fetch_array($result)) {
   if ($row["p_ts"] < $t){

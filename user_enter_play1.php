@@ -36,7 +36,7 @@ $joker1Set = 0;
 $joker1AlreadyUsed = 0;
 $resultJoker = mysqli_query($connectedDb, "SELECT min(p_ts) as min FROM tbl_game g WHERE g.play=".$play);
 $row = mysqli_fetch_array($resultJoker);
-$now = mktime();
+$now = time();
 //echo "\n<br>".$now;
 //echo "\n<br>".$row["min"];
 if (($row["min"] - $now) < 300) {
@@ -124,7 +124,7 @@ echo "<body><br><b>Tipps f&uuml;r ".$play.". Spieltag eintragen:</b><br><br>";
 
     //prüfung auf mind. 1h (60*60=3600) bis Anpfiff:
     //24.08.2005: Verkürzung auf 5min: 5*60=300
-    if (($row["p_ts"] - mktime()) < 300) {
+    if (($row["p_ts"] - time()) < 300) {
       //tipps können nicht mehr eingetragen werden
 
       if (isset($row["bet1"])){
@@ -267,7 +267,7 @@ if ($maxi>9){
 
     //prüfung auf mind. 1h (60*60=3600) bis Anpfiff:
     //24.08.2005: Verkürzung auf 5min: 5*60=300
-    if (($row["p_ts"] - mktime()) < 300) {
+    if (($row["p_ts"] - time()) < 300) {
       if (isset($row["bet1"])){
 
         echo "<td><input type=hidden name=bet".$j." value=".$bet1.">";

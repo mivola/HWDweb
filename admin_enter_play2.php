@@ -46,7 +46,7 @@ for ($i=1; $i <= $maxi; $i++){
 //echo "3: ".$dates[$i]."!".$dates[$i+1]."!".$dates[$i+2]."<br>";
 //echo "<br>!!".$i.":".$date.$min.$hour."!!<br>";
 //mktime(8,30,0,5,29,2001)."
-  $mktime = mktime($hour, $min, 0, substr($date, 3, 2), substr($date, 0, 2), substr($date, 6, 4));
+  $mktime = mktime((int)$hour, (int)$min, 0, (int)substr($date, 3, 2), (int)substr($date, 0, 2), (int)substr($date, 6, 4));
 
   $query = "INSERT INTO tbl_game (play, team1, team2, p_ts) VALUES (".$play.", ".$team1.", ".$team2.", ".$mktime.")";
 

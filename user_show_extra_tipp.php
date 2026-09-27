@@ -496,7 +496,7 @@ echo "Extra-Tipps sind bis zum Beginn des ".$lastPlayAllowed.". Spieltags der ".
 
 	  echo "<tr></tr><tr><td class=noBorder></td><td align=right class=noBorder>";
 	
-	  $rightNow = mktime();
+	  $rightNow = time();
 	  $alreadyToLate = 0; // 0 == false
 	  //echo "0";
 	  while($row = mysqli_fetch_array($play)) {

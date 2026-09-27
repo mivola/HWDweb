@@ -88,7 +88,7 @@ echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br
     $k = $j + 12;
 
     //prüfung auf mind. 1h nach Ende:
-    if ((mktime() - $row["p_ts"]) > 7200) {
+    if ((time() - $row["p_ts"]) > 7200) {
 
       if ($res1 > -1){
         echo "<td><input name=res".$j." type=text maxlength=2 size=2 value=".$res1."> : \n";
@@ -171,7 +171,7 @@ echo "<body><br><b>Ergebnisse f&uuml;r ".$play.". Spieltag eintragen:</b><br><br
     $k = $j + 12;
 
     //prüfung auf mind. 1h nach Ende:
-    if ((mktime() - $row["p_ts"]) > 7200) {
+    if ((time() - $row["p_ts"]) > 7200) {
 
       if ($res1 > -1){
         echo "<td><input name=res".$j." type=text maxlength=2 size=2 value=".$res1."> : \n";
