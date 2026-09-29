@@ -1,6 +1,7 @@
 <?PHP
 session_start();
 extract($_SESSION);
+if (empty($_SESSION['admin'])) { die("Keine Berechtigung!"); }
 
 $play = $_REQUEST['play'];
 

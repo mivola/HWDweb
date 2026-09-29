@@ -1,5 +1,6 @@
 <?PHP
 session_start();
+if (empty($_SESSION['admin'])) { die("Keine Berechtigung!"); }
 extract($_POST);
 extract($_SESSION);
 

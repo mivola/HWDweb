@@ -1,6 +1,7 @@
 <?PHP
 session_start();
 extract($_SESSION);
+if (empty($_SESSION['admin'])) { die("Keine Berechtigung!"); }
 
 $first_name_new = trim($_REQUEST['first_name']);
 $last_name_new = trim($_REQUEST['last_name']);

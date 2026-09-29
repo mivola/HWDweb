@@ -1,6 +1,7 @@
 <?PHP
-//session_start();
+session_start();
 if (isset($_SESSION)) {extract($_SESSION);}
+if (empty($_SESSION['admin'])) { die("Keine Berechtigung!"); }
 extract($_POST);
 
 require("connect_db.php");

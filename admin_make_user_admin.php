@@ -1,6 +1,10 @@
 <?PHP
 session_start();
 extract($_SESSION);
+if (empty($_SESSION['admin'])) { die("Keine Berechtigung!"); }
+
+$userid = (int)$_GET['userid'];
+$option = ((int)$_GET['option'] == 1) ? 1 : 0;
 
 require("connect_db.php");
 
