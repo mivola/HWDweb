@@ -18,6 +18,13 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 //
+
+// Parameter aus der URL lesen (register_globals gibt es seit PHP 5.4 nicht mehr).
+// abs/feld werden ins JavaScript geschrieben, daher nur Buchstaben, Ziffern und _ erlauben.
+$abs = preg_replace('/[^A-Za-z0-9_]/', '', $_GET['abs'] ?? '');
+$feld = preg_replace('/[^A-Za-z0-9_]/', '', $_GET['feld'] ?? '');
+$calshow = preg_replace('/[^A-Za-z0-9 ]/', '', $_GET['calshow'] ?? '0');
+if ($calshow == "") { $calshow = "0"; }
 ?>
 <style type="text/css">
 <!--
@@ -69,7 +76,7 @@ function lmogeben(x){
 </script>
 
 <?PHP
-$addi=$PHP_SELF."?abs=".$abs."&amp;feld=".$feld;
+$addi="cal.php?abs=".$abs."&amp;feld=".$feld;
 $dat = time();
 $dat0 = getdate($dat);
 $datj=$dat0['month']." ".$dat0['year'];
@@ -112,7 +119,7 @@ for($i=1;$i<=31;$i++){
       }
     if ($i<=9){$k="0";}else{$k="";}
     if($heute==1){echo "<tr>";}
-    echo "<td align=center class=\"".$stil."\"><a href=\"javascript:lmogeben('".strftime("%d.%m.%Y",strtotime($i." ".$dath))."')\" title=\"Datum &uuml;bernehmen\">".$k.$i."</a></td>";
+    echo "<td align=center class=\"".$stil."\"><a href=\"javascript:lmogeben('".date("d.m.Y",strtotime($i." ".$dath))."')\" title=\"Datum &uuml;bernehmen\">".$k.$i."</a></td>";
     if($heute==7){echo "</tr>";}
     $j=$heute;
     }

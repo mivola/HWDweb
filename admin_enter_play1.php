@@ -1,6 +1,7 @@
 <?PHP
 session_start();
 extract($_SESSION);
+if (empty($_SESSION['admin'])) { die("Keine Berechtigung!"); }
 
 $play = $_POST["play"];
 //session_register("play");
@@ -60,8 +61,8 @@ while($row = mysqli_fetch_array($resultBL2)) {
 <!---
 
 function opencal(feld,startdat) {
-  lmocal="cal.php?abs=play&amp;feld="+feld;
-  if(startdat!=""){lmocal=lmocal+"&amp;calshow="+startdat;}
+  lmocal="cal.php?abs=play&feld="+feld;
+  if(startdat!=""){lmocal=lmocal+"&calshow="+startdat;}
   lmowin = window.open(lmocal,"lmocalpop","width=180,height=200,resizable=no,dependent=yes");
   lmotest=false;
 }
@@ -146,20 +147,20 @@ function opencal(feld,startdat) {
        // echo "<tr>".$javastr."</Tr>";
       }
 
-      echo "<td><a href=# onClick=".$javastr.">für alle</a></td>";
+      echo "<td><a href=# onClick=\"with(document.play){".$javastr."}return false;\">für alle</a></td>";
 
     }
     else{
       if ($j > 2){
         $javastr = "date".$j.".value=date1.value;hour".$j.".value=hour1.value;min".$j.".value=min1.value";
-        echo "<td><a href=# onClick=".$javastr.">von 1.</a><br>";
+        echo "<td><a href=# onClick=\"with(document.play){".$javastr."}return false;\">von 1.</a><br>";
       } else {
         echo "<td>";
       }
 
       $k = $j - 1;
       $javastr = "date".$j.".value=date".$k.".value;hour".$j.".value=hour".$k.".value;min".$j.".value=min".$k.".value";
-      echo "<a href=# onClick=".$javastr.">von ".$k.".</a></td>";
+      echo "<a href=# onClick=\"with(document.play){".$javastr."}return false;\">von ".$k.".</a></td>";
 
     }
 
@@ -291,11 +292,11 @@ function opencal(feld,startdat) {
     echo "<td>".$j.".</td>";
 
     $javastr = "date".$j.".value=date1.value;hour".$j.".value=hour1.value;min".$j.".value=min1.value";
-    echo "<td><a href=# onClick=".$javastr.">von 1.</a>";
+    echo "<td><a href=# onClick=\"with(document.play){".$javastr."}return false;\">von 1.</a>";
 
     $k = $j - 1;
     $javastr = "date".$j.".value=date".$k.".value;hour".$j.".value=hour".$k.".value;min".$j.".value=min".$k.".value";
-    echo "<br><a href=# onClick=".$javastr.">von ".$k.".</a></td>";
+    echo "<br><a href=# onClick=\"with(document.play){".$javastr."}return false;\">von ".$k.".</a></td>";
 
     echo "<td><a href=# onClick=\"opencal('date".$j."','0')\"><img src=images/cal.gif border=0></a>&nbsp;\n";
     echo "<input name=date".$j." type=text id=date maxlength=10 size=10 value=".$date."></td>\n";
